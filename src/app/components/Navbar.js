@@ -1,6 +1,8 @@
+"use client"
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../assets/index.css';
+import Link from 'next/link';
+import Image from 'next/image';
+import "../globals.css";
 
 
 const Navbar = () => {
@@ -22,14 +24,14 @@ const Navbar = () => {
       <div className="container">
         {/* Left side - Logo */}
         <div className="navbar-brand">
-          <a className="navbar-item" href="/">
-            <img 
-              src="/logo.png" 
+          <Link href="/" className="navbar-item">
+            <Image
+              src="/logo.svg" 
               alt="Logo" 
               width="112" 
               height="28"
             />
-          </a>
+          </Link>
 
           {/* Hamburger menu for mobile */}
           <button
@@ -47,7 +49,7 @@ const Navbar = () => {
         {/* Center - Navigation items with click-only dropdowns */}
         <div className={`navbar-menu ${isMenuActive ? 'is-active' : ''}`}>
           <div className="navbar-start" style={{ margin: 'auto' }}>
-            <a className="navbar-item" href="/">Forside</a>
+            <Link href="/" className="navbar-item">Forside</Link>
             
             {/* Services dropdown - click only */}
             <div className={`navbar-item has-dropdown ${activeDropdown === 'services' ? 'is-active' : ''}`}>
@@ -57,37 +59,31 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-expanded={activeDropdown === 'services'}
               >
-                
-              Ydelser
+                Ydelser
               </div>
               <div className={`navbar-dropdown ${activeDropdown === 'services' ? 'is-active' : ''}`}>
-                <a className="navbar-item" href="/services/kitchen">Køkken montage</a>
-                <a className="navbar-item" href="/services/fence">Hegn</a>
-                <a className="navbar-item" href="/services/renovation">Renovering</a>
-                <a className="navbar-item" href="/services/gips">Gipsarbejde</a>
-                <a className="navbar-item" href="/services/windowsAndDoors">Døre og viduer</a>
-                <a className="navbar-item" href="/services/terrace">Terrasse</a>
-                <a className="navbar-item" href="/services/floor">Gulv</a>
-                <a className="navbar-item" href="/services/otherService">Andre opgaver</a>
-               
-
-
+                <Link href="/ydelser/køkken" className="navbar-item">Køkken montage</Link>
+                <Link href="/ydelser/hegn" className="navbar-item">Hegn</Link>
+                <Link href="/ydelser/renovering" className="navbar-item">Renovering</Link>
+                <Link href="/ydelser/gipsarbejde" className="navbar-item">Gipsarbejde</Link>
+                <Link href="/ydelser/døre og vinduer" className="navbar-item">Døre og viduer</Link>
+                <Link href="/ydelser/terrase" className="navbar-item">Terrasse</Link>
+                <Link href="/ydelser/gulv" className="navbar-item">Gulv</Link>
+                <Link href="/ydelser/andre opgaver" className="navbar-item">Andre opgaver</Link>
               </div>
             </div>
             
-            
-            <a className="navbar-item" href="/about">Galleri</a>
-            <a className="navbar-item" href="/about">Om os</a>
-          
+            <Link href="/galleri" className="navbar-item">Galleri</Link>
+            <Link href="/om os" className="navbar-item">Om os</Link>
           </div>
 
           {/* Right side - Button */}
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <a className="button is-primary" href="/signup">
+                <Link href="/kontakt" className="button is-primary">
                   <strong>Book et Møde</strong>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
