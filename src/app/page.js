@@ -1,9 +1,11 @@
-import Image from "next/image";
+import ServicesSection from "./components/ServicesSection";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="bg-red-500 text-white p-4">Test Tailwind</div>
-    </div>
+    <main>
+      <div className="mt-7"></div>
+      {/* Andre sektioner... */}
+      <ServicesSection />
+    </main>
   );
 }
