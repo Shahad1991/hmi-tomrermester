@@ -3,14 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  ChefHat, // Ikon til køkken montage
-  Sun, // Ikon til terrasse
-  Fence, // Ikon til hegn
-  Hammer, // Ikon til renovering
-  Brush, // Ikon til gipsarbejde
-  LayoutDashboard, // Ikon til gulv
-  DoorOpen, // Ikon til dør & vinduer
-  Wrench // Ikon til andre opgaver
+  ChefHat, 
+  Sun, 
+  Fence, 
+  Hammer, 
+  Brush, 
+  LayoutDashboard, 
+  DoorOpen, 
+  Wrench, 
+  Home 
 } from "lucide-react";
 
 const services = [
@@ -51,6 +52,12 @@ const services = [
     bgImage: "/services.jpg"
   },
   {
+    title: "Tag",
+    icon: <Home className="w-8 h-8" />,
+    link: "/ydelser/tag",
+    bgImage: "/services.jpg"
+  },
+  {
     title: "Dør & Vinduer",
     icon: <DoorOpen className="w-8 h-8" />,
     link: "/ydelser/doer-vinduer",
@@ -63,7 +70,6 @@ const services = [
     bgImage: "/services.jpg"
   }
 ];
-
 
 const ServicesSection = () => {
   return (
@@ -78,12 +84,13 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {/* Responsivt grid layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <Link 
               href={service.link} 
               key={index}
-              className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 h-40"
+              className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 h-48"
             >
               <div className="absolute inset-0">
                 <Image
