@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
-import BookButton from "./ui/BookButton"; // Assuming you have a BookButton component
+import BookButton from "./buttons/BookButton"; // Assuming you have a BookButton component
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
