@@ -1,3 +1,4 @@
+import ContactInfoSection from "./components/ContactInfoSection";
 import ContactSection from "./components/ContactSection";
 
 import ServicesSection from "./components/ServicesSection";
@@ -10,6 +11,8 @@ export default function Home() {
       <ServicesSection />
     
       <ContactSection />
+
+      <ContactInfoSection />
     </main>
   );
 }
