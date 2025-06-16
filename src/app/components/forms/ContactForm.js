@@ -43,7 +43,7 @@ export default function ContactForm() {
 
   return (
     <div className="max-w-lg mx-auto ">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">Kontakt os</h2>
+      
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">

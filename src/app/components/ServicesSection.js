@@ -7,7 +7,7 @@ const services = [
   {
     title: "Dør & Vindue",
     link: "/ydelser/doer-vinduer",
-    bgImage: "/services.jpg", // Sørg for, at dette billede findes i /public/services.jpg
+    bgImage: "/services.jpg",// Sørg for, at dette billede findes i /public/services.jpg
   },
   {
     title: "Gulv",
