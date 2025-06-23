@@ -5,7 +5,6 @@ export default function ContactInfoCards() {
   return (
     <section className="bg-darkblue py-16 w-full sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-darkblue mb-12 text-center">Kontakt os</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Adresse kort */}
@@ -50,7 +49,7 @@ export default function ContactInfoCards() {
               <div>
                 <a href="tel:+4528225060" className="flex items-center justify-center hover:text-accent transition-colors group">
                   <Phone className="w-5 h-5 mr-2 text-accent/80 group-hover:text-accent" />
-                  <span className="group-hover:text-accent">28 22 50 60</span>
+                  <span className="group-hover:text-accent"> +45 28 22 50 60 </span>
                 </a>
               </div>
               <div>
