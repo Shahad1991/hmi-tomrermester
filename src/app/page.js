@@ -1,3 +1,4 @@
+import AboutSection from "./components/AboutSection";
 import ContactInfoSection from "./components/ContactInfoSection";
 import ContactSection from "./components/ContactSection";
 import HeroSection from "./components/HeroSection";
@@ -9,6 +10,7 @@ export default function Home() {
     <div className="space-y-12 md:space-y-20">
       <HeroSection />
       <Reviews />
+      <AboutSection />
       <ServicesSection />
       <ContactSection />
       <ContactInfoSection />

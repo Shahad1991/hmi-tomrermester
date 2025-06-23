@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import HeroButtons from "./buttons/HeroButtons";
+import ThreeModel from "./3d-animation/ThreeModel"; 
 
 
 const HeroSection = () => {
@@ -98,9 +99,9 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-       <div className="flex-1 h-full min-h-[400px]">
-   
-  </div>
+       <div className="flex-1 h-full min-h-[400px]">        
+        <ThreeModel />
+       </div>
     </section>
   );
 };
