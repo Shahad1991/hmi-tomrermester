@@ -1,25 +1,33 @@
 "use client";
 import React from "react";
 
-const BookButton = ({ children, onClick, className = "", variant = "primary", size = "md" }) => {
-  const baseStyles = "inline-flex items-center justify-center font-medium rounded transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent";
+const BookButton = ({ 
+  children, 
+  onClick, 
+  className = "", 
+  variant = "primary", 
+  size = "md",
+  ...props 
+}) => {
+  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2";
   
   const variants = {
-    primary: "bg-accent text-white hover:bg-amber-600 shadow-lg hover:shadow-accent-md", // Brug 'bg-accent' og shadow
-    secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
-    ghost: "bg-transparent text-gray-800 hover:bg-gray-100",
+    primary: "bg-gradient-to-r from-accent to-[#FFCB45] text-darkblue hover:from-[#FFCB45] hover:to-accent shadow-md hover:shadow-accent transform hover:-translate-y-0.5",
+    secondary: "bg-transparent text-darkblue border-2 border-accent hover:bg-accent/10",
+    ghost: "bg-transparent text-darkblue hover:bg-accent/5",
   };
   
   const sizes = {
-    sm: "px-3 py-1.5 text-sm",
-    md: "px-4 py-2 text-base",
-    lg: "px-6 py-3 text-lg",
+    sm: "px-4 py-2 text-sm",
+    md: "px-5 py-2.5 text-base",
+    lg: "px-8 py-4 text-lg",
   };
 
   return (
     <button
       onClick={onClick}
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      {...props}
     >
       {children}
     </button>

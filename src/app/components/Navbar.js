@@ -22,145 +22,199 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Liste over alle ydelser
+  const services = [
+    { name: "Køkken Montage", href: "/ydelser/køkken" },
+    { name: "Badeværelser", href: "/ydelser/bad" },
+    { name: "Døre og Vinduer", href: "/ydelser/døre-vinduer" },
+    { name: "Gipsarbejde", href: "/ydelser/gipsarbejde" },
+    { name: "Gulv", href: "/ydelser/gulv" },
+    { name: "Hegn", href: "/ydelser/hegn" },
+    { name: "Kakkel", href: "/ydelser/kakkel" },
+    { name: "Renovering", href: "/ydelser/renovering" },
+    { name: "Tag", href: "/ydelser/tag" },
+    { name: "Terrasse", href: "/ydelser/terrasse" },
+    { name: "Andre Opgaver", href: "/ydelser/andre-opgaver" }
+  ];
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      className={`fixed top-0 w-full z-50 bg-white py-4 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-lg" : "bg-white/90 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24"> {/* Øget højde */}
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/">
-              <Image
-                src="/logo.svg"
-                alt="Logo"
-                width={120}
-                height={90}
-                priority
-                className="mr-2"
-              />
-            </Link>
-          </div>
+          <Link href="/" className="flex-shrink-0" onClick={closeAll}>
+            <Image
+              src="/logo.svg"
+              alt="Logo"
+              width={140}
+              height={60}
+              priority
+              className="hover:opacity-90 transition-opacity"
+            />
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
-            <Link
-              href="/"
-              className={`text-gray-700 hover:text-amber-600 ${
-                isScrolled ? "text-gray-900" : "text-gray-700"
-              }`}
-            >
+          <div className="hidden md:flex items-center space-x-8">
+            <NavLink href="/" isScrolled={isScrolled} onClick={closeAll}>
               Forside
-            </Link>
-            <div className="relative">
-              <button
-                className={`text-gray-700 hover:text-amber-600 flex items-center ${
-                  isScrolled ? "text-gray-900" : "text-gray-700"
-                }`}
-                onClick={() => toggleDropdown("services")}
-              >
-                Ydelser
-                <ChevronDown
-                  className={`ml-2 w-5 h-5 transition-transform ${
-                    openDropdown === "services" ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {openDropdown === "services" && (
-                <ul className="absolute left-0 top-full mt-2 bg-white rounded-md shadow-lg py-2 z-50 border border-gray-200">
-                  <li>
-                    <Link
-                      href="/ydelser/køkken"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                      onClick={closeAll}
-                    >
-                      Køkken Montage
-                    </Link>
-                  </li>
-                  {/* Flere links */}
-                </ul>
-              )}
-            </div>
-            <Link
-              href="/galleri"
-              className={`text-gray-700 hover:text-amber-600 ${
-                isScrolled ? "text-gray-900" : "text-gray-700"
-              }`}
-            >
-              Galleri
-            </Link>
-            <Link
-              href="/om-os"
-              className={`text-gray-700 hover:text-amber-600 ${
-                isScrolled ? "text-gray-900" : "text-gray-700"
-              }`}
-            >
-              Om Os
-            </Link>
+            </NavLink>
             
+            <DropdownMenu 
+              title="Ydelser" 
+              isScrolled={isScrolled}
+              isOpen={openDropdown === "services"}
+              onClick={() => toggleDropdown("services")}
+            >
+              {services.map((service) => (
+                <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
+                  {service.name}
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+            
+            <NavLink href="/galleri" isScrolled={isScrolled} onClick={closeAll}>
+              Galleri
+            </NavLink>
+            
+            <NavLink href="/om-os" isScrolled={isScrolled} onClick={closeAll}>
+              Om Os
+            </NavLink>
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block ml-4">
-          <BookButton className="py-3 px-6"  >
-            Book et møde
-          </BookButton>
-
-
+          <div className="hidden md:block ml-6">
+            <BookButton size="lg" className="group">
+              <span className="group-hover:scale-105 transition-transform">
+                Book et møde
+              </span>
+            </BookButton>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              className="text-gray-700 hover:text-amber-600 p-2 rounded-md transition-colors duration-200"
-              onClick={toggleMenu}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+          <button
+            className="md:hidden p-2 rounded-md text-darkblue hover:text-accent transition-colors"
+            onClick={toggleMenu}
+            aria-label="Menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out overflow-y-auto">
-          <div className="container mx-auto px-4 py-6">
-            {/* Close button */}
-            <div className="flex justify-end mb-4">
-              <button
-                className="text-gray-700 hover:text-amber-600 p-2 rounded-md transition-colors duration-200"
-                onClick={closeAll}
-              >
-                <X className="h-6 w-6" />
-              </button>
+        <div className="md:hidden fixed inset-0 bg-white z-40 pt-20 px-4 pb-6 overflow-y-auto">
+          <div className="flex flex-col space-y-4">
+            <MobileNavLink href="/" onClick={closeAll}>
+              Forside
+            </MobileNavLink>
+            
+            <div className="border-t border-gray-100 pt-2">
+              <MobileDropdown title="Ydelser">
+                {services.map((service) => (
+                  <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
+                    {service.name}
+                  </DropdownItem>
+                ))}
+              </MobileDropdown>
             </div>
-            <ul className="flex flex-col space-y-4">
-              <li>
-                <Link
-                  href="/"
-                  className="block py-2 text-gray-700 hover:text-amber-600 text-lg"
-                  onClick={closeAll}
-                >
-                  Forside
-                </Link>
-              </li>
-              {/* Flere links */}
-            </ul>
+            
+            <MobileNavLink href="/galleri" onClick={closeAll}>
+              Galleri
+            </MobileNavLink>
+            
+            <MobileNavLink href="/om-os" onClick={closeAll}>
+              Om Os
+            </MobileNavLink>
+            
+            <div className="pt-4">
+              <BookButton className="w-full" size="lg" onClick={closeAll}>
+                Book et møde
+              </BookButton>
+            </div>
           </div>
         </div>
       )}
     </nav>
   );
 };
+
+// Hjælpekomponenter med større skrift
+const NavLink = ({ href, children, isScrolled, onClick }) => (
+  <Link
+    href={href}
+    onClick={onClick}
+    className={`px-3 py-2 text-darkblue hover:text-accent font-medium transition-colors text-lg ${
+      isScrolled ? "text-darkblue" : "text-darkblue"
+    }`}
+  >
+    {children}
+  </Link>
+);
+
+const DropdownMenu = ({ title, children, isOpen, onClick, isScrolled }) => (
+  <div className="relative">
+    <button
+      onClick={onClick}
+      className={`px-3 py-2 flex items-center text-darkblue hover:text-accent font-medium transition-colors text-lg ${
+        isScrolled ? "text-darkblue" : "text-darkblue"
+      }`}
+    >
+      {title}
+      <ChevronDown
+        className={`ml-2 w-5 h-5 transition-transform ${
+          isOpen ? "rotate-180" : ""
+        }`}
+      />
+    </button>
+    {isOpen && (
+      <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 z-50 max-h-[70vh] overflow-y-auto">
+        {children}
+      </div>
+    )}
+  </div>
+);
+
+const DropdownItem = ({ href, children, onClick }) => (
+  <Link
+    href={href}
+    onClick={onClick}
+    className="block px-4 py-3 text-gray-700 hover:bg-accent/5 hover:text-accent transition-colors border-b border-gray-100 last:border-b-0 text-base"
+  >
+    {children}
+  </Link>
+);
+
+const MobileNavLink = ({ href, children, onClick }) => (
+  <Link
+    href={href}
+    onClick={onClick}
+    className="py-3 px-4 text-lg text-darkblue hover:text-accent font-medium border-b border-gray-100"
+  >
+    {children}
+  </Link>
+);
+
+const MobileDropdown = ({ title, children }) => (
+  <details className="group">
+    <summary className="py-3 px-4 text-lg text-darkblue hover:text-accent font-medium border-b border-gray-100 list-none flex justify-between items-center cursor-pointer">
+      {title}
+      <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform" />
+    </summary>
+    <div className="pl-4 pt-2 pb-4">
+      {children}
+    </div>
+  </details>
+);
 
 export default Navbar;
