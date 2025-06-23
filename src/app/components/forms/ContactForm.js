@@ -42,7 +42,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-lg mx-auto ">
+    <div className=" mx-auto ">
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

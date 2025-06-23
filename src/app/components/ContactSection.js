@@ -4,28 +4,39 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      {/* Venstre side - Kontaktformular */}
-      <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-        <h2 className="text-3xl font-bold text-darkblue text-center mb-6">Få et tilbud</h2>
+    <section className="max-w-7xl mx-auto px-6 py-16">
+      {/* Centreret overskrift */}
+      <div className="text-center mb-16">
+        <p className="text-accent font-medium mb-2">KONTAKT</p>
+        <h2 className="text-3xl md:text-4xl font-bold font-serif text-darkblue mb-4">
+          Skriv eller ring til os for en uforpligtende tilbud
+        </h2>
+        <div className="w-24 h-1 bg-accent mx-auto"></div>
+      </div>
+
+      {/* To kolonner side om side */}
+      <div className="grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+        {/* Venstre side - Kontaktformular */}
+        <div className="bg-white p-8  hover:shadow-xl transition-shadow duration-300">
+        <h2 className="text-3xl font-bold font-serif text-darkblue mb-6">Få et tilbud</h2>
         <ContactForm />
       </div>
 
       {/* Højre side - Sociale medier */}
-      <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-        <h2 className="text-3xl font-bold text-darkblue text-center mb-6">Vi er sociale!</h2>
-        <div className="relative flex flex-col md:flex-row items-center gap-8">
+      <div className="bg-darkblue p-8  hover:shadow-xl transition-shadow duration-300">
+        <h2 className="text-3xl font-bold font-serif gap-6 text-white mb-6">Vi er sociale!</h2>
+        <div className="relative flex flex-col md:flex-row items-center gap-6">
           {/* Billedcontainer - samme stil som services-sektionen */}
-          <div className="w-full md:w-1/2 aspect-[9/16] bg-gray-100 rounded-xl overflow-hidden">
+          <div className="w-full md:w-1/2 aspect-[9/16] overflow-hidden">
             <img
-              src="/instagram-mockup.png"
-              alt="Mobil mockup visende sociale medier"
-              className="w-full h-full object-cover"
+              src="/instagram-mockop.png"
+              alt="Mobil mockop visende sociale medier"
+              className="w-full h-full object-cover rounded-md"
             />
           </div>
 
           <div className="flex flex-col gap-6 w-full md:w-1/2">
-            <p className="text-lg text-gray-dark">
+            <p className="text-lg text-white">
               Følg med i vores process og se vores seneste projekter på sociale medier.
             </p>
             <div className="flex gap-6 justify-center md:justify-start">
@@ -34,16 +45,16 @@ export default function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="bg-white p-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-gray-50"
-              >
-                <Facebook className="w-10 h-10 text-accent hover:text-accent/90" />
+               className=" bg-white p-4 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
+                <Facebook className="w-10 h-10 text-accent group-hover:text-accent/90" />
+   
               </a>
               <a
                 href="https://www.instagram.com/hmitomrermester"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="bg-white p-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-gray-50"
+                className=" bg-white p-4 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20"
               >
                 <Instagram className="w-10 h-10 text-accent hover:text-accent/90" />
               </a>
@@ -52,7 +63,7 @@ export default function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="bg-white p-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-gray-50"
+                 className=" bg-white p-4 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20"
               >
                 <Linkedin className="w-10 h-10 text-accent hover:text-accent/90" />
               </a>
@@ -60,6 +71,8 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+      </div>
     </section>
   );
 }
+
