@@ -29,7 +29,11 @@ module.exports = {
           '0%, 100%': { 'box-shadow': '0 0 5px #FFB600' },
           '50%': { 'box-shadow': '0 0 20px #FFB600' },
         },
-      }
+      },
+      fontFamily: {
+      sans: ['var(--font-montserrat)'],
+      serif: ['var(--font-ibm-plex-serif)'],
+    },
     },
   },
   plugins: [],

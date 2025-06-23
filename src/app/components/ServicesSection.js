@@ -48,16 +48,14 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="py-16 bg-gray-50 w-full">
+    <section className="py-16 bg-gray-50 w-full text-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-            Vores Ydelser
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Professionelle løsninger til alle dine bygge- og renoveringsbehov
-          </p>
+        <div className="mb-12">
+          <p className="text-accent font-medium mb-2">VORES YDELSER</p>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-darkblue mb-4">Professionelle løsninger til alle dine bygge- og renoveringsbehov</h2>
+          <div className="w-24 h-1 bg-accent mx-auto"></div>
         </div>
+        
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
@@ -77,7 +75,7 @@ const ServicesSection = () => {
           </div>
 
               {/* Brug mørkeblå baggrund til service-titler */}
-              <div className="bg-darkblue p-4 text-center">
+              <div className="bg-gray-900 p-4 text-center">
                 <h3 className="text-lg font-semibold text-white">
                   {service.title}
                 </h3>

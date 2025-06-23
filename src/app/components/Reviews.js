@@ -91,7 +91,7 @@ const Reviews = () => {
         {/* Overskrift */}
         <div className="mb-12">
           <p className="text-accent font-medium mb-2">ANMELDELSER</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-darkblue mb-4">Hvad vores kunder siger</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-darkblue mb-4">Hvad vores kunder siger</h2>
           <div className="w-24 h-1 bg-accent mx-auto"></div>
         </div>
 
