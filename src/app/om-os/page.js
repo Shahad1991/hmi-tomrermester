@@ -64,8 +64,9 @@ const OmOs = () => {
         <div className="lg:w-1/2 lg:pr-8">
           <h2 className="text-3xl md:text-4xl font-bold text-darkblue mb-6 font-serif">Vores historie</h2>
           <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+            <div className="w-24 h-1 bg-accent"></div>
             <p>
-              <strong>HMI Tømrermester</strong> er en lille tømrervirksomhed med store kompetencer inden for træarbejde. 
+              <strong>HMI Tømrermester</strong> er en tømrervirksomhed med store kompetencer inden for træarbejde. 
               Vi løser et væld af forskellige opgaver - fra reparation af gamle døre og vinduer til opsætning af 
               vægge, lofter og karme.
             </p>
@@ -94,14 +95,14 @@ const OmOs = () => {
       </section>
 
       {/* Services/Tilbud */}
-      <section className="bg-gray-50 px-6 py-16 md:py-24">
+      <section className="bg-darkblue px-6 py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <span className="text-accent font-medium uppercase tracking-wider text-sm">Services</span>
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-darkblue mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-white mt-2 mb-4">
             Faglige services til dit byggeprojekt
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto"></div>
-          <p className="text-gray-600 mt-6 max-w-2xl mx-auto">
+          <p className="text-white mt-6 max-w-2xl mx-auto">
             Vi tilbyder specialiserede løsninger inden for byggeri og renovering
           </p>
         </div>
@@ -110,13 +111,13 @@ const OmOs = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-darkblue p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center"
+              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center"
             >
-              <div className="bg-white text-accent p-4 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
+              <div className="bg-white text-accent p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
                 {service.icon}
               </div>
               <h3 className="text-lg font-bold text-accent mb-2 mt-4">{service.title}</h3>
-              <p className="text-white text-sm">{service.description}</p>
+              <p className="text-gray-600 text-sm">{service.description}</p>
             </div>
           ))}
         </div>

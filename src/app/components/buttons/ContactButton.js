@@ -23,7 +23,7 @@ const ContactButton = ({
     >
       <span className="relative z-10 flex items-center font-serif">
         {text}
-        <span className="transition-transform duration-300 group-hover:translate-x-1">
+        <span className="transition-transform duration-300 group-hover:translate-x-1 ">
           {icon}
         </span>
       </span>
