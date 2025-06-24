@@ -3,31 +3,22 @@ import { motion } from "framer-motion";
 import HeroButtons from "./buttons/HeroButtons";
 import ThreeModel from "./3d-animation/ThreeModel"; 
 
-
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-start bg-gray-900 overflow-hidden">
-      {/* Baggrundsbillede med gennemsigtig gradient overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/your-background-image.jpg')" }}
-      />
-      
-      {/* Gradient overlay - nu mere gennemsigtig */}
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/50 to-transparent" />
-      
-      {/* Dekorative elementer - justeret for bedre synlighed */}
+    <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-between bg-gray-900 overflow-hidden">
+      {/* Baggrund og gradient overlay */}
+      <div className="absolute inset-0 bg-cover bg-center" />
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-transparent lg:bg-gradient-to-r lg:from-gray-900/90 lg:via-gray-900/50 lg:to-transparent" />
       <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent opacity-40" />
-      
-      {/* Hovedindhold med bedre tekstkontrast */}
-      <div className="relative z-10 max-w-3xl px-4 py-16 ml-4 sm:ml-8 md:ml-16 lg:ml-24 text-left">
+
+      {/* Tekstindhold - venstre side */}
+      <div className="relative z-10 w-full lg:w-1/2 px-4 py-16 sm:px-8 md:px-16 lg:px-24 text-left">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6"
+          className="space-y-6 max-w-3xl mx-auto lg:mx-0"
         >
-          {/* Tagline - nu med mørk baggrund for bedre læsbarhed */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -41,7 +32,6 @@ const HeroSection = () => {
             </div>
           </motion.div>
           
-          {/* Hovedoverskrift - kraftigere tekstskygge */}
           <motion.h1 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -54,7 +44,6 @@ const HeroSection = () => {
             </span>
           </motion.h1>
           
-          {/* Underoverskrift - højere kontrast */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -64,7 +53,6 @@ const HeroSection = () => {
             Skabende kvalitet og ekspertise i hver detalje - hvor visioner bliver til <span className="font-medium text-accent">arkitektoniske mesterværker</span>
           </motion.p>
           
-          {/* Statistikker - mørk baggrund */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -89,7 +77,6 @@ const HeroSection = () => {
             ))}
           </motion.div>
           
-          {/* Knapper - allerede synlige */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -99,9 +86,17 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-       <div className="flex-1 h-full min-h-[400px]">        
-        <ThreeModel />
-       </div>
+
+      {/* 3D-model - højre side (kun på desktop) */}
+      <div className="">
+        <ThreeModel
+  modelPath="/models/house.glb"
+  modelScale={[2, 2, 2]}
+  cameraPosition={[1, 1, 3]}
+  fov={30}
+  rotationSpeed={1.3}
+/>
+      </div>
     </section>
   );
 };

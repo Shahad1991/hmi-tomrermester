@@ -94,7 +94,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:block ml-6">
             <BookButton size="lg" className="group">
-              <span className="group-hover:scale-105 transition-transform">
+              <span className="group-hover:scale-105 transition-transform font-serif">
                 Book et møde
               </span>
             </BookButton>

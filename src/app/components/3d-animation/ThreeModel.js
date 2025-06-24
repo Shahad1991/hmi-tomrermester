@@ -1,58 +1,121 @@
+// ThreeModel.js
 "use client";
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { useEffect, useRef } from 'react';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-export default function ThreeModel() {
-  const mountRef = useRef();
+const ThreeModel = () => {
+  const mountRef = useRef(null);
+  const modelRef = useRef(null);
+  const requestRef = useRef(null);
+  const mixerRef = useRef(null);
 
   useEffect(() => {
-    const mount = mountRef.current;
+    const mountNode = mountRef.current;
+    // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1a1a1a);
+    scene.background = null;
 
-    const camera = new THREE.PerspectiveCamera(45, mount.clientWidth / mount.clientHeight, 0.1, 100);
-    camera.position.set(2, 2, 4);
+    // Camera setup
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(mount.clientWidth, mount.clientHeight);
-    mount.appendChild(renderer.domElement);
+    // Renderer setup
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 10, 7);
+    mountRef.current.appendChild(renderer.domElement);
 
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+    directionalLight.position.set(5, 10, 7);
     scene.add(directionalLight);
 
+    const accentLight = new THREE.PointLight(0xff7e33, 5, 20);
+    accentLight.position.set(0, 5, 5);
+    scene.add(accentLight);
+
+    // Load GLB model
+    const loader = new GLTFLoader();
+    loader.load(
+      '/models/house.glb', // Opdater med din modelsti
+      (gltf) => {
+        modelRef.current = gltf.scene;
+        modelRef.current.scale.set(1, 1, 1);
+        modelRef.current.position.y = -1;
+        
+        // Enable shadows for all meshes in model
+        modelRef.current.traverse((child) => {
+          if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(modelRef.current);
+
+        // Handle animations if present
+        if (gltf.animations?.length) {
+          mixerRef.current = new THREE.AnimationMixer(modelRef.current);
+          gltf.animations.forEach((clip) => {
+            mixerRef.current.clipAction(clip).play();
+          });
+        }
+      },
+      undefined,
+      (error) => console.error('Error loading model:', error)
+    );
+
+    // Auto-rotation controls
     const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false;
+    controls.enablePan = false;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.5;
     controls.enableDamping = true;
 
-    const loader = new GLTFLoader();
-    loader.load("/3d-animation.glb", (gltf) => {
-      scene.add(gltf.scene);
-    });
-
+    // Animation loop
+    const clock = new THREE.Clock();
     const animate = () => {
-      requestAnimationFrame(animate);
+      requestRef.current = requestAnimationFrame(animate);
+      
+      const delta = clock.getDelta();
+      if (mixerRef.current) mixerRef.current.update(delta);
+      
       controls.update();
       renderer.render(scene, camera);
     };
     animate();
 
+    // Handle resize
     const handleResize = () => {
-      camera.aspect = mount.clientWidth / mount.clientHeight;
+      camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(mount.clientWidth, mount.clientHeight);
+      renderer.setSize(window.innerWidth, window.innerHeight);
     };
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
+    // Cleanup
     return () => {
-      mount.removeChild(renderer.domElement);
-      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(requestRef.current);
+      if (mountNode) {
+        mountNode.removeChild(renderer.domElement);
+      }
+      if (mixerRef.current) {
+        mixerRef.current.stopAllAction();
+      }
     };
   }, []);
 
-  return <div ref={mountRef} className="w-full h-full" />;
-}
+  return <div ref={mountRef} className="absolute top-0 right-0 w-full h-full" />;
+};
+
+export default ThreeModel;

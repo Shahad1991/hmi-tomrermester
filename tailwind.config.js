@@ -35,6 +35,14 @@ module.exports = {
       serif: ['var(--font-ibm-plex-serif)'],
     },
     },
+    filter: { // if not already present
+        'none': 'none',
+        'sepia-30': 'sepia(30%)',
+        'brightness-90': 'brightness(90%)',
+        'saturate-120': 'saturate(120%)',
+        'contrast-110': 'contrast(110%)',
+        'hue-rotate-15': 'hue-rotate(15deg)',
+      },
   },
-  plugins: [],
+  plugins: [ require('tailwindcss-filters'),],
 }

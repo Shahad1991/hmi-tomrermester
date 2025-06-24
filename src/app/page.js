@@ -5,10 +5,12 @@ import HeroSection from "./components/HeroSection";
 import Reviews from "./components/Reviews";
 import ServicesSection from "./components/ServicesSection";
 
+
 export default function Home() {
   return (
-    <div className="space-y-12 md:space-y-20">
+    <div className="space-y-12 md:space-y-12">
       <HeroSection />
+     
       <Reviews />
       <AboutSection />
       <ServicesSection />
