@@ -61,8 +61,8 @@ const HeroSection = () => {
           >
             {[
               { value: "250+", label: "Fuldførte projekter" },
-              { value: "15+", label: "Års erfaring" },
-              { value: "99%", label: "Tilfredse kunder" }
+              { value: "10+", label: "Års erfaring" },
+              { value: "100%", label: "Tilfredse kunder" }
             ].map((stat, index) => (
               <div 
                 key={index} 
