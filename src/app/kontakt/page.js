@@ -4,6 +4,7 @@ import ContactSection from '../components/sections/ContactSection';
 import ContactInfoSection from '../components/sections/ContactInfoSection';
 import { ProcessSection } from '../components/sections/ProcessSection';
 
+
 export default function Kontakt() {
   return (
     <div className="mx-auto mt-28">
@@ -65,7 +66,7 @@ export default function Kontakt() {
             src="/process-bg.jpg"
             alt="Dekorativ baggrund"
             fill
-            className="object-cover opacity-10"
+            className="object-cover opacity-10 "
             quality={80}
             priority
           />
@@ -77,6 +78,7 @@ export default function Kontakt() {
       {/* Kontaktformular og info */}
       <ContactSection className="w-full" />
       <ContactInfoSection />
+      
     </div>
   );
 }
