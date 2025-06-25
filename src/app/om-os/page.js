@@ -114,7 +114,7 @@ const OmOs = () => {
             Faglige services til dit byggeprojekt
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto"></div>
-          <p className="text-white/90 mt-6 max-w-2xl mx-auto">
+          <p className="text-white /90 mt-6 max-w-2xl mx-auto">
             Vi tilbyder specialiserede løsninger inden for byggeri og renovering
           </p>
         </div>

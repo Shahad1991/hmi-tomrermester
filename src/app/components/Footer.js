@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
@@ -14,7 +13,7 @@ const Footer = () => {
               Din pålidelige partner for alle tømrer- og byggeprojekter.
             </p>
             
-              <div className="flex gap-4 justify-center md:justify-start">
+            <div className="flex gap-4 justify-center md:justify-start">
               <a
                 href="https://www.facebook.com/hmitoemrermester"
                 target="_blank"
@@ -42,7 +41,7 @@ const Footer = () => {
               >
                 <Linkedin className="w-6 h-6 text-accent hover:text-accent/90" />
               </a>
-          </div>
+            </div>
           </div>
 
           {/* Hurtiglinks */}
@@ -105,8 +104,20 @@ const Footer = () => {
                 </svg>
                 <div>
                   <p className="text-gray-600">Adresse</p>
-                 <p>Vibevej 7</p>
-                 <p>2630 Taastrup</p>
+                   <p>Vibevej 7, 2630 Taastrup</p>
+                </div>
+                
+              </li>
+
+              <li className="flex items-start">
+                <svg className="w-5 h-5 mt-1 mr-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="7" width="18" height="13" rx="2" strokeWidth="2" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 3v4M8 3v4" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 11h18" />
+                </svg>
+                <div>
+                  <p className="text-gray-600">CVR:</p>
+                  <p>43 80 62 11</p>
                 </div>
               </li>
             </ul>
