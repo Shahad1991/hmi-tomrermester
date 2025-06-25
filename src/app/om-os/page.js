@@ -95,28 +95,40 @@ const OmOs = () => {
       </section>
 
       {/* Services/Tilbud */}
-      <section className="bg-darkblue px-6 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto text-center mb-16">
+      <section className="relative px-6 py-16 md:py-24 bg-darkblue overflow-hidden">
+        {/* Bagrundsbillede */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/om-os-service-bg.jpeg"
+            alt="Baggrundsmønster"
+            fill
+            className="object-cover"
+            quality={80}
+          />
+          <div className="absolute inset-0 bg-darkblue bg-opacity-70 z-10"></div>
+        </div>
+        
+        <div className="relative max-w-4xl mx-auto text-center mb-16 z-10">
           <span className="text-accent font-medium uppercase tracking-wider text-sm">Services</span>
           <h2 className="text-3xl md:text-4xl font-bold font-serif text-white mt-2 mb-4">
             Faglige services til dit byggeprojekt
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto"></div>
-          <p className="text-white mt-6 max-w-2xl mx-auto">
+          <p className="text-white/90 mt-6 max-w-2xl mx-auto">
             Vi tilbyder specialiserede løsninger inden for byggeri og renovering
           </p>
         </div>
         
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 z-10">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center"
+              className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1"
             >
               <div className="bg-white text-accent p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
                 {service.icon}
               </div>
-              <h3 className="text-lg font-bold text-accent mb-2 mt-4">{service.title}</h3>
+              <h3 className="text-lg font-bold text-darkblue mb-2 mt-4">{service.title}</h3>
               <p className="text-gray-600 text-sm">{service.description}</p>
             </div>
           ))}
