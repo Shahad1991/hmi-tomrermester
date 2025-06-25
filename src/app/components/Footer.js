@@ -15,7 +15,7 @@ const Footer = () => {
             
             <div className="flex gap-4 justify-center md:justify-start">
               <a
-                href="https://www.facebook.com/hmitoemrermester"
+                href="https://www.facebook.com/hmitomrermester"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -33,7 +33,7 @@ const Footer = () => {
                 <Instagram className="w-6 h-6 text-accent hover:text-accent/90" />
               </a>
               <a
-                href="https://www.linkedin.com/company/hmi-tømrermester"
+                href="https://www.linkedin.com/company/hmi-t%C3%B8mrermester/posts/?feedView=all"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

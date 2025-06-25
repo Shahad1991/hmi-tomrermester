@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 
 const BookButton = ({ 
   children, 
@@ -7,6 +8,7 @@ const BookButton = ({
   className = "", 
   variant = "primary", 
   size = "md",
+  href = "/kontakt", // Default to contact page
   ...props 
 }) => {
   const baseStyles = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2";
@@ -23,6 +25,20 @@ const BookButton = ({
     lg: "px-8 py-4 text-lg",
   };
 
+  // If href is provided, return a Link component
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+        {...props}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  // Otherwise return a regular button
   return (
     <button
       onClick={onClick}
