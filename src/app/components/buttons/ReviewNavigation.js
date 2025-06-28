@@ -1,21 +1,21 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const ReviewNavigation = ({ onPrev, onNext }) => {
+const ReviewNavigation = ({ onPrev, onNext, buttonClass = "", iconClass = "" }) => {
   return (
     <div className="flex justify-center mt-8 gap-4">
       <button 
         onClick={onPrev}
-        className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+        className={`p-2 transition-colors ${buttonClass}`}
         aria-label="Previous review"
       >
-        <ChevronLeft className="w-5 h-5 text-darkblue" />
+        <ChevronLeft className={`w-5 h-5 ${iconClass}`} />
       </button>
       <button 
         onClick={onNext}
-        className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+        className={`p-2 transition-colors ${buttonClass}`}
         aria-label="Next review"
       >
-        <ChevronRight className="w-5 h-5 text-darkblue" />
+        <ChevronRight className={`w-5 h-5 ${iconClass}`} />
       </button>
     </div>
   );

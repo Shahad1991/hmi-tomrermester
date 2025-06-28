@@ -5,18 +5,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'api.hmi-tomrermester.dk',
-        port: '',
+        // Fjern port da det er standard HTTPS (443)
         pathname: '/wp-content/uploads/**',
       },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8888',
-        pathname: '/hmi-tomrermster-wp/wp-content/uploads/**',
-      }
     ],
   },
-  // Du kan tilføje andre konfigurationer her, hvis nødvendigt
 };
 
 export default nextConfig;

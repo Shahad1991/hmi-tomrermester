@@ -154,7 +154,12 @@ const Reviews = () => {
 
         {/* Navigation */}
         <div className="mt-8 flex flex-col items-center">
-          <ReviewNavigation onPrev={prevReview} onNext={nextReview} />
+          <ReviewNavigation
+            onPrev={prevReview}
+            onNext={nextReview}
+            buttonClass="bg-gray-100 hover:bg-accent transition-colors p-2 rounded-full"
+            iconClass="text-grey-800"
+          />
           
           {/* Indicator dots */}
           <div className="flex gap-2 mt-4">
