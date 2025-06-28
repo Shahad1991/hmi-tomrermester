@@ -63,7 +63,7 @@ export default function Kontakt() {
         {/* Baggrund kun for denne del */}
         <div className="absolute inset-0 w-full h-full -z-10">
           <Image
-            src="/process-bg.jpg"
+            src="/test.png"
             alt="Dekorativ baggrund"
             fill
             className="object-cover opacity-10 "
