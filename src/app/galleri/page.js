@@ -2,6 +2,7 @@
 
 // Tilføj denne import
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { getAllGalleryItems } from '@/lib/api';
 
 export default function GalleryPage() {
@@ -32,10 +33,12 @@ export default function GalleryPage() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Baggrundsbillede */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/galleri-bg.png"
+        <Image
+          src="/images/backgrounds/galleri-bg.png"
           alt="Galleri baggrund"
-          className="object-cover w-full h-full"
+          fill
+          className="object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-blue-900/70 z-10" />
       </div>

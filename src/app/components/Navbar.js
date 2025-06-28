@@ -54,7 +54,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" onClick={closeAll}>
             <Image
-              src="/logo.svg"
+              src="/images/logo/logo.svg"
               alt="Logo"
               width={140}
               height={60}

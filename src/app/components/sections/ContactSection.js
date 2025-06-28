@@ -29,7 +29,7 @@ export default function ContactSection() {
           {/* Billedcontainer - samme stil som services-sektionen */}
           <div className="w-full md:w-1/2 aspect-[9/16] overflow-hidden">
             <img
-              src="/instagram-mockop.png"
+              src="/images/mockups/instagram-mockop.png"
               alt="Mobil mockop visende sociale medier"
               className="w-full h-full object-cover rounded-md"
             />

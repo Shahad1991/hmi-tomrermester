@@ -63,8 +63,8 @@ export default function Kontakt() {
         {/* Baggrund kun for denne del */}
         <div className="absolute inset-0 w-full h-full -z-10">
           <Image
-            src="/test.png"
-            alt="Dekorativ baggrund"
+            src="/kontakt-process-bg.png"
+            alt="HMI logo som background"
             fill
             className="object-cover opacity-10 "
             quality={80}
