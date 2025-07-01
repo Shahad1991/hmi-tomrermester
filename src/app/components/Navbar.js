@@ -30,7 +30,7 @@ const Navbar = () => {
 
   // Liste over alle ydelser
   const services = [
-    { name: "Køkken Montage", href: "/ydelser/køkken" },
+    { name: "Køkken Montage", href: "/ydelser/kokken" },
     { name: "Badeværelser", href: "/ydelser/bad" },
     { name: "Døre og Vinduer", href: "/ydelser/døre-vinduer" },
     { name: "Gipsarbejde", href: "/ydelser/gipsarbejde" },
