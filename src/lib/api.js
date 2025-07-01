@@ -1,31 +1,38 @@
-// lib/api.js
 const WORDPRESS_API_URL = 'https://api.hmi-tomrermester.dk/wp-json/wp/v2';
 
 export async function getAllGalleryItems() {
   try {
-    // Fetch både items og kategorier parallelt
-    const itemsRes = await fetch(`${WORDPRESS_API_URL}/gallery?_embed`);
+    let allItems = [];
+    let page = 1;
+    let morePagesAvailable = true;
+    const perPage = 100; // Max antal pr. request
+
+    // Først hent alle kategorier én gang
     const categoriesRes = await fetch(`${WORDPRESS_API_URL}/gallery_category`);
-
-    // Tjek om begge requests var succesfulde
-    if (!itemsRes.ok) {
-      throw new Error(`Failed to fetch gallery items: ${itemsRes.status} ${itemsRes.statusText}`);
-    }
-
-    if (!categoriesRes.ok) {
-      console.warn(`Failed to fetch gallery categories: ${categoriesRes.status} ${categoriesRes.statusText}`);
-      // Lad os ikke fejle helt hvis kun kategorier fejler
-    }
-
-    const items = await itemsRes.json();
     const categories = categoriesRes.ok ? await categoriesRes.json() : [];
 
-    return items.map(item => {
-      // Hent alle kategorier fra _embedded["wp:term"] eller brug tomt array hvis ikke tilgængeligt
+    // Hent alle galleri items med paginering
+    while (morePagesAvailable) {
+      const itemsRes = await fetch(
+        `${WORDPRESS_API_URL}/gallery?_embed&per_page=${perPage}&page=${page}`
+      );
+
+      if (!itemsRes.ok) {
+        throw new Error(`Failed to fetch gallery items: ${itemsRes.status} ${itemsRes.statusText}`);
+      }
+
+      const items = await itemsRes.json();
+      allItems = [...allItems, ...items];
+
+      // Tjek om der er flere sider
+      const totalPages = itemsRes.headers.get('X-WP-TotalPages');
+      morePagesAvailable = page < totalPages;
+      page++;
+    }
+
+    return allItems.map(item => {
       const allTerms = item._embedded?.['wp:term']?.flat() || [];
       const galleryCategories = allTerms.filter(term => term.taxonomy === 'gallery_category');
-
-      // Sikre at featured media eksisterer
       const featuredMedia = item._embedded?.['wp:featuredmedia']?.[0];
       
       return {
@@ -46,7 +53,6 @@ export async function getAllGalleryItems() {
     });
   } catch (error) {
     console.error('Error in getAllGalleryItems:', error);
-    // Returner et tomt array i stedet for at kaste fejl, så UI kan håndtere det
     return [];
   }
 }
