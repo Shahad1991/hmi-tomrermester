@@ -1,6 +1,8 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import Image from 'next/image';
+import { Hammer, Wrench, Zap, Ruler } from 'lucide-react';
+import ContactButton from '../../components/buttons/ContactButton';
 import Link from 'next/link';
 
 
@@ -28,17 +30,42 @@ export default async function KokkenPage() {
 
     console.log('Kitchen gallery images:', galleryImages); // Debug log
 
-    // Partnership section data for Elgiganten and Epoq
+    // Services section data for køkken
+    const servicesSection = {
+      title: "Faglige services til dit køkkenprojekt",
+      description: "Vi tilbyder specialiserede løsninger til din køkkenrenovering",
+      backgroundImage: "/images/backgrounds/om-os-service-bg.jpeg",
+      services: [
+        {
+          icon: <Ruler className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Opmåling",
+          description: "Præcis opmåling af dit køkken for perfekt tilpasning."
+        },
+        {
+          icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Tømrer",
+          description: "Professionel montering og tilpasning af køkkenelementer."
+        },
+        {
+          icon: <Zap className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Elektriker",
+          description: "El-installationer til belysning, stikkontakter og hvidevarer."
+        },
+        {
+          icon: <Wrench className="w-6 h-6" strokeWidth={1.5} />,
+          title: "VVS",
+          description: "Vand og afløb til vask, opvaskemaskine og andre installationer."
+        }
+      ]
+    };
+
+    // Partnership section data for Epoq
     const partnershipSection = {
       title: "Komplet køkkenrenovering med Elgiganten og Epoq",
       description: "Vi er certificerede installatører af Epoq køkkener fra Elgiganten og tilbyder komplet renovering fra A til Z. Vi monterer og samler dit nye køkken og koordinerer hele renoveringen med vores netværk af specialiserede håndværkere - elektrikere, murere og malere. Du får alt fra én hånd, så du kan læne dig tilbage mens vi skaber dit drømmekøkken med professionel kvalitet i alle led.",
-      image: "/images/services/køkken.png", // Du kan ændre dette til et billede der viser partnerskabet
+      image: "/images/services/køkken.png",
       imageAlt: "Komplet køkkenrenovering med Epoq køkken fra Elgiganten",
       partnerLogos: [
-        {
-          src: "/images/partners/elgiganten-logo.png", // Tilføj logoer til public/images/partners/
-          alt: "Elgiganten logo"
-        },
         {
           src: "/images/partners/epoq-logo.png",
           alt: "Epoq Køkken logo"
@@ -46,7 +73,7 @@ export default async function KokkenPage() {
       ],
       ctaButton: {
         text: "Se udvalg af Epoq køkkener",
-        link: "/https://www.elgiganten.dk/epoq/koekken" // Eller link til specifik køkkengalleri
+        link: "https://www.elgiganten.dk/epoq/koekken"
       }
     };
 
@@ -58,6 +85,7 @@ export default async function KokkenPage() {
         imageTextImage="/images/ali-hmi/ali-kokken.jpeg"
         imageTextTitle="Din kvalitetsbevidste køkkenmontør"
         imageTextDescription="Drømmer du om et nyt køkken, der kombinerer funktionalitet, æstetik og høj kvalitet? Hos HMI Tømrermester specialiserer vi os i køkkenrenovering og køkkenmontering for både private og erhverv. Uanset om du ønsker et moderne køkken-alrum, en klassisk løsning eller noget helt tredje, står vi klar med rådgivning, inspiration og solidt håndværk. Vi hjælper dig gennem hele processen – fra de første skitser til det færdige køkken. Med mange års erfaring sikrer vi, at du får en løsning, der matcher både dit hjem og din hverdag."
+        servicesSection={servicesSection}
         galleryImages={galleryImages}
       >
         {/* Partnership Section - kun for køkken siden */}
@@ -114,8 +142,9 @@ export default async function KokkenPage() {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <Link href={partnershipSection.ctaButton.link}>
-                      <button className="px-8 py-3 border-2 border-accent text-darkblue rounded-lg hover:bg-accent hover:text-white transition-all duration-300 font-semibold">
+                    <ContactButton />
+                    <Link href={partnershipSection.ctaButton.link} target="_blank" rel="noopener noreferrer">
+                      <button className="w-full px-8 py-3 border-2 border-accent text-darkblue rounded-lg hover:bg-accent hover:text-white transition-all duration-300 font-semibold">
                         {partnershipSection.ctaButton.text}
                       </button>
                     </Link>

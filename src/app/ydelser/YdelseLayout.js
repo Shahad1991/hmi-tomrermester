@@ -11,6 +11,7 @@ export default function YdelseLayout({
   imageTextImage, 
   imageTextTitle, 
   imageTextDescription,
+  servicesSection = null, // New prop for services section
   galleryImages = [],
   children 
 }) {
@@ -24,11 +25,15 @@ export default function YdelseLayout({
   const openModal = (imageUrl, index) => {
     setSelectedImage(imageUrl);
     setSelectedIndex(index);
+    // Lock scroll on background
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setSelectedImage(null);
     setSelectedIndex(0);
+    // Unlock scroll
+    document.body.style.overflow = 'unset';
   };
 
   const nextImage = () => {
@@ -87,12 +92,19 @@ export default function YdelseLayout({
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedImage, selectedIndex, galleryImages]);
+
+  // Cleanup scroll lock on unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
   
   return (
     <main> {/* Tilføj en main wrapper */}
       <div className="mx-auto pt-28">
         {/* Hero Section */}
-        <section className="relative h-screen min-h-[800px] flex items-center justify-center text-center overflow-hidden">
+        <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
           <div className="absolute inset-0 w-full h-full">
             {heroImage && (
               <Image 
@@ -136,7 +148,7 @@ export default function YdelseLayout({
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   
                     <button className="px-8 py-3 border-2 border-accent text-white rounded-lg hover:bg-accent hover:text-white transition-all duration-300 font-semibold">
-                      Se mere
+                      Se vores arbejde
                     </button>
                   </div>
                 </div>
@@ -168,6 +180,40 @@ export default function YdelseLayout({
           </div>
         </section>
 
+        {/* Services Section */}
+        {servicesSection && (
+          <section className="relative px-6 py-16 md:py-24 bg-darkblue overflow-hidden">
+            <div className="relative max-w-4xl mx-auto text-center mb-16 z-10">
+              <span className="text-accent font-medium uppercase tracking-wider text-sm">Services vi tilbyder</span>
+              <h2 className="text-3xl md:text-4xl font-bold font-serif text-white mt-2 mb-4">
+                {servicesSection.title}
+              </h2>
+              <div className="w-24 h-1 bg-accent mx-auto"></div>
+              <p className="text-white mt-6 max-w-2xl mx-auto">
+                {servicesSection.description}
+              </p>
+            </div>
+            
+            <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {servicesSection.services.map((service, index) => (
+                <div 
+                  key={index}
+                  className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1"
+                >
+                  <div className="bg-white text-accent p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-darkblue mb-2 mt-4">{service.title}</h3>
+                  <p className="text-gray-600 text-sm">{service.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Child Content - positioned before gallery */}
+        {children}
+
         {/* Galleri Section */}
         {galleryImages && galleryImages.length > 0 && (
           <section className="bg-gradient-to-b from-gray-50 to-white py-24 px-4">
@@ -196,6 +242,7 @@ export default function YdelseLayout({
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        loading="lazy"
                       />
                       
                       {/* Overlay */}
@@ -208,7 +255,7 @@ export default function YdelseLayout({
                             e.stopPropagation();
                             openModal(img.url, index);
                           }}
-                          className="bg-white/90 text-darkblue px-6 py-3 rounded-full font-semibold shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300 hover:bg-white"
+                          className="bg-white/90 text-darkblue px-6 py-3 rounded-full font-semibold shadow-lg transform scale-90 group-hover:scale-100 active:scale-95 transition-transform duration-300 hover:bg-white"
                         >
                           Se billede
                         </button>
@@ -235,7 +282,7 @@ export default function YdelseLayout({
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <ContactButton />
                   <Link href="/galleri">
-                  <button className="px-8 py-3 border-2 border-accent text-darkblue rounded-lg hover:bg-accent hover:text-white transition-all duration-300 font-semibold">
+                  <button className="w-full px-8 py-3 border-2 border-accent text-darkblue rounded-lg hover:bg-accent hover:text-white transition-all duration-300 font-semibold">
                     Se alt galleri
                   </button>
                   </Link>
@@ -314,8 +361,6 @@ export default function YdelseLayout({
           </div>
         )}
 
-        {/* Child Content */}
-        {children}
       </div>
     </main>
   );
