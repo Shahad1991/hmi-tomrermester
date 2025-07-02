@@ -30,15 +30,14 @@ const Navbar = () => {
 
   // Liste over alle ydelser
   const services = [
-    { name: "Køkken Montage", href: "/ydelser/kokken" },
-    { name: "Badeværelser", href: "/ydelser/bad" },
+    { name: "Køkken Renovering", href: "/ydelser/kokken" },
+    { name: "Total Renovering", href: "/ydelser/total-renovering" },
     { name: "Døre og Vinduer", href: "/ydelser/døre-vinduer" },
     { name: "Gipsarbejde", href: "/ydelser/gipsarbejde" },
     { name: "Gulv", href: "/ydelser/gulv" },
     { name: "Hegn", href: "/ydelser/hegn" },
-    { name: "Kakkel", href: "/ydelser/kakkel" },
     { name: "Renovering", href: "/ydelser/renovering" },
-    { name: "Tag", href: "/ydelser/tag" },
+    { name: "Carport", href: "/ydelser/carport" },
     { name: "Terrasse", href: "/ydelser/terrasse" },
     { name: "Andre Opgaver", href: "/ydelser/andre-opgaver" }
   ];
