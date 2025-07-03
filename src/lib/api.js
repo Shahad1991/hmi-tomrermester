@@ -1,3 +1,4 @@
+// lib/api.js
 const WORDPRESS_API_URL = 'https://api.hmi-tomrermester.dk/wp-json/wp/v2';
 
 export async function getAllGalleryItems() {
@@ -11,10 +12,10 @@ export async function getAllGalleryItems() {
     const categoriesRes = await fetch(`${WORDPRESS_API_URL}/gallery_category`);
     const categories = categoriesRes.ok ? await categoriesRes.json() : [];
 
-    // Hent alle galleri items med paginering
+    // Hent alle galleri items med paginering og ACF felter
     while (morePagesAvailable) {
       const itemsRes = await fetch(
-        `${WORDPRESS_API_URL}/gallery?_embed&per_page=${perPage}&page=${page}`
+        `${WORDPRESS_API_URL}/gallery?_embed&acf_format=standard&per_page=${perPage}&page=${page}`
       );
 
       if (!itemsRes.ok) {
@@ -22,6 +23,26 @@ export async function getAllGalleryItems() {
       }
 
       const items = await itemsRes.json();
+      
+      // Debug: Log the first item structure
+      if (items.length > 0 && page === 1) {
+        console.log('Raw WordPress API response structure:', {
+          firstItem: items[0],
+          acfData: items[0].acf,
+          metaData: items[0].meta,
+          allKeys: Object.keys(items[0])
+        });
+        
+        // Also log all items to see their structure
+        console.log('All items with ACF data:', items.map(item => ({
+          id: item.id,
+          title: item.title?.rendered,
+          acf: item.acf,
+          meta: item.meta,
+          keys: Object.keys(item)
+        })));
+      }
+      
       allItems = [...allItems, ...items];
 
       // Tjek om der er flere sider
@@ -30,7 +51,40 @@ export async function getAllGalleryItems() {
       page++;
     }
 
-    return allItems.map(item => {
+    console.log(`Total items fetched from WordPress: ${allItems.length}`);
+    
+    // Filtrer items baseret på "vis på galleri page" custom field
+    const filteredItems = allItems.filter(item => {
+      // Tjek forskellige mulige field names
+      const showOnGallery = item.acf?.['vis_paa_galleri_page'] || 
+                           item.acf?.['vis på galleri page'] || 
+                           item.acf?.['vis_pa_galleri_page'] ||
+                           item.acf?.['vis_på_galleri_page'] ||
+                           item.meta?.['vis_paa_galleri_page'] ||
+                           item.meta?.['vis_på_galleri_page'] ||
+                           false;
+      
+      // Debug logging for each item
+      console.log(`Gallery item "${item.title?.rendered}":`, {
+        acf: item.acf,
+        meta: item.meta,
+        showOnGallery,
+        willShow: showOnGallery === true || showOnGallery === '1' || showOnGallery === 1
+      });
+      
+      return showOnGallery === true || showOnGallery === '1' || showOnGallery === 1;
+    });
+
+    console.log(`Total gallery items: ${allItems.length}, Filtered items: ${filteredItems.length}`);
+    
+    // Hvis ingen items passerer filteret, returner alle items for debugging
+    const itemsToReturn = filteredItems.length > 0 ? filteredItems : allItems;
+    
+    if (filteredItems.length === 0 && allItems.length > 0) {
+      console.warn('No items passed filter, returning all items for debugging');
+    }
+
+    return itemsToReturn.map(item => {
       const allTerms = item._embedded?.['wp:term']?.flat() || [];
       const galleryCategories = allTerms.filter(term => term.taxonomy === 'gallery_category');
       const featuredMedia = item._embedded?.['wp:featuredmedia']?.[0];
@@ -48,7 +102,15 @@ export async function getAllGalleryItems() {
         content: item.content?.rendered || '',
         slug: item.slug,
         date: item.date,
-        url: `/gallery/${item.slug}`
+        url: `/gallery/${item.slug}`,
+        acf: item.acf || {},
+        showOnGallery: item.acf?.['vis_paa_galleri_page'] || 
+                      item.acf?.['vis på galleri page'] || 
+                      item.acf?.['vis_pa_galleri_page'] ||
+                      item.acf?.['vis_på_galleri_page'] ||
+                      item.meta?.['vis_paa_galleri_page'] ||
+                      item.meta?.['vis_på_galleri_page'] ||
+                      false
       };
     });
   } catch (error) {

@@ -182,7 +182,7 @@ export default function YdelseLayout({
 
         {/* Services Section */}
         {servicesSection && (
-          <section className="relative px-6 py-16 md:py-24 bg-darkblue overflow-hidden">
+          <section className="relative px-6 py-16 md:py-24 bg-darkblue overflow-hidden items-center">
             <div className="relative max-w-4xl mx-auto text-center mb-16 z-10">
               <span className="text-accent font-medium uppercase tracking-wider text-sm">Services vi tilbyder</span>
               <h2 className="text-3xl md:text-4xl font-bold font-serif text-white mt-2 mb-4">
@@ -194,17 +194,17 @@ export default function YdelseLayout({
               </p>
             </div>
             
-            <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8">
               {servicesSection.services.map((service, index) => (
                 <div 
                   key={index}
-                  className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1"
+                  className="bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1 w-full md:w-auto md:flex-1 max-w-xs"
                 >
-                  <div className="bg-white text-accent p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
+                  <div className="bg-white text-accent p-4 md:p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
                     {service.icon}
                   </div>
                   <h3 className="text-lg font-bold text-darkblue mb-2 mt-4">{service.title}</h3>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                 </div>
               ))}
             </div>
