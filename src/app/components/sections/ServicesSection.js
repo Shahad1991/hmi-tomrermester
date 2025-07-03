@@ -40,6 +40,11 @@ const services = [
     bgImage: "/images/services/renovering.jpg",
   },
   {
+    title: "Total Renovering",
+    link: "/ydelser/total-renovering",
+    bgImage: "/images/services/renovering.jpg",
+  },
+  {
     title: "Carport",
     link: "/ydelser/carport",
     bgImage: "/images/services/carport.jpeg",
@@ -49,7 +54,6 @@ const services = [
     link: "/ydelser/andre-opgaver",
     bgImage: "/images/services/andre-opgaver.jpg",
   },
-
 ];
 
 const ServicesSection = () => {
@@ -64,7 +68,7 @@ const ServicesSection = () => {
           <div className="w-24 h-1 bg-accent mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-8xl mx-auto">
           {services.map((service, index) => (
             <Link
               href={service.link}
