@@ -52,17 +52,15 @@ export async function getAllGalleryItems() {
     }
 
     console.log(`Total items fetched from WordPress: ${allItems.length}`);
-    
+    const visibleItems = allItems.filter(item => item.acf?.vis_pa_galleri_side === true);
+
     // Filtrer items baseret på "vis på galleri page" custom field
     const filteredItems = allItems.filter(item => {
       // Tjek forskellige mulige field names
-      const showOnGallery = item.acf?.['vis_paa_galleri_page'] || 
-                           item.acf?.['vis på galleri page'] || 
-                           item.acf?.['vis_pa_galleri_page'] ||
-                           item.acf?.['vis_på_galleri_page'] ||
-                           item.meta?.['vis_paa_galleri_page'] ||
-                           item.meta?.['vis_på_galleri_page'] ||
+      const showOnGallery =item.acf?.['vis_pa_galleri_side'] || 
++                          item.meta?.['vis_pa_galleri_side'] ||
                            false;
+                          
       
       // Debug logging for each item
       console.log(`Gallery item "${item.title?.rendered}":`, {
@@ -96,15 +94,12 @@ export async function getAllGalleryItems() {
         content: item.content?.rendered || '',
         slug: item.slug,
         date: item.date,
-        url: `/gallery/${item.slug}`,
-        acf: item.acf || {},
-        showOnGallery: item.acf?.['vis_paa_galleri_page'] || 
-                      item.acf?.['vis på galleri page'] || 
-                      item.acf?.['vis_pa_galleri_page'] ||
-                      item.acf?.['vis_på_galleri_page'] ||
-                      item.meta?.['vis_paa_galleri_page'] ||
-                      item.meta?.['vis_på_galleri_page'] ||
-                      false
+        url: `/gallery/${item.slug}`,        acf: item.acf || {},
+        showOnGallery: 
+                       item.acf?.['vis_pa_galleri_side'] ||
+                       item.meta?.['vis_pa_galleri_side'] ||
+                       false,
+        description: item.acf?.kategori_beskrivelse || ''
       };
     });
   } catch (error) {

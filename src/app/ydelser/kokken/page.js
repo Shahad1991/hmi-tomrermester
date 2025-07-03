@@ -25,7 +25,8 @@ export default async function KokkenPage() {
       url: item.imageUrl,
       alt: item.altText,
       title: item.title,
-      id: item.id
+      id: item.id,
+      description: item.description
     }));
 
     console.log('Kitchen gallery images:', galleryImages); // Debug log
@@ -43,7 +44,7 @@ export default async function KokkenPage() {
         },
         {
           icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Tømrer",
+          title: "Tømrer/ Snedker",
           description: "Professionel montering og tilpasning af køkkenelementer."
         },
         {

@@ -267,7 +267,7 @@ export default function YdelseLayout({
                       <h3 className="text-xl font-bold text-darkblue mb-2 group-hover:text-accent transition-colors duration-300">
                         {img.title || `Projekt ${index + 1}`}
                       </h3>
-                     
+                      {img.description && <p className="text-sm text-gray-600">{img.description}</p>}
                     </div>
 
                     {/* Decorative corner */}

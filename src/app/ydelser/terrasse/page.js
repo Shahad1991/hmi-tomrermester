@@ -25,7 +25,8 @@ export default async function TerrassePage() {
       url: item.imageUrl,
       alt: item.altText,
       title: item.title,
-      id: item.id
+      id: item.id,
+      description: item.description
     }));
 
     
