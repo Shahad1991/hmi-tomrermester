@@ -12,7 +12,7 @@ const services = [
   {
     title: "Gulv",
     link: "/ydelser/gulv",
-    bgImage: "/images/services/gulv.jpg",
+    bgImage: "/images/services/gulv.png",
   },
   {
     title: "Hegn",

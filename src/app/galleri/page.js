@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { getAllGalleryItems } from '../../lib/api';
+import { getGalleryPageItems } from '../../lib/api';
 
 export default function GalleryPage() {
   const [galleryItems, setGalleryItems] = useState([]);
@@ -82,11 +82,13 @@ export default function GalleryPage() {
   useEffect(() => {
     async function fetchGalleryItems() {
       try {
-        const items = await getAllGalleryItems();
+        console.log('Fetching gallery items for gallery page...');
+        const items = await getGalleryPageItems();
+        console.log('Gallery page items received:', items.length);
         setGalleryItems(items);
       } catch (err) {
         setError('Failed to load gallery items');
-        console.error(err);
+        console.error('Gallery page error:', err);
       } finally {
         setLoading(false);
       }

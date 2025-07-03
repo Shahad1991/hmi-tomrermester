@@ -77,14 +77,8 @@ export async function getAllGalleryItems() {
 
     console.log(`Total gallery items: ${allItems.length}, Filtered items: ${filteredItems.length}`);
     
-    // Hvis ingen items passerer filteret, returner alle items for debugging
-    const itemsToReturn = filteredItems.length > 0 ? filteredItems : allItems;
-    
-    if (filteredItems.length === 0 && allItems.length > 0) {
-      console.warn('No items passed filter, returning all items for debugging');
-    }
-
-    return itemsToReturn.map(item => {
+    // Returner alle items (bruges af service sider for kategori filtrering)
+    return allItems.map(item => {
       const allTerms = item._embedded?.['wp:term']?.flat() || [];
       const galleryCategories = allTerms.filter(term => term.taxonomy === 'gallery_category');
       const featuredMedia = item._embedded?.['wp:featuredmedia']?.[0];
@@ -115,6 +109,31 @@ export async function getAllGalleryItems() {
     });
   } catch (error) {
     console.error('Error in getAllGalleryItems:', error);
+    return [];
+  }
+}
+
+// Separat funktion til gallery siden - returnerer kun items hvor "vis på galleri page" er true
+export async function getGalleryPageItems() {
+  try {
+    console.log('Fetching gallery items for gallery page using getAllGalleryItems...');
+    
+    // Brug den eksisterende funktionelle API
+    const allItems = await getAllGalleryItems();
+    
+    // Filtrer kun items hvor showOnGallery er true
+    const filteredItems = allItems.filter(item => {
+      const isVisible = item.showOnGallery === true || item.showOnGallery === '1' || item.showOnGallery === 1;
+      console.log(`Gallery page item "${item.title}": showOnGallery=${item.showOnGallery}, willShow=${isVisible}`);
+      return isVisible;
+    });
+    
+    console.log(`Gallery page: ${allItems.length} total items, ${filteredItems.length} filtered items`);
+    
+    return filteredItems;
+    
+  } catch (error) {
+    console.error('Error fetching gallery page items:', error);
     return [];
   }
 }
