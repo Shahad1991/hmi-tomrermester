@@ -6,7 +6,7 @@ import ContactButton from '../components/buttons/ContactButton';
 const OmOs = () => {
   const services = [
     {
-      icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
+      icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
       title: "Tømrer",
       description: "Professionel tømrerarbejde til alle byggeprojekter."
     },
@@ -26,7 +26,7 @@ const OmOs = () => {
       description: "Ekspertise i murerarbejde og renovering."
     },
     {
-      icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
+      icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
       title: "Snedker",
       description: "Skræddersyede løsninger i træ."
     },

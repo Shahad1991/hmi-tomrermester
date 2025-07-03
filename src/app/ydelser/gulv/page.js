@@ -1,9 +1,6 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import Image from 'next/image';
-import { Hammer, Wrench, Zap, Ruler } from 'lucide-react';
-import ContactButton from '../../components/buttons/ContactButton';
-import Link from 'next/link';
+import { Hammer, Wrench, Drill } from 'lucide-react';
 
 
 export default async function GulvPage() {
@@ -38,16 +35,20 @@ export default async function GulvPage() {
       backgroundImage: "/images/backgrounds/om-os-service-bg.jpeg",
       services: [
         {
-          icon: <Ruler className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Opmåling",
-          description: "Præcis opmåling og beregning af gulvarealer."
+          icon: <Wrench className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Støj konstruktion",
+          description: "Lydreducerende undergulve og støjdæmpende løsninger."
         },
         {
           icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
           title: "Gulvlægning",
           description: "Professionel installation af alle gulvtyper."
         },
-        
+        {
+          icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Tømrer/Snedker",
+          description: "Specialiseret tømrer- og snedkerarbejde til gulvprojekter."
+        }
       ]
     };
 
@@ -57,7 +58,7 @@ export default async function GulvPage() {
         heroImage="/images/services/gulv.png"
         heroTitle="Gulv"
         heroText="Vi leverer professionelle gulvløsninger der forvandler dit hjem."
-        imageTextImage="/images/ali-hmi/ali-gulv.jpg"
+        imageTextImage="/images/ali-hmi/ali-gulv.png"
         imageTextTitle="Din professionelle gulvspecialist"
         imageTextDescription="Drømmer du om nye gulve der forvandler dit hjem? Hos HMI Tømrermester specialiserer vi os i installation af alle typer gulve - fra klassisk parket og laminat til moderne vinyl og fliser. Vi håndterer hele processen fra rådgivning og materialevejledning til professionel installation. Vores erfarne håndværkere sikrer en perfekt finish med omhyggelig forberedelse af undergulvet og præcis montage. Uanset om det er et enkelt værelse eller hele huset, leverer vi kvalitetsarbejde der holder i mange år."
         servicesSection={servicesSection}

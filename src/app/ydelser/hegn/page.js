@@ -1,9 +1,7 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import Image from 'next/image';
-import { Hammer, Wrench, Zap, Ruler } from 'lucide-react';
-import ContactButton from '../../components/buttons/ContactButton';
-import Link from 'next/link';
+import { Hammer, Wrench, Ruler } from 'lucide-react';
+
 
 
 export default async function HegnPage() {
@@ -49,8 +47,8 @@ export default async function HegnPage() {
         },
         {
           icon: <Wrench className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Fundament",
-          description: "Etablering af solidt fundament og stolper til hegn."
+          title: "Støbning af stolper",
+          description: "Professionel støbning og etablering af stabile hegnstolper."
         }
       ]
     };

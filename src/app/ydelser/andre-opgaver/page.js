@@ -1,6 +1,6 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import { Hammer, Wrench, Zap, Ruler } from 'lucide-react';
+import { Hammer, Drill, Ruler } from 'lucide-react';
 
 
 export default async function AndreOpgaverPage() {
@@ -40,9 +40,9 @@ export default async function AndreOpgaverPage() {
           description: "Præcis opmåling og akustisk vurdering af rum og behov."
         },
         {
-          icon: <Wrench className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Materialevalg",
-          description: "Rådgivning om materialer og design til akustikpaneler og vindskeder."
+          icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Tømrer/Snedker",
+          description: "Professionel tømrer- og snedkerarbejde til specialiserede opgaver."
         },
         {
           icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,

@@ -44,13 +44,8 @@ export default async function TerrassePage() {
         },
         {
           icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Tømrer",
+          title: "Tømrer/ Snedker",
           description: "Professionel konstruktion og montering af terrasse."
-        },
-        {
-          icon: <Wrench className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Fundament",
-          description: "Etablering af solidt fundament og underlag til terrasse."
         }
       ]
     };

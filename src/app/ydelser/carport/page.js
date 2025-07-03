@@ -1,7 +1,7 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import Image from 'next/image';
-import { Hammer, Wrench, Zap, Ruler } from 'lucide-react';
+import { Hammer, Wrench, Zap, Paintbrush } from 'lucide-react';
 import ContactButton from '../../components/buttons/ContactButton';
 import Link from 'next/link';
 
@@ -38,9 +38,9 @@ export default async function CarportPage() {
       backgroundImage: "/images/backgrounds/om-os-service-bg.jpeg",
       services: [
         {
-          icon: <Wrench className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Snedker",
-          description: "Præcis tilskæring og bearbejdning af træmaterialer til carport."
+          icon: <Paintbrush className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Maler",
+          description: "Professionel overfladebehandling og beskyttelse af carport."
         },
         {
           icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
