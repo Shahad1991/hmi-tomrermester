@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import BookButton from "./buttons/BookButton";
 
@@ -9,6 +10,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeAll = () => {
@@ -24,21 +26,33 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+    
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.dropdown-menu')) {
+        setOpenDropdown(null);
+      }
+    };
+    
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    document.addEventListener("click", handleClickOutside);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
   // Liste over alle ydelser
   const services = [
-    { name: "Køkken Renovering", href: "/ydelser/kokken" },
-    { name: "Total Renovering", href: "/ydelser/total-renovering" },
+     { name: "Carport", href: "/ydelser/carport" },
+    { name: "Terrasse", href: "/ydelser/terrasse" },
     { name: "Dør og Vinduer", href: "/ydelser/dor-vinduer" },
     { name: "Gipsarbejde", href: "/ydelser/gipsarbejde" },
     { name: "Gulv", href: "/ydelser/gulv" },
     { name: "Hegn", href: "/ydelser/hegn" },
     { name: "Renovering", href: "/ydelser/renovering" },
-    { name: "Carport", href: "/ydelser/carport" },
-    { name: "Terrasse", href: "/ydelser/terrasse" },
+    { name: "Køkken Renovering", href: "/ydelser/kokken" },
+    { name: "Total Renovering", href: "/ydelser/total-renovering" },
     { name: "Andre Opgaver", href: "/ydelser/andre-opgaver" }
   ];
 
@@ -64,7 +78,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink href="/" isScrolled={isScrolled} onClick={closeAll}>
+            <NavLink href="/" isScrolled={isScrolled} onClick={closeAll} pathname={pathname}>
               Forside
             </NavLink>
             
@@ -73,6 +87,7 @@ const Navbar = () => {
               isScrolled={isScrolled}
               isOpen={openDropdown === "services"}
               onClick={() => toggleDropdown("services")}
+              pathname={pathname}
             >
               {services.map((service) => (
                 <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
@@ -81,12 +96,12 @@ const Navbar = () => {
               ))}
             </DropdownMenu>
             
-            <NavLink href="/galleri" isScrolled={isScrolled} onClick={closeAll}>
+            <NavLink href="/galleri" isScrolled={isScrolled} onClick={closeAll} pathname={pathname}>
               Galleri
             </NavLink>
             
-            <NavLink href="/om-os" isScrolled={isScrolled} onClick={closeAll}>
-              Om Os
+            <NavLink href="/om-os" isScrolled={isScrolled} onClick={closeAll} pathname={pathname}>
+              Om os
             </NavLink>
           </div>
 
@@ -112,34 +127,60 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-40 pt-20 px-4 pb-6 overflow-y-auto">
-          <div className="flex flex-col space-y-4">
-            <MobileNavLink href="/" onClick={closeAll}>
-              Forside
-            </MobileNavLink>
-            
-            <div className="border-t border-gray-100 pt-2">
-              <MobileDropdown title="Ydelser">
-                {services.map((service) => (
-                  <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
-                    {service.name}
-                  </DropdownItem>
-                ))}
-              </MobileDropdown>
-            </div>
-            
-            <MobileNavLink href="/galleri" onClick={closeAll}>
-              Galleri
-            </MobileNavLink>
-            
-            <MobileNavLink href="/om-os" onClick={closeAll}>
-              Om Os
-            </MobileNavLink>
-            
-            <div className="pt-4">
-              <BookButton className="w-full" size="lg" onClick={closeAll}>
-                Book et møde
-              </BookButton>
+        <div className="md:hidden fixed inset-0 bg-white z-40 overflow-y-auto">
+          {/* Mobile Header with Close Button */}
+          <div className="flex justify-between items-center h-20 px-6 border-b border-gray-200 bg-white">
+            <Link href="/" className="flex-shrink-0" onClick={closeAll}>
+              <Image
+                src="/images/logo/logo.svg"
+                alt="Logo"
+                width={140}
+                height={60}
+                priority
+                className="hover:opacity-90 transition-opacity"
+              />
+            </Link>
+            <button
+              className="p-3 rounded-xl text-darkblue hover:text-accent hover:bg-accent/5 transition-all duration-200"
+              onClick={closeAll}
+              aria-label="Luk menu"
+            >
+              <X size={28} strokeWidth={1.5} />
+            </button>
+          </div>
+          
+          {/* Mobile Menu Content */}
+          <div className="px-6 py-8">
+            <div className="flex flex-col space-y-2">
+              <MobileNavLink href="/" onClick={closeAll} pathname={pathname}>
+                Forside
+              </MobileNavLink>
+              
+              <div className="py-2">
+                <MobileDropdown title="Ydelser" pathname={pathname}>
+                  {services.map((service) => (
+                    <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
+                      {service.name}
+                    </DropdownItem>
+                  ))}
+                </MobileDropdown>
+              </div>
+              
+              <MobileNavLink href="/galleri" onClick={closeAll} pathname={pathname}>
+                Galleri
+              </MobileNavLink>
+              
+              <MobileNavLink href="/om-os" onClick={closeAll} pathname={pathname}>
+                Om Os
+              </MobileNavLink>
+              
+              <div className="pt-8 mt-8 border-t border-gray-200">
+                <Link href="/kontakt" onClick={closeAll}>
+                  <button className="w-full px-8 py-4 bg-accent text-white rounded-xl hover:bg-accent/90 transition-all duration-200 font-semibold text-lg">
+                    Book et møde
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -149,71 +190,103 @@ const Navbar = () => {
 };
 
 // Hjælpekomponenter med større skrift
-const NavLink = ({ href, children, isScrolled, onClick }) => (
-  <Link
-    href={href}
-    onClick={onClick}
-    className={`px-3 py-2 text-darkblue hover:text-accent font-medium transition-colors text-lg ${
-      isScrolled ? "text-darkblue" : "text-darkblue"
-    }`}
-  >
-    {children}
-  </Link>
-);
-
-const DropdownMenu = ({ title, children, isOpen, onClick, isScrolled }) => (
-  <div className="relative">
-    <button
+const NavLink = ({ href, children, isScrolled, onClick, pathname }) => {
+  const isActive = pathname === href || (href === "/" && pathname === "/forside");
+  
+  return (
+    <Link
+      href={href}
       onClick={onClick}
-      className={`px-3 py-2 flex items-center text-darkblue hover:text-accent font-medium transition-colors text-lg ${
+      className={`px-3 py-2 font-medium transition-colors text-lg relative ${
         isScrolled ? "text-darkblue" : "text-darkblue"
-      }`}
+      } ${isActive ? "text-accent" : "text-darkblue hover:text-accent"}`}
     >
-      {title}
-      <ChevronDown
-        className={`ml-2 w-5 h-5 transition-transform ${
-          isOpen ? "rotate-180" : ""
-        }`}
-      />
-    </button>
-    {isOpen && (
-      <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 z-50 max-h-[70vh] overflow-y-auto">
-        {children}
-      </div>
-    )}
-  </div>
-);
+      {children}
+      {isActive && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"></div>}
+    </Link>
+  );
+};
+
+const DropdownMenu = ({ title, children, isOpen, onClick, isScrolled, pathname }) => {
+  const isYdelserActive = pathname?.startsWith('/ydelser');
+  
+  return (
+    <div className="relative dropdown-menu">
+      <button
+        onClick={onClick}
+        className={`px-3 py-2 flex items-center font-medium transition-colors text-lg relative ${
+          isScrolled ? "text-darkblue" : "text-darkblue"
+        } ${isOpen || isYdelserActive ? "text-accent" : "text-darkblue hover:text-accent"}`}
+      >
+        {title}
+        {(isOpen || isYdelserActive) && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"></div>}
+        <ChevronDown
+          className={`ml-2 w-5 h-5 transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 z-50 max-h-[70vh] overflow-y-auto">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const DropdownItem = ({ href, children, onClick }) => (
   <Link
     href={href}
     onClick={onClick}
-    className="block px-4 py-3 text-gray-700 hover:bg-accent/5 hover:text-accent transition-colors border-b border-gray-100 last:border-b-0 text-base"
+    className="block px-4 py-3 text-gray-700 hover:bg-accent/5 hover:text-accent transition-all duration-200 border-b border-gray-100 last:border-b-0 text-base rounded-lg mx-1"
   >
     {children}
   </Link>
 );
 
-const MobileNavLink = ({ href, children, onClick }) => (
-  <Link
-    href={href}
-    onClick={onClick}
-    className="py-3 px-4 text-lg text-darkblue hover:text-accent font-medium border-b border-gray-100"
-  >
-    {children}
-  </Link>
-);
+const MobileNavLink = ({ href, children, onClick, pathname }) => {
+  const isActive = pathname === href || (href === "/" && pathname === "/forside");
+  
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={`py-4 px-4 text-lg font-medium rounded-xl transition-all duration-200 relative overflow-hidden group ${
+        isActive 
+          ? "text-accent bg-accent/5" 
+          : "text-darkblue hover:text-accent hover:bg-accent/5"
+      }`}
+    >
+      <span className="relative z-10">{children}</span>
+      {isActive && (
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent rounded-r-full"></div>
+      )}
+    </Link>
+  );
+};
 
-const MobileDropdown = ({ title, children }) => (
-  <details className="group">
-    <summary className="py-3 px-4 text-lg text-darkblue hover:text-accent font-medium border-b border-gray-100 list-none flex justify-between items-center cursor-pointer">
-      {title}
-      <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform" />
-    </summary>
-    <div className="pl-4 pt-2 pb-4">
-      {children}
-    </div>
-  </details>
-);
+const MobileDropdown = ({ title, children, pathname }) => {
+  const isYdelserActive = pathname?.startsWith('/ydelser');
+  
+  return (
+    <details className="group">
+      <summary className={`py-4 px-4 text-lg font-medium rounded-xl list-none flex justify-between items-center cursor-pointer relative overflow-hidden transition-all duration-200 ${
+        isYdelserActive 
+          ? "text-accent bg-accent/5" 
+          : "text-darkblue hover:text-accent hover:bg-accent/5"
+      }`}>
+        <span className="relative z-10">{title}</span>
+        {isYdelserActive && (
+          <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent rounded-r-full"></div>
+        )}
+        <ChevronDown className="w-6 h-6 group-open:rotate-180 transition-transform duration-200" strokeWidth={1.5} />
+      </summary>
+      <div className="ml-4 mt-2 space-y-1">
+        {children}
+      </div>
+    </details>
+  );
+};
 
 export default Navbar;

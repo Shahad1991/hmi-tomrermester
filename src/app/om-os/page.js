@@ -40,9 +40,9 @@ const OmOs = () => {
   return (
     <div className="mx-auto pt-28">
       {/* Hero Section */}
-      <section className="relative min-h-screen h-64 md:h-80 lg:h-96 flex items-center justify-center text-center overflow-hidden">
+      <section className="relative min-h-[60vh] md:min-h-[80vh] lg:min-h-screen flex items-center justify-center text-center overflow-hidden">
         <Image 
-          src="/om-os-1.png" 
+          src="/images/om-os/om-os-1.png" 
           alt="Virksomhedens team" 
           fill
           className="object-cover z-0"
@@ -84,7 +84,7 @@ const OmOs = () => {
         </div>
         <div className="lg:w-1/2 relative h-96 lg:h-auto">
           <Image 
-            src="/om-os-ali.png" 
+            src="/images/om-os/om-os-ali.png" 
             alt="Virksomhedens bygning" 
             fill
             className="object-cover rounded-xl shadow-xl"
@@ -99,7 +99,7 @@ const OmOs = () => {
         {/* Bagrundsbillede */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/om-os-service-bg.jpeg"
+            src="/images/backgrounds/om-os-service-bg.jpeg"
             alt="Baggrundsmønster"
             fill
             className="object-cover"
