@@ -21,7 +21,6 @@ export default async function GulvPage() {
     const galleryImages = gulvItems.map(item => ({
       url: item.imageUrl,
       alt: item.altText,
-      title: item.title,
       id: item.id,
       description: item.description
     }));

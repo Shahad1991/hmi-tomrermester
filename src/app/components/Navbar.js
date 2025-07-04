@@ -32,7 +32,7 @@ const Navbar = () => {
   const services = [
     { name: "Køkken Renovering", href: "/ydelser/kokken" },
     { name: "Total Renovering", href: "/ydelser/total-renovering" },
-    { name: "Døre og Vinduer", href: "/ydelser/døre-vinduer" },
+    { name: "Dør og Vinduer", href: "/ydelser/dor-vinduer" },
     { name: "Gipsarbejde", href: "/ydelser/gipsarbejde" },
     { name: "Gulv", href: "/ydelser/gulv" },
     { name: "Hegn", href: "/ydelser/hegn" },

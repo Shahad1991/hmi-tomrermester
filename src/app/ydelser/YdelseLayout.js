@@ -264,10 +264,12 @@ export default function YdelseLayout({
 
                     {/* Card Content */}
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-darkblue mb-2 group-hover:text-accent transition-colors duration-300">
-                        {img.title || `Projekt ${index + 1}`}
-                      </h3>
-                      {img.description && <p className="text-sm text-gray-600">{img.description}</p>}
+                      {img.title && (
+                        <h3 className="text-xl font-bold text-darkblue mb-2 group-hover:text-accent transition-colors duration-300">
+                          {img.title}
+                        </h3>
+                      )}
+                      {img.description && <p className="text-md text-gray-600">{img.description}</p>}
                     </div>
 
                     {/* Decorative corner */}

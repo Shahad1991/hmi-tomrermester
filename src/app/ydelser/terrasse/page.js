@@ -24,7 +24,6 @@ export default async function TerrassePage() {
     const galleryImages = terrasseItems.map(item => ({
       url: item.imageUrl,
       alt: item.altText,
-      title: item.title,
       id: item.id,
       description: item.description
     }));

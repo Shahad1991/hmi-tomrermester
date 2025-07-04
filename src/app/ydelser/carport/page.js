@@ -1,9 +1,8 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import Image from 'next/image';
-import { Hammer, Wrench, Zap, Paintbrush } from 'lucide-react';
-import ContactButton from '../../components/buttons/ContactButton';
-import Link from 'next/link';
+import { Hammer, Zap, Paintbrush } from 'lucide-react';
+
+
 
 
 export default async function CarportPage() {
@@ -24,7 +23,6 @@ export default async function CarportPage() {
     const galleryImages = carportItems.map(item => ({
       url: item.imageUrl,
       alt: item.altText,
-      title: item.title,
       id: item.id,
       description: item.description
     }));
@@ -61,7 +59,7 @@ export default async function CarportPage() {
         heroImage="/images/services/carport.jpeg"
         heroTitle="Carport"
         heroText="Vi bygger carporte der beskytter din bil og tilføjer værdi til dit hjem."
-        imageTextImage="/images/ali-hmi/ali-carport.jpeg"
+        imageTextImage="/images/ali-hmi/ali-carport.png"
         imageTextTitle="Din erfarne carport specialist"
         imageTextDescription="Har du brug for beskyttelse til din bil eller ekstra overdækket opbevaringsplads? Hos HMI Tømrermester specialiserer vi os i konstruktion af solide og holdbare carporte. Vi bygger både enkle og avancerede løsninger, der passer til dit hjem og dine behov. Vores carporte er bygget med kvalitetsmaterialer og solidt håndværk, så de kan modstå vejr og vind i mange år. Vi hjælper dig med alt fra planlægning og myndighedsgodkendelse til den færdige carport."
         servicesSection={servicesSection}

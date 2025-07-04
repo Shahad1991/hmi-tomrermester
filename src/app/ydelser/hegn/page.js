@@ -22,7 +22,6 @@ export default async function HegnPage() {
     const galleryImages = hegnItems.map(item => ({
       url: item.imageUrl,
       alt: item.altText,
-      title: item.title,
       id: item.id,
       description: item.description
     }));

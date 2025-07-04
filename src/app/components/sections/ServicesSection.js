@@ -7,7 +7,7 @@ const services = [
   {
     title: "Dør & Vindue",
     link: "/ydelser/doer-vinduer",
-    bgImage: "/images/services/dør-vinduer.jpeg",
+    bgImage: "/images/services/dør-vinduer.png",
   },
   {
     title: "Gulv",
