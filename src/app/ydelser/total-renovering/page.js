@@ -1,6 +1,10 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import { Hammer, Paintbrush, Zap, Wrench, BrickWall, Truck } from 'lucide-react';
+import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
+
+// Export metadata for SEO
+export const metadata = generateServiceMetadata('total-renovering');
 
 export default async function TotalRenoveringPage() {
   try {

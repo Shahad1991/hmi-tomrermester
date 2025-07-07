@@ -6,9 +6,6 @@ import { Hammer, Zap, Paintbrush } from 'lucide-react';
 // Export metadata for SEO
 export const metadata = generateServiceMetadata('carport');
 
-
-
-
 export default async function CarportPage() {
   try {
     const allItems = await getAllGalleryItems();

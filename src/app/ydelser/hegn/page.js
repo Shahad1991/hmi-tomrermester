@@ -1,8 +1,10 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import { Hammer, Wrench, Ruler } from 'lucide-react';
+import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
 
-
+// Export metadata for SEO
+export const metadata = generateServiceMetadata('hegn');
 
 export default async function HegnPage() {
   try {

@@ -1,7 +1,10 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import { Hammer, Paintbrush, Zap } from 'lucide-react';
+import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
 
+// Export metadata for SEO
+export const metadata = generateServiceMetadata('gipsarbejde');
 
 export default async function GipsarbejdePage() {
   try {

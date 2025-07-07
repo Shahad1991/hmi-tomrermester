@@ -5,24 +5,40 @@ const siteMetadata = {
     template: "%s | HMI Tømrermester",
     default: "HMI Tømrermester - Professionel tømrer og byggefirma i Taastrup",
   },
-  description: "HMI Tømrermester tilbyder professionelle tømrer- og byggeløsninger i Taastrup og omegn. Carporte, terrasser, køkkener, gulve, renovering og meget mere. Kontakt os for et uforpligtende tilbud.",
+  description: "HMI Tømrermester er din lokale tømrer i Taastrup og på Sjælland. Vi tilbyder alt fra carporte og terrasser til køkkenrenovering, gulvlægning og døre/vinduer. Kvalitet, service og solidt håndværk – altid til tiden.",
   metadataBase: new URL("https://hmi-tomrermester.dk"),
   keywords: [
-    "tømrer",
-    "byggefirma", 
-    "carport",
-    "terrasse",
-    "køkken",
-    "renovering",
-    "gulvlægning",
-    "gipsarbejde",
-    "døre og vinduer",
-    "Taastrup",
-    "København",
-    "Sjælland",
-    "byggeprojekt",
-    "håndværker"
-  ],
+  // Lokale søgninger
+  "tømrer Taastrup",
+  "håndværker Taastrup",
+  "byggefirma Taastrup",
+  "tømrer København",
+  "tømrer Sjælland",
+
+  // Ydelser + lokation
+  "carport byggeri Taastrup",
+  "el-installation carport",
+  "terrassebyggeri Taastrup",
+  "køkkenmontering Taastrup",
+  "gulvlægning Sjælland",
+  "gipsarbejde København",
+  "montering af døre og vinduer",
+
+  // Problemfokuseret søgning (godt for long-tail)
+  "hjælp til renovering",
+  "lav en carport",
+  "overdækket terrasse løsning",
+  "nyt gulv i huset",
+  "skift af vinduer og døre",
+  "professionel tømrer nær mig",
+
+  // Generelle søgninger
+  "tømrerarbejde",
+  "renovering af hus",
+  "håndværker med garanti",
+  "lokal tømrer med erfaring"
+],
+
   authors: [{ name: "HMI Tømrermester" }],
   creator: "HMI Tømrermester",
   publisher: "HMI Tømrermester",
@@ -85,6 +101,61 @@ const siteMetadata = {
     "business:contact_data:phone_number": "+45 28 22 50 60",
   },
 }
+
+// JSON-LD Schema for structured data (SEO)
+export const jsonLdSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "HMI Tømrermester",
+  image: "https://hmi-tomrermester.dk/images/ali-hmi/hmi-ali.png",
+  "@id": "https://hmi-tomrermester.dk",
+  url: "https://hmi-tomrermester.dk",
+  telephone: "+4528225060",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Vibevej 7",
+    addressLocality: "Taastrup",
+    postalCode: "2630",
+    addressCountry: "DK"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 55.651,
+    longitude: 12.299
+  },
+  openingHours: [
+    "Mo-Fr 07:00-16:00",
+    "Sa 08:00-12:00"
+
+  ],
+  priceRange: "$$",
+  areaServed: [
+    "Taastrup",
+    "København", 
+    "Sjælland"
+  ],
+  serviceType: [
+    "Tømrerarbejde",
+    "Carport byggeri",
+    "Terrasse anlæggelse", 
+    "Køkkenrenovering",
+    "Gulvlægning",
+    "Renovering",
+    "Gipsarbejde",
+    "Døre og vinduer",
+    "Hegn opsætning",
+    "Andre byggeopgaver",
+    "Total renovering",
+    "Akustikpaneler",
+    "Specialiserede håndværksløsninger",
+
+  ],
+  sameAs: [
+    "https://www.facebook.com/hmitomrermester",
+    "https://www.instagram.com/hmitomrermester",
+    "https://www.linkedin.com/company/hmi-t%C3%B8mrermester"
+  ]
+};
 
 // Service-specific metadata templates
 export const serviceMetadata = {

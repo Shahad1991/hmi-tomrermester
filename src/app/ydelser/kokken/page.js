@@ -4,7 +4,10 @@ import Image from 'next/image';
 import { Hammer, Wrench, Zap, Ruler } from 'lucide-react';
 import ContactButton from '../../components/buttons/ContactButton';
 import Link from 'next/link';
+import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
 
+// Export metadata for SEO
+export const metadata = generateServiceMetadata('kokken');
 
 export default async function KokkenPage() {
   try {

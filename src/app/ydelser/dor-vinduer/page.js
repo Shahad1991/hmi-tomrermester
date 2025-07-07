@@ -1,7 +1,10 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
+import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
 import { Hammer, Ruler } from 'lucide-react';
 
+// Export metadata for SEO
+export const metadata = generateServiceMetadata('dor-vinduer');
 
 export default async function DorVinduerPage() {
   try {
