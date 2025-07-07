@@ -1,6 +1,10 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
+import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
 import { Hammer, Zap, Paintbrush } from 'lucide-react';
+
+// Export metadata for SEO
+export const metadata = generateServiceMetadata('carport');
 
 
 
@@ -57,11 +61,11 @@ export default async function CarportPage() {
     return (
       <YdelseLayout
         heroImage="/images/services/carport.jpeg"
-        heroTitle="Carport"
-        heroText="Vi bygger carporte der beskytter din bil og tilføjer værdi til dit hjem."
+        heroTitle="Carporte i høj kvalitet"
+        heroText="Få en skræddersyet carport, der beskytter din bil og matcher dit hjem – bygget med solide materialer og professionelt håndværk."
         imageTextImage="/images/ali-hmi/ali-carport.png"
-        imageTextTitle="Din erfarne carport specialist"
-        imageTextDescription="Har du brug for beskyttelse til din bil eller ekstra overdækket opbevaringsplads? Hos HMI Tømrermester specialiserer vi os i konstruktion af solide og holdbare carporte. Vi bygger både enkle og avancerede løsninger, der passer til dit hjem og dine behov. Vores carporte er bygget med kvalitetsmaterialer og solidt håndværk, så de kan modstå vejr og vind i mange år. Vi hjælper dig med alt fra planlægning og myndighedsgodkendelse til den færdige carport."
+        imageTextTitle="Carport i høj kvalitet | Specialbygget af HMI Tømrermester"
+        imageTextDescription="Skal du have bygget en carport? Hos HMI Tømrermester tilbyder vi skræddersyede løsninger til carporte, der beskytter din bil og tilføjer både funktion og æstetik til din bolig. Vi bygger robuste carporte i høj kvalitet – med mulighed for tilvalg som el-installationer og malerbehandling. Vi hjælper dig hele vejen fra idé og tegning til færdig montering og myndighedsgodkendelse. Se eksempler i vores galleri og kontakt os for et uforpligtende tilbud."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
       >

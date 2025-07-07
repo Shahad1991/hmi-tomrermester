@@ -2,6 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import { Hammer, Wrench, BrickWall, Paintbrush, Drill, Zap } from 'lucide-react';
 import ContactButton from '../components/buttons/ContactButton';
+import { generatePageMetadata } from '../../metadata/MetaDataCollection';
+
+// Export metadata for SEO
+export const metadata = generatePageMetadata('om-os');
 
 const OmOs = () => {
   const services = [
