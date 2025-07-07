@@ -58,11 +58,11 @@ export default async function CarportPage() {
     return (
       <YdelseLayout
         heroImage="/images/services/carport.jpeg"
-        heroTitle="Carporte i høj kvalitet"
+        heroTitle="Carport i høj kvalitet"
         heroText="Få en skræddersyet carport, der beskytter din bil og matcher dit hjem – bygget med solide materialer og professionelt håndværk."
         imageTextImage="/images/ali-hmi/ali-carport.png"
-        imageTextTitle="Carport i høj kvalitet | Specialbygget af HMI Tømrermester"
-        imageTextDescription="Skal du have bygget en carport? Hos HMI Tømrermester tilbyder vi skræddersyede løsninger til carporte, der beskytter din bil og tilføjer både funktion og æstetik til din bolig. Vi bygger robuste carporte i høj kvalitet – med mulighed for tilvalg som el-installationer og malerbehandling. Vi hjælper dig hele vejen fra idé og tegning til færdig montering og myndighedsgodkendelse. Se eksempler i vores galleri og kontakt os for et uforpligtende tilbud."
+        imageTextTitle="Professionel carportløsning fra idé til montering"
+        imageTextDescription="Skal du have bygget en carport? Hos HMI Tømrermester tilbyder vi skræddersyede løsninger til carporte, der beskytter din bil og tilføjer både funktion og æstetik til din bolig. Vi bygger robuste carporte i høj kvalitet – med mulighed for tilvalg som el-installationer og malerbehandling.<br><br> Vi hjælper dig hele vejen fra idé og tegning til færdig montering og myndighedsgodkendelse. Se eksempler i vores galleri og kontakt os for et uforpligtende tilbud."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
       >

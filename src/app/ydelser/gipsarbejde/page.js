@@ -61,8 +61,12 @@ export default async function GipsarbejdePage() {
         heroTitle="Gipsarbejde"
         heroText="Vi leverer professionelle gipsløsninger til vægge og lofter."
         imageTextImage="/images/ali-hmi/ali-gipsarbejde.png"
-        imageTextTitle="Din professionelle gips specialist"
-        imageTextDescription="Har du brug for nye vægge, lofter eller renovering af eksisterende gipsoverflader? Hos HMI Tømrermester specialiserer vi os i alle former for gipsarbejde. Vi håndterer hele processen fra opsætning af gipsvægge og lofter til sparkling, grundbehandling og færdig maling. Vores erfarne håndværkere sikrer en perfekt finish med glatte overflader og præcis udførelse. Vi koordinerer også el-installationer bag gipsvæggene, så du får en komplet løsning. Uanset om det er nye skillevægge, loftssænkning eller reparation, leverer vi kvalitetsarbejde der holder i mange år."
+        imageTextTitle="Gipsarbejde i høj kvalitet til vægge og lofter "
+        imageTextDescription="Hos HMI Tømrermester tilbyder vi professionelt gipsarbejde til både nybyg, renovering og ombygning. Vi udfører alt fra opsætning af gipsvægge og lofter til spartling, grundbehandling og malerklargøring – altid med fokus på et flot og holdbart resultat.<br><br>
+
+        Vores erfarne håndværkere sikrer præcise afslutninger og glatte overflader, uanset om der er tale om nye rumopdelinger, loftssænkninger eller reparation af eksisterende konstruktioner.
+
+        Har du brug for el bag væggene? Vi sørger også for koordinering af installationer, så du får en komplet og gennemtænkt løsning."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
       >

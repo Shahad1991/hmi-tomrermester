@@ -64,7 +64,13 @@ export default async function AndreOpgaverPage() {
         heroText="Vi udfører specialiserede tømreropgaver såsom montering af akustikpaneler og opsætning af vindskeder – altid med fokus på høj kvalitet og funktionalitet."
         imageTextImage="/images/ali-hmi/ali-andre-opgaver.png"
         imageTextTitle="Komplette løsninger til moderne byggeri"
-        imageTextDescription="Akustikpaneler er en effektiv og moderne løsning til at reducere støj og forbedre lydforholdene i både private hjem, kontorer og kommercielle rum. Hos HMI Tømrermester har vi stor erfaring med rådgivning, tilpasning og montering af akustikløsninger, der matcher dit rum og dine behov. Vi tilbyder alt fra opmåling og akustisk vurdering til færdig montering, og vi anvender materialer i høj kvalitet med lang levetid. Uanset om du ønsker sorte lameller, egetræ eller specialdesigns, sørger vi for en elegant og funktionel løsning. Har dit tag behov for nye vindskeder? Vi udskifter eller opsætter vindskeder, der både beskytter mod fugt og giver dit hus et skarpt finish. Vores løsninger tager højde for både holdbarhed, æstetik og byggetekniske krav. Kontakt os for et uforpligtende tilbud – vi hjælper dig trygt gennem hele processen."
+        imageTextDescription="Hos HMI Tømrermester hjælper vi med en bred vifte af tømreropgaver – fra opsætning af akustikpaneler og udskiftning af vindskeder til mindre tagarbejde og specialopgaver.
+
+         <br> Vi tilbyder komplette løsninger med fokus på kvalitet, holdbarhed og godt håndværk. Uanset om du har brug for bedre lydforhold i hjemmet, vedligeholdelse af udhæng eller præcise bygningsdetaljer, står vi klar med rådgivning, opmåling og professionel montering.
+
+         <br><br> Vi benytter robuste materialer og arbejder altid med øje for både funktionalitet og æstetik.
+
+          Kontakt os i dag for et uforpligtende tilbud – vi skræddersyr løsningen efter dine behov."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
       >

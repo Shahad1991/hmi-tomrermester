@@ -57,8 +57,8 @@ export default async function TerrassePage() {
         heroTitle="Terrasse"
         heroText="Vi bygger smukke terrasser der udvider dit hjem og skaber det perfekte uderum."
         imageTextImage="/images/ali-hmi/ali-terrasse.jpeg"
-        imageTextTitle="Din erfarne terrasse specialist"
-        imageTextDescription="Drømmer du om en smuk terrasse hvor du kan nyde sommeren og få mere ud af dit uderum? Hos HMI Tømrermester specialiserer vi os i konstruktion af holdbare og æstetiske terrasser i forskellige materialer og designs. Vi bygger alt fra klassiske træterrasser til moderne komposit løsninger, der passer til dit hjem og din stil. Vores erfarne håndværkere sikrer korrekt fundamentering, præcis montering og finish der tåler vejr og vind. Med fokus på kvalitet og detaljer får du en terrasse der holder i mange år og tilføjer værdi til dit hjem."
+        imageTextTitle="Terrasser med fokus på kvalitet, design og holdbarhed"
+        imageTextDescription="Hos HMI Tømrermester bygger vi terrasser, der forlænger dit uderum og skaber rammen om hyggelige stunder året rundt. Vi tilbyder skræddersyede løsninger i både klassisk træ og moderne komposit – altid tilpasset din bolig og dine ønsker.<br><br>Vores erfarne fagfolk sikrer et solidt fundament, præcis opbygning og en flot finish, der kan modstå det danske vejr. Uanset om du drømmer om en enkel hævet træterrasse eller en større, niveaudelt løsning, står vi klar til at rådgive dig gennem hele processen.<br><br>Med fokus på kvalitet, funktionalitet og æstetik får du en terrasse, der både holder og klæder dit hjem. Kontakt os i dag for en uforpligtende snak om dit terrasseprojekt."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
       >

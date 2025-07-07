@@ -78,8 +78,8 @@ export default async function RenoveringPage() {
         heroTitle="Renovering"
         heroText="Vi gennemfører omfattende renoveringer der giver dit hjem nyt liv og øget værdi."
         imageTextImage="/images/ali-hmi/hmi-ali.png"
-        imageTextTitle="Din erfarne renoveringsspecialist"
-        imageTextDescription="Skal dit hjem have en kærlig hånd eller en større renovering? Hos HMI Tømrermester tager vi os af alt fra mindre reparationer til omfattende renoveringer. Vi koordinerer alle håndværksfag og sikrer, at dit projekt gennemføres professionelt og til tiden. Vores erfaring spænder fra badrenovering og køkkenrenovering til komplet husrenovering. Vi hjælper dig med planlægning, materialevalg og udførelse, så du får det drømmehjem du ønsker dig."
+        imageTextTitle="Renovering med overblik og kvalitet"
+        imageTextDescription="Skal dit hjem have en kærlig hånd eller en større renovering? Hos HMI Tømrermester tager vi os af alt fra mindre reparationer til omfattende renoveringer. Vi koordinerer alle håndværksfag og sikrer, at dit projekt gennemføres professionelt og til tiden.<br><br>Vores erfaring spænder fra badrenovering og køkkenrenovering til komplet husrenovering. Vi hjælper dig med planlægning, materialevalg og udførelse, så du får det drømmehjem du ønsker dig."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
       >

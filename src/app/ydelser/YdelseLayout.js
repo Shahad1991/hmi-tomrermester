@@ -141,9 +141,10 @@ export default function YdelseLayout({
                 </div>
                 
                 <div className="space-y-6">
-                  <p className="text-white text-xl leading-relaxed opacity-90">
-                    {imageTextDescription}
-                  </p>
+                  <div 
+                    className="text-white text-xl leading-relaxed opacity-90"
+                    dangerouslySetInnerHTML={{ __html: imageTextDescription }}
+                  />
                   
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   

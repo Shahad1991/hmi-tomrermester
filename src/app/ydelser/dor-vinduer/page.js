@@ -56,9 +56,13 @@ export default async function DorVinduerPage() {
         heroTitle="Dør & Vinduer"
         heroText="Vi leverer professionelle løsninger til installation af døre og vinduer."
         imageTextImage="/images/ali-hmi/ali-vindue.jpeg"
-        imageTextTitle="Din professionelle dør og vindue specialist"
-        imageTextDescription="Har du brug for nye døre eller vinduer til dit hjem? Hos HMI Tømrermester specialiserer vi os i installation af alle typer døre og vinduer. Vi håndterer hele processen fra opmåling og rådgivning til professionel installation. Vores erfarne håndværkere sikrer en perfekt pasform og finish med omhyggelig tilpasning og præcis montering. Uanset om det er enkelte døre, vinduer eller en komplet udskiftning, leverer vi kvalitetsarbejde der holder i mange år og forbedrer dit hjems energieffektivitet og komfort."
-        servicesSection={servicesSection}
+        imageTextTitle="Kvalitetsløsninger til døre og vinduer "
+        imageTextDescription="Skal dine døre eller vinduer udskiftes eller opgraderes? Hos HMI Tømrermester tilbyder vi professionelle løsninger til både nye og eksisterende boliger – uanset om det gælder enkelte elementer eller en komplet udskiftning.
+
+        <br><br>Vi sørger for alt fra opmåling og rådgivning til præcis montering med fokus på finish, tæthed og holdbarhed. Vores løsninger er skræddersyet til dine ønsker og behov og lever op til nutidens krav til både æstetik, komfort og energieffektivitet.
+
+        Kontakt os i dag og få et uforpligtende tilbud på nye døre og vinduer – vi står klar til at hjælpe dig sikkert gennem hele processen."
+                servicesSection={servicesSection}
         galleryImages={galleryImages}
       >
         

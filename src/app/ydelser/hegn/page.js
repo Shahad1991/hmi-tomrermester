@@ -61,8 +61,8 @@ export default async function HegnPage() {
         heroTitle="Hegn"
         heroText="Vi bygger solide hegn der skaber privatliv og definerer din ejendom."
         imageTextImage="/images/ali-hmi/ali-hegn.jpeg"
-        imageTextTitle="Din erfarne hegn specialist"
-        imageTextDescription="Har du brug for et nyt hegn til din ejendom? Hos HMI Tømrermester specialiserer vi os i konstruktion af holdbare og æstetiske hegn i forskellige materialer og designs. Uanset om du ønsker et klassisk trætræmhegn, et moderne design eller noget helt tredje, hjælper vi dig med at finde den perfekte løsning. Vi sørger for korrekt fundamentering, præcis montering og overholdelse af alle byggeregler. Med vores erfaring får du et hegn der holder i mange år."
+        imageTextTitle="Skræddersyede hegn i høj kvalitet"
+        imageTextDescription="Har du brug for et nyt hegn til din ejendom? Hos HMI Tømrermester specialiserer vi os i konstruktion af holdbare og æstetiske hegn i forskellige materialer og designs. Uanset om du ønsker et klassisk trætræmhegn, et moderne design eller noget helt tredje, hjælper vi dig med at finde den perfekte løsning.<br><br>Vi sørger for korrekt fundamentering, præcis montering og overholdelse af alle byggeregler. Med vores erfaring får du et hegn der holder i mange år."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
       >
