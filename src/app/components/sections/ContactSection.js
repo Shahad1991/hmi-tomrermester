@@ -59,7 +59,7 @@ export default function ContactSection() {
                   <Instagram className="w-5 h-5 md:w-6 md:h-6 text-accent" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/hmi-t%C3%B8mrermester/posts/?feedView=all"
+                  href="https://www.linkedin.com/company/hmi-t%C3%B8mrermester"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
