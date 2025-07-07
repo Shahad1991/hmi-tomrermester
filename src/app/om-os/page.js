@@ -40,7 +40,7 @@ const OmOs = () => {
   return (
     <div className="mx-auto pt-28">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] md:min-h-[80vh] lg:min-h-screen flex items-center justify-center text-center overflow-hidden">
+      <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
         <Image 
           src="/images/om-os/om-os-1.png" 
           alt="Virksomhedens team" 

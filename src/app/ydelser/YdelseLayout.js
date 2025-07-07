@@ -129,7 +129,7 @@ export default function YdelseLayout({
 
         {/* image-text Section */}
         <section className="bg-gradient-to-br from-darkblue to-gray-800 text-white py-20 px-4">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Text Left */}
               <div className="space-y-8">
@@ -194,11 +194,11 @@ export default function YdelseLayout({
               </p>
             </div>
             
-            <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8">
+            <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {servicesSection.services.map((service, index) => (
                 <div 
                   key={index}
-                  className="bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1 w-full md:w-auto md:flex-1 max-w-xs"
+                  className="bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1"
                 >
                   <div className="bg-white text-accent p-4 md:p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
                     {service.icon}
@@ -269,7 +269,7 @@ export default function YdelseLayout({
                           {img.title}
                         </h3>
                       )}
-                      {img.description && <p className="text-md text-gray-600">{img.description}</p>}
+                      {img.description && <p className="text-sm text-gray-600">{img.description}</p>}
                     </div>
 
                     {/* Decorative corner */}

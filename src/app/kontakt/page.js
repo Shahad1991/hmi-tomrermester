@@ -9,10 +9,10 @@ export default function Kontakt() {
   return (
     <div className="mx-auto mt-28">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center">
+      <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/kontakt-bg1.png"
+            src="/images/kontakt/kontakt-bg1.png"
             alt="Baggrund"
             fill
             className="object-cover"
@@ -63,10 +63,10 @@ export default function Kontakt() {
         {/* Baggrund kun for denne del */}
         <div className="absolute inset-0 w-full h-full -z-10">
           <Image
-            src="/kontakt-process-bg.png"
+            src="/images/backgrounds/kontakt-process-bg.png"
             alt="HMI logo som background"
             fill
-            className="object-cover opacity-10 "
+            className="object-cover opacity-10"
             quality={80}
             priority
           />
