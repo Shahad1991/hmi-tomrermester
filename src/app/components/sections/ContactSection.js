@@ -1,6 +1,8 @@
 "use client";
 import ContactForm from "../forms/ContactForm";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import Image from "next/image";
+
 
 export default function ContactSection() {
   return (
@@ -28,10 +30,13 @@ export default function ContactSection() {
         <div className="relative flex flex-col md:flex-row items-center gap-6">
           {/* Billedcontainer - samme stil som services-sektionen */}
           <div className="w-full md:w-1/2 aspect-[9/16] overflow-hidden">
-            <img
+            <Image
               src="/images/mockups/instagram-mockop.png"
               alt="Mobil mockop visende sociale medier"
-              className="w-full h-full object-cover rounded-md"
+              className="object-cover rounded-md"
+              width={600}
+              height={800}
+              priority
             />
           </div>
 
