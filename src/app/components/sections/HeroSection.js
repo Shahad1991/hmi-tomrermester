@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import HeroButtons from "../buttons/HeroButtons";
-import ThreeModel from "../3d-animation/ThreeModel"; 
 
 const HeroSection = () => {
   return (
@@ -87,16 +86,8 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* 3D-model - højre side (kun på desktop) */}
-      <div className="">
-        <ThreeModel
-  modelPath="/models/house.glb"
-  modelScale={[2, 2, 2]}
-  cameraPosition={[1, 1, 3]}
-  fov={30}
-  rotationSpeed={1.3}
-/>
-      </div>
+      
+      
     </section>
   );
 };
