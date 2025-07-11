@@ -65,8 +65,8 @@ export default async function KokkenPage() {
 
     // Partnership section data for Epoq
     const partnershipSection = {
-      title: "Komplet køkkenrenovering med Elgiganten og Epoq",
-      description: "Vi er certificerede installatører af Epoq køkkener fra Elgiganten og tilbyder komplet renovering fra A til Z. Vi monterer og samler dit nye køkken og koordinerer hele renoveringen med vores netværk af specialiserede håndværkere - elektrikere, murere og malere. Du får alt fra én hånd, så du kan læne dig tilbage mens vi skaber dit drømmekøkken med professionel kvalitet i alle led.",
+      title: "Komplet køkkenrenovering i samarbejde med Elgiganten",
+      description: "Vi har et stærkt samarbejde med Elgiganten, hvor vi hjælper deres kunder med opmåling og montering af Epoq-køkkener. Vi tilbyder en komplet køkkenrenovering fra A til Z – fra planlægning og opmåling til opsætning og finish. Dit nye køkken samles og monteres professionelt, og vi koordinerer hele forløbet med vores netværk af erfarne håndværkere – herunder elektrikere, murere og malere. Hos os får du alt fra én hånd og slipper for besværet, mens vi skaber dit drømmekøkken med kvalitet og præcision i alle detaljer.",
       image: "/images/services/køkken.png",
       imageAlt: "Komplet køkkenrenovering med Epoq køkken fra Elgiganten",
       partnerLogos: [
@@ -84,7 +84,7 @@ export default async function KokkenPage() {
     return (
       <YdelseLayout
         heroImage="/images/kontakt/kontakt-bg1.png"
-        heroTitle="Køkkenrenovering"
+        heroTitle="Køkken Renovering"
         heroText="Vi gør dine køkkendrømme til virkelighed med kvalitet og funktionalitet."
         imageTextImage="/images/ali-hmi/ali-kokken.jpeg"
         imageTextTitle="Din kvalitetsbevidste køkkenmontør"
