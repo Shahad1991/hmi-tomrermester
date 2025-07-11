@@ -25,6 +25,7 @@ export default async function CarportPage() {
       url: item.imageUrl,
       alt: item.altText,
       id: item.id,
+      title: item.title,
       description: item.description
     }));
 
