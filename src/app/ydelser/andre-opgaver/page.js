@@ -62,7 +62,7 @@ export default async function AndreOpgaverPage() {
         heroImage="/images/services/andre-opgaver.png"
         heroTitle="Andre Tømreropgaver"
         heroText="Vi udfører specialiserede tømreropgaver såsom montering af akustikpaneler og opsætning af vindskeder – altid med fokus på høj kvalitet og funktionalitet."
-        imageTextImage="/images/ali-hmi/ali-andre-opgaver.png"
+        imageTextImage="/images/ali-hmi/ali-andre-opgaver.jpeg"
         imageTextTitle="Komplette løsninger til moderne byggeri"
         imageTextDescription="Hos HMI Tømrermester hjælper vi med en bred vifte af tømreropgaver – fra opsætning af akustikpaneler og udskiftning af vindskeder til mindre tagarbejde og specialopgaver.
 

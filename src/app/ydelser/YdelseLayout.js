@@ -15,12 +15,15 @@ export default function YdelseLayout({
   galleryImages = [],
   children 
 }) {
-  // Debug log for at se hvad vi modtager
-  console.log('YdelseLayout galleryImages:', galleryImages);
-  
   // Modal state for billede visning
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Ensure component is mounted before showing interactive elements
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const openModal = (imageUrl, index) => {
     setSelectedImage(imageUrl);
@@ -128,7 +131,7 @@ export default function YdelseLayout({
         </section>
 
         {/* image-text Section */}
-        <section className="bg-gradient-to-br from-darkblue to-gray-800 text-white py-section-lg px-4">
+        <section className="bg-gradient-to-br from-darkblue to-gray-800 text-white py-28 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Text Left */}
@@ -296,7 +299,7 @@ export default function YdelseLayout({
         )}
 
         {/* Modal for enlarged image with navigation */}
-        {selectedImage && (
+        {isMounted && selectedImage && (
           <div
             className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center"
             onClick={closeModal}
