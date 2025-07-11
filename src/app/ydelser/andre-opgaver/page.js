@@ -59,7 +59,7 @@ export default async function AndreOpgaverPage() {
     
     return (
       <YdelseLayout
-        heroImage="/images/services/andre-opgaver.jpg"
+        heroImage="/images/services/andre-opgaver.png"
         heroTitle="Andre Tømreropgaver"
         heroText="Vi udfører specialiserede tømreropgaver såsom montering af akustikpaneler og opsætning af vindskeder – altid med fokus på høj kvalitet og funktionalitet."
         imageTextImage="/images/ali-hmi/ali-andre-opgaver.png"

@@ -52,7 +52,7 @@ const services = [
   {
     title: "Andre Opgaver",
     link: "/ydelser/andre-opgaver",
-    bgImage: "/images/services/andre-opgaver.jpg",
+    bgImage: "/images/services/andre-opgaver.png",
   },
 ];
 
