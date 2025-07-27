@@ -172,8 +172,11 @@ export default function YdelseLayout({
                     />
                   )}
                   
-                  {/* Decorative overlay - now using group-hover and positioned to not interfere */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  {/* Opacity overlay */}
+                  <div className="absolute inset-0 bg-darkblue bg-opacity-40 z-10"></div>
+                  
+                  {/* Decorative overlay - now using group-hover and positioned to not interfere */}                  
+                  <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20"></div>
                 </div>
                 
                 {/* Decorative elements */}
