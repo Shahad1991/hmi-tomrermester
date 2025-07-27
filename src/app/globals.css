@@ -2,3 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+a.block.px-4.py-3.text-gray-700.hover\:bg-accent\/5.hover\:text-accent.transition-all.duration-200.border-b.border-gray-100.last\:border-b-0.text-base.rounded-lg.mx-1 {
+    border-bottom: none;
+}
