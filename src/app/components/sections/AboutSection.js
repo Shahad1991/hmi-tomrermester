@@ -9,7 +9,7 @@ export default function AboutSection() {
           {/* Billede-sektion med overlappende badge */}
           <div className="relative w-full h-72 sm:h-96 md:h-full rounded-lg overflow-hidden shadow-lg min-h-[300px]">
             <Image
-              src="/hmi-ali.png"
+              src="/images/ali-hmi/hmi-ali.png"
               alt="HMI Tømrermester i både private hjem og erhvervsprojekter"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
