@@ -40,7 +40,7 @@ export default function ContactSection() {
             />
           </div>
 
-          <div className="flex flex-col gap-6 w-full md:w-1/2 ml-2">
+          <div className="flex flex-col gap-6 w-full md:w-1/2 ">
             <p className="text-lg text-white ">
               Følg med i vores process og se vores seneste projekter på sociale medier.
             </p>

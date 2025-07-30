@@ -116,11 +116,11 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-md "
+            className="md:hidden p-2 rounded-md  "
             onClick={toggleMenu}
             aria-label="Menu"
           >
-            {isOpen ? <X size={50} /> : <Menu size={50} strokeWidth={1.5}/>}
+            {isOpen ? <X size={70} /> : <Menu size={70} strokeWidth={1.2}/>}
           </button>
         </div>
       </div>
@@ -147,7 +147,7 @@ const Navbar = () => {
                   onClick={closeAll}
                   aria-label="Luk menu"
                 >
-                  <X size={50} strokeWidth={1.5} />
+                  <X size={70} strokeWidth={1.2} />
                 </button>
               </div>
             </div>
