@@ -143,8 +143,8 @@ export default function GalleryPage() {
                         <div className="w-4 h-4 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"></div>
                       </div>
                       
-                      <div className="absolute bottom-0 left-0 right-0 z-30 text-white p-4" style={{background: 'linear-gradient(to top, rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.6), transparent)'}}>
-                        <h3 className="font-semibold text-2xl mt-40">
+                      <div className="absolute bottom-0 left-0 right-0 z-30 text-white p-4" style={{background: 'linear-gradient(to top, rgba(15, 30, 69, 0.8), rgba(15, 30, 69, 0.6), transparent)'}}>
+                        <h3 className="font-semibold text-2xl p-4 mt-40">
                           {item.title}
                         </h3>
                       </div>
