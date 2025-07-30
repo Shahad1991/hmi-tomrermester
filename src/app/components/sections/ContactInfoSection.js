@@ -16,7 +16,6 @@ export default function ContactInfoCards() {
             </div>
             <h3 className="text-xl font-semibold text-darkblue mb-3">Adresse</h3>
             <div className="text-gray-dark space-y-1">
-              <p>HMI Tømrermester</p>
               <p>Vibevej 7</p>
               <p>2630 Taastrup</p>
             </div>
@@ -32,8 +31,8 @@ export default function ContactInfoCards() {
             <h3 className="text-xl font-semibold text-darkblue mb-3">Åbningstider</h3>
             <ul className="text-gray-dark space-y-1">
               <li><span className="font-medium">Man-Fre:</span> 07.00-15.00</li>
-              <li><span className="font-medium">Lør:</span> Efter aftale</li>
-              <li><span className="font-medium">Søn:</span> Lukket</li>
+              <li><span className="font-medium">Lørdag:</span> Efter aftale</li>
+            
             </ul>
           </div>
 
@@ -45,20 +44,20 @@ export default function ContactInfoCards() {
               </div>
             </div>
             <h3 className="text-xl font-semibold text-darkblue mb-3">Kontakt</h3>
-            <div className="text-gray-dark space-y-3">
-              <div>
-                <a href="tel:+4528225060" className="flex items-center justify-center hover:text-accent transition-colors group">
-                  <Phone className="w-5 h-5 mr-2 text-accent/80 group-hover:text-accent" />
-                  <span className="group-hover:text-accent"> +45 28 22 50 60 </span>
+            <ul className="text-gray-dark space-y-1">
+              <li>
+                <span className="font-medium">Tlf:</span> 
+                <a href="tel:+4528225060" className="hover:text-accent transition-colors group ml-1">
+                  <span className="group-hover:text-accent">+45 28 22 50 60</span>
                 </a>
-              </div>
-              <div>
-                <a href="mailto:ali@hmi-tomrermester.dk" className="flex items-center justify-center hover:text-accent transition-colors group">
-                  <Mail className="w-5 h-5 mr-2 text-accent/80 group-hover:text-accent" />
+              </li>
+              <li>
+                <span className="font-medium">E-mail:</span> 
+                <a href="mailto:ali@hmi-tomrermester.dk" className="hover:text-accent transition-colors group ml-1">
                   <span className="group-hover:text-accent">ali@hmi-tomrermester.dk</span>
                 </a>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
