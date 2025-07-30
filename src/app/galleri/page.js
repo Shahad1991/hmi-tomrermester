@@ -114,23 +114,62 @@ export default function GalleryPage() {
   }
 
   return (
-    <section className="relative min-h-screen py-12 mt-28 bg-gradient-to-b from-darkblue to-gray-900">
-      
-
-      {/* Main content with text left and images right */}
+    <section className="relative min-h-screen py-28 mt-28 bg-gray-900">
+       {/* Main content with text left and images right */}
       <div className="max-w-9xl mx-auto ">
-        <div className="grid grid-cols-1 lg:grid-cols-2  items-start">
-          {/* Text content - Left side */}
-          <div className='space-x-8 p-20'>
-            <div className="space-x-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-start">
+          {/* Images - Mobile first, then right side on desktop */}
+          <div className="w-full overflow-hidden order-1 lg:order-2">
+            <div className="overflow-x-auto">
+              <div className="inline-flex space-x-6 pl-4 pr-[calc(100vw-100%)]">
+                {galleryItems.length > 0 ? (
+                  galleryItems.map((item, index) => (
+                    <div 
+                      key={item.id} 
+                      className="relative flex-shrink-0 h-[450px] w-auto rounded-xl overflow-hidden group transition-all duration-300 cursor-pointer"
+                      onClick={() => openModal(item.imageUrl, index)}
+                    >
+                      <Image
+                        src={item.imageUrl}
+                        alt={item.title}
+                        width={350}
+                        height={450}
+                        quality={85}
+                        className="w-auto h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      
+                      {/* Gul cirkel indikator */}
+                      <div className="absolute top-4 right-4 z-30">
+                        <div className="w-4 h-4 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"></div>
+                      </div>
+                      
+                      <div className="absolute bottom-0 left-0 right-0 z-30 text-white p-4" style={{background: 'linear-gradient(to top, rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.6), transparent)'}}>
+                        <h3 className="font-semibold text-2xl mt-40">
+                          {item.title}
+                        </h3>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-darkblue text-center w-full">
+                    <p className="text-xl">Ingen galleribilleder tilgængelige</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Text content - Mobile second, then left side on desktop */}
+          <div className='p-6 md:p-20 order-2 lg:order-1'>
+            <div className="">
               
-              <h3 className="text-white px-8 text-3xl md:text-4xl font-bold mb-6 font-serif leading-tight">
+              <h3 className="text-white text-3xl md:text-4xl font-bold mb-6 font-serif leading-tight">
                 Vores projekter fortæller historier
               </h3>
               <div className="w-24 h-1 bg-accent mb-8"></div>
             </div>
             
-            <div className="space-y-6">
+            <div className="space-y-6 ml-2 md:ml-0">
               <p className="text-white text-xl leading-relaxed opacity-90">
                 Hvert projekt er unikt og fortæller sin egen historie. Fra køkkenrenoveringer til komplette byggerenovering, har vi stolt dokumenteret vores arbejde gennem årene.
               </p>
@@ -146,49 +185,15 @@ export default function GalleryPage() {
               <div className="pt-6">
                 <a 
                   href="/kontakt" 
-                  className="group inline-flex items-center justify-center px-8 py-3 bg-transparent text-white font-semibold rounded-lg shadow-lg border-2 border-accent hover:bg-accent hover:text-darkblue transition-all duration-300 text-lg transform hover:-translate-y-1 relative overflow-hidden"
+                  className="group inline-flex items-center gap-3 text-white font-semibold text-lg hover:text-accent transition-all duration-300"
                 >
-                  <span className="relative z-10 flex items-center gap-2">
+                  <span className="relative z-10">
                     Kontakt os for dit projekt
                   </span>
-                  <span className="absolute inset-0 bg-accent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                  <span className="text-accent transform group-hover:translate-x-1 transition-transform duration-300">
+                    →
+                  </span>
                 </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Images - Right side */}
-          <div className="w-full overflow-hidden">
-            <div className="overflow-x-auto">
-              <div className="inline-flex space-x-6 pl-4 pr-[calc(100vw-100%)]">
-                {galleryItems.length > 0 ? (
-                  galleryItems.map((item, index) => (
-                    <div 
-                      key={item.id} 
-                      className="relative flex-shrink-0 h-[450px] w-auto rounded-xl overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-white/20 cursor-pointer"
-                      onClick={() => openModal(item.imageUrl, index)}
-                    >
-                      <Image
-                        src={item.imageUrl}
-                        alt={item.title}
-                        width={350}
-                        height={450}
-                        quality={85}
-                        className="w-auto h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
-                      <div className="absolute bottom-4 left-4 z-20 text-white">
-                        <h3 className="font-bold text-2xl bg-darkblue/90 px-4 py-2 rounded-lg">
-                          {item.title}
-                        </h3>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <div className="text-white text-center w-full">
-                    <p className="text-xl">Ingen galleribilleder tilgængelige</p>
-                  </div>
-                )}
               </div>
             </div>
           </div>
