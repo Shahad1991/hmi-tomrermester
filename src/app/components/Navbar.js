@@ -116,11 +116,11 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-md text-darkblue hover:text-accent transition-colors"
+            className="md:hidden p-2 rounded-md "
             onClick={toggleMenu}
             aria-label="Menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={50} /> : <Menu size={50} strokeWidth={1.5}/>}
           </button>
         </div>
       </div>
@@ -129,24 +129,28 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden fixed inset-0 bg-white z-40 overflow-y-auto">
           {/* Mobile Header with Close Button */}
-          <div className="flex justify-between items-center h-20 px-6 border-b border-gray-200 bg-white">
-            <Link href="/" className="flex-shrink-0" onClick={closeAll}>
-              <Image
-                src="/images/logo/logo.svg"
-                alt="Logo"
-                width={140}
-                height={60}
-                priority
-                className="hover:opacity-90 transition-opacity"
-              />
-            </Link>
-            <button
-              className="p-3 rounded-xl text-darkblue hover:text-accent hover:bg-accent/5 transition-all duration-200"
-              onClick={closeAll}
-              aria-label="Luk menu"
-            >
-              <X size={28} strokeWidth={1.5} />
-            </button>
+          <div className="bg-white py-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center h-20">
+                <Link href="/" className="flex-shrink-0" onClick={closeAll}>
+                  <Image
+                    src="/images/logo/logo.svg"
+                    alt="Logo"
+                    width={140}
+                    height={60}
+                    priority
+                    className="hover:opacity-90 transition-opacity"
+                  />
+                </Link>
+                <button
+                  className="p-2 rounded-md text-darkblue hover:text-accent transition-colors"
+                  onClick={closeAll}
+                  aria-label="Luk menu"
+                >
+                  <X size={50} strokeWidth={1.5} />
+                </button>
+              </div>
+            </div>
           </div>
           
           {/* Mobile Menu Content */}

@@ -125,17 +125,7 @@ const Footer = () => {
           <p className="text-gray-500 text-xs md:text-sm mb-3 md:mb-0 text-center md:text-left">
             © {new Date().getFullYear()} HMI Tømrermester. Alle rettigheder forbeholdes.
           </p>
-          <div className="flex space-x-4 md:space-x-6">
-            <Link href="/privatlivspolitik" className="text-gray-500 hover:text-accent transition-colors text-xs md:text-sm">
-              Privatlivspolitik
-            </Link>
-            <Link href="/vilkår" className="text-gray-500 hover:text-accent transition-colors text-xs md:text-sm">
-              Vilkår
-            </Link>
-            <Link href="/cookies" className="text-gray-500 hover:text-accent transition-colors text-xs md:text-sm">
-              Cookies
-            </Link>
-          </div>
+          
         </div>
       </div>
     </footer>
