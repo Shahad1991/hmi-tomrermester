@@ -6,7 +6,7 @@ import Image from "next/image";
 const services = [
   {
     title: "Dør & Vindue",
-    link: "/ydelser/doer-vinduer",
+    link: "/ydelser/dor-vinduer",
     bgImage: "/images/services/dør-vinduer.png",
   },
   {
@@ -26,7 +26,7 @@ const services = [
   },
   {
     title: "Køkken Renovering",
-    link: "/ydelser/koekken-montage",
+    link: "/ydelser/kokken",
     bgImage: "/images/services/køkken.png",
   },
   {
