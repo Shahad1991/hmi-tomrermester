@@ -38,7 +38,7 @@ const HeroSection = () => {
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
           >
             <span className="block">Fra drøm til</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-[#FFCB45]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-[orange-400]">
               Virkelighed
             </span>
           </motion.h1>

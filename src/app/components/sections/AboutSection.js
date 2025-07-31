@@ -34,7 +34,7 @@ export default function AboutSection() {
               <h2 className="text-3xl md:text-4xl font-bold font-serif text-darkblue mb-4">
                 Pålidelig tømrermester til dine projekter
               </h2>
-              <div className="w-24 h-1 bg-accent"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400"></div>
               <p className="text-lg text-gray-600 mt-4 mb-6">
                 Vi leverer <strong>præcist håndværk</strong> til både private og virksomheder. Uanset om du skal renovere dit køkken eller 
                 udføre en større erhvervsopgave, sørger vi for <strong>kvalitet, punktlighed og fair priser</strong>.
