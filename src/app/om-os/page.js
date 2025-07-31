@@ -94,7 +94,7 @@ const OmOs = () => {
             className="object-cover rounded-xl shadow-xl"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 rounded-xl  bg-darkblue bg-opacity-40 z-10 group-hover:bg-opacity-30 transition-all duration-300"></div>
+          <div className="absolute inset-0 rounded-xl  bg-darkblue bg-opacity-20 z-10 group-hover:bg-opacity-30 transition-all duration-300"></div>
         </div>
       </section>
 
