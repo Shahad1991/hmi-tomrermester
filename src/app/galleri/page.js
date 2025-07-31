@@ -166,7 +166,7 @@ export default function GalleryPage() {
               <h3 className="text-white text-3xl md:text-4xl font-bold mb-6 font-serif leading-tight">
                 Vores projekter fortæller historier
               </h3>
-              <div className="w-24 h-1 bg-accent mb-8"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400  mb-8"></div>
             </div>
             
             <div className="space-y-6 ml-2 md:ml-0">
@@ -185,14 +185,9 @@ export default function GalleryPage() {
               <div className="pt-6">
                 <a 
                   href="/kontakt" 
-                  className="group inline-flex items-center gap-3 text-white font-semibold text-lg hover:text-accent transition-all duration-300"
+                  className="inline-flex items-center justify-center px-8 py-3 border-2 border-accent text-white font-semibold rounded-lg hover:bg-accent hover:text-darkblue transition-all duration-300"
                 >
-                  <span className="relative z-10">
-                    Kontakt os for dit projekt
-                  </span>
-                  <span className="text-accent transform group-hover:translate-x-1 transition-transform duration-300">
-                    →
-                  </span>
+                  Kontakt os for dit projekt
                 </a>
               </div>
             </div>

@@ -131,7 +131,7 @@ export default function YdelseLayout({
         </section>
 
         {/* image-text Section */}
-        <section className="bg-gradient-to-br from-darkblue to-gray-800 text-white py-28 px-4">
+        <section className="bg-gray-900 text-white py-28 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Text Left */}
@@ -140,7 +140,7 @@ export default function YdelseLayout({
                   <h2 className="text-white text-4xl md:text-5xl font-bold mb-6 font-serif leading-tight">
                     {imageTextTitle}
                   </h2>
-                  <div className="w-24 h-1 bg-accent mb-8"></div>
+                  <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400 mb-8"></div>
                 </div>
                 
                 <div className="space-y-6">
@@ -151,9 +151,9 @@ export default function YdelseLayout({
                   
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   
-                    <button className="px-8 py-3 border-2 border-accent text-white rounded-lg hover:bg-accent hover:text-white transition-all duration-300 font-semibold">
-                      Se vores arbejde
-                    </button>
+                    <Link href="/om-os" className="px-8 py-3 border-2 border-accent text-white rounded-lg hover:bg-accent hover:text-white transition-all duration-300 font-semibold inline-block text-center">
+                      Læs mere om os
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -170,14 +170,14 @@ export default function YdelseLayout({
                       className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                       priority
                     />
+                    
                   )}
                   
-                  {/* Opacity overlay */}
-                  <div className="absolute inset-0 bg-darkblue bg-opacity-20 z-10"></div>
+                  {/* Decorative overlay - now using group-hover and positioned to not interfere */}
                   
-                  {/* Decorative overlay - now using group-hover and positioned to not interfere */}                  
-                  <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
+               
                 
                 {/* Decorative elements */}
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-accent rounded-full opacity-20"></div>
@@ -189,7 +189,7 @@ export default function YdelseLayout({
 
         {/* Services Section */}
         {servicesSection && (
-          <section className="relative px-6 py-16 md:py-24 bg-darkblue overflow-hidden items-center content-center">
+          <section className="relative px-6 py-16 md:py-20 bg-gray-900 overflow-hidden items-center content-center">
             <div className="relative max-w-4xl mx-auto text-center mb-16 z-10">
               <span className="text-accent font-medium uppercase tracking-wider text-sm">Services vi tilbyder</span>
               <h2 className="text-3xl md:text-4xl font-bold font-serif text-white mt-2 mb-4">
@@ -235,7 +235,7 @@ export default function YdelseLayout({
               </div>
 
               {/* Gallery Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
                 {galleryImages.map((img, index) => (
                   <div 
                     key={img.id || index} 
@@ -284,22 +284,31 @@ export default function YdelseLayout({
                   </div>
                 ))}
               </div>
-
-              {/* Call to Action */}
-              <div className="text-center mt-16">
-                <p className="text-lg text-gray-600 mb-6">Interesseret i at se mere af vores arbejde?</p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <ContactButton />
-                  <Link href="/galleri">
-                  <button className="w-full px-8 py-3 border-2 border-accent text-darkblue rounded-lg hover:bg-accent hover:text-white transition-all duration-300 font-semibold">
-                    Se alt galleri
-                  </button>
-                  </Link>
-                </div>
-              </div>
             </div>
           </section>
         )}
+
+        {/* Call to Action - Full Width */}
+        <section className="w-full py-16 bg-gradient-to-r from-gray-900 to-gray-900">
+          <div className="max-w-4xl mx-auto text-center px-4">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-serif">
+              Interesseret i at se mere af vores arbejde?
+            </h3>
+            <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400  mx-auto mb-8"></div>
+            <p className="text-white text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+              Udforsk vores arbejde og bliv inspireret af vores håndværk
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <ContactButton />
+              <a href="https://www.instagram.com/hmitomrermester" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden inline-flex items-center justify-center px-8 py-3 bg-gradient-to-br from-accent via-[#FFC600] to-[#FFB600] text-gray-900 font-semibold rounded-lg shadow-lg hover:shadow-accent transition-all duration-300 text-lg transform hover:-translate-y-1">
+                <span className="relative z-10 flex items-center font-serif">
+                  Følg os på Instagram
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 group-hover:opacity-50 transition-opacity duration-300"></span>
+              </a>
+            </div>
+          </div>
+        </section>
 
         {/* Modal for enlarged image with navigation */}
         {isMounted && selectedImage && (

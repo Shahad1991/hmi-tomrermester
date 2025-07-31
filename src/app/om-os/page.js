@@ -68,7 +68,7 @@ const OmOs = () => {
         <div className="lg:w-1/2 lg:pr-8">
           <h2 className="text-3xl md:text-4xl font-bold text-darkblue mb-6 font-serif">Vores historie</h2>
           <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
-            <div className="w-24 h-1 bg-accent"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400 "></div>
             <p>
               <strong>HMI Tømrermester</strong> er en tømrervirksomhed med store kompetencer inden for træarbejde. 
               Vi løser et væld af forskellige opgaver - fra reparation af gamle døre og vinduer til opsætning af 
@@ -84,7 +84,7 @@ const OmOs = () => {
               håndværk og æstetik går hånd i hånd med en grundig tilgang til hvert enkelt projekt.
             </p>
           </div>
-          <ContactButton className="mt-8" />
+          <ContactButton className="mt-8 text-gray-900" />
         </div>
         <div className="lg:w-1/2 relative h-96 lg:h-auto">
           <Image 

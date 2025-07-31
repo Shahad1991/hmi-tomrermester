@@ -9,17 +9,12 @@ const ContactButton = ({
   icon = <ArrowRight className="ml-3 w-5 h-5" />,
   variant = 'primary'
 }) => {
-  const baseClasses = 'group relative overflow-hidden inline-flex items-center justify-center px-8 py-3 font-semibold rounded-lg shadow-lg transition-all duration-300 text-lg transform hover:-translate-y-1';
-  
-  const variantClasses = {
-    primary: 'bg-gradient-to-br from-accent via-[#FFC600] to-[#FFB600] text-darkblue hover:shadow-accent',
-    secondary: 'bg-darkblue text-white hover:shadow-darkblue'
-  };
+  const buttonClasses = "group inline-flex items-center justify-center px-8 py-3 bg-transparent text-white font-semibold rounded-lg shadow-lg border-2 border-accent hover:bg-accent hover:text-darkblue transition-all duration-300 text-lg transform hover:-translate-y-1 relative overflow-hidden";
 
   return (
     <Link
       href={href}
-      className={`${baseClasses} ${variantClasses[variant]} ${className}`}
+      className={`${buttonClasses} ${className}`}
     >
       <span className="relative z-10 flex items-center font-serif">
         {text}
