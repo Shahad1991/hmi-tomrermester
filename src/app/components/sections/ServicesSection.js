@@ -37,12 +37,12 @@ const services = [
   {
     title: "Renovering",
     link: "/ydelser/renovering",
-    bgImage: "/images/services/renovering.jpg",
+    bgImage: "/images/services/renovering.png",
   },
   {
     title: "Total Renovering",
     link: "/ydelser/total-renovering",
-    bgImage: "/images/services/renovering.jpg",
+    bgImage: "/images/services/total-renovering.jpeg",
   },
   {
     title: "Carport",

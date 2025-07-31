@@ -71,10 +71,10 @@ export default async function TotalRenoveringPage() {
 
     return (
       <YdelseLayout
-        heroImage="/images/services/andre-opgaver.jpg"
+        heroImage="/images/services/total-renovering.jpeg"
         heroTitle="Total Renovering"
         heroText="Vi gennemfører komplette renoveringer fra bund til top og giver dit hjem en total transformation."
-        imageTextImage="/images/ali-hmi/hmi-ali.png"
+        imageTextImage="/images/ali-hmi/ali-total-renovering.jpeg"
         imageTextTitle="Din partner til totalrenovering"
         imageTextDescription="Drømmer du om at give dit hjem en komplet makeover? Hos HMI Tømrermester specialiserer vi os i totalrenoveringer, hvor vi koordinerer alle håndværksfag og sikrer et sammenhængende resultat. Fra planlægning til færdigt resultat tager vi os af alt - strukturelle ændringer, el og VVS, overflader og finish.<br><br>Vi har erfaring med både ældre ejendomme og moderne huse, og vi sikrer at dit hjem både får et nyt look og opfylder moderne standarder for energi og komfort."
         servicesSection={servicesSection}
