@@ -1,6 +1,6 @@
 'use client';
 import { Star } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ReviewNavigation from "../buttons/ReviewNavigation";
 
 const Reviews = () => {
@@ -47,32 +47,17 @@ const Reviews = () => {
     }
   ];
 
-  // ... (resten af komponenten forbliver uændret)
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, reviews.length]);
 
   const nextReview = () => {
-    setIsAutoPlaying(false);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
   };
 
   const prevReview = () => {
-    setIsAutoPlaying(false);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length);
   };
 
   const goToReview = (index) => {
-    setIsAutoPlaying(false);
     setCurrentIndex(index);
   };
 
@@ -98,22 +83,22 @@ const Reviews = () => {
         {/* Mobil: én anmeldelse */}
         <div className="flex justify-center md:hidden">
           <div 
-            className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow w-full max-w-2xl"
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
+            className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow w-full max-w-2xl flex flex-col justify-between **h-[40rem]**"
           >
-            <div className="flex justify-center mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star 
-                  key={i} 
-                  className="w-6 h-6 fill-accent text-accent"
-                  fill="currentColor"
-                />
-              ))}
+            <div>
+              <div className="flex justify-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star 
+                    key={i} 
+                    className="w-6 h-6 fill-accent text-accent"
+                    fill="currentColor"
+                  />
+                ))}
+              </div>
+              <blockquote className="text-gray-600 italic mb-6 text-lg">
+                &quot;{reviews[currentIndex].quote}&quot;
+              </blockquote>
             </div>
-            <blockquote className="text-gray-600 italic mb-6 text-lg">
-              &quot;{reviews[currentIndex].quote}&quot;
-            </blockquote>
             <div className="border-t border-gray-200 pt-4">
               <p className="font-semibold text-darkblue">{reviews[currentIndex].author}</p>
               <p className="text-sm text-gray-500">{reviews[currentIndex].role}</p>
@@ -124,26 +109,26 @@ const Reviews = () => {
         {/* Desktop: tre anmeldelser */}
         <div 
           className="hidden md:grid md:grid-cols-3 gap-8 mx-auto"
-          onMouseEnter={() => setIsAutoPlaying(false)}
-          onMouseLeave={() => setIsAutoPlaying(true)}
         >
           {getDesktopReviews().map((review, idx) => (
             <div 
               key={idx} 
-              className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow w-full mx-auto"
+              className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow w-full mx-auto flex flex-col justify-between **h-[40rem]**"
             >
-              <div className="flex justify-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    className="w-6 h-6 fill-accent text-accent"
-                    fill="currentColor"
-                  />
-                ))}
+              <div>
+                <div className="flex justify-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      className="w-6 h-6 fill-accent text-accent"
+                      fill="currentColor"
+                    />
+                  ))}
+                </div>
+                <blockquote className="text-gray-600 italic mb-6 text-lg leading-relaxed">
+                  &quot;{review.quote}&quot;
+                </blockquote>
               </div>
-              <blockquote className="text-gray-600 italic mb-6 text-lg leading-relaxed">
-                &quot;{review.quote}&quot;
-              </blockquote>
               <div className="border-t border-gray-200 pt-4">
                 <p className="font-semibold text-darkblue">{review.author}</p>
                 <p className="text-sm text-gray-500">{review.role}</p>
