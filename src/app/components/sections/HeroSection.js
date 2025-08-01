@@ -5,8 +5,31 @@ import HeroButtons from "../buttons/HeroButtons";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-between bg-gray-900 overflow-hidden">
-      {/* Baggrund og gradient overlay */}
-      <div className="absolute inset-0 bg-cover bg-center" />
+      {/* Video baggrund */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            console.error('Video failed to load:', e);
+            e.target.style.display = 'none';
+          }}
+        >
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+          {/* Fallback baggrund hvis video ikke kan indlæses */}
+        </video>
+        {/* Video opacity overlay */}
+        <div className="absolute inset-0 bg-darkblue bg-opacity-70 z-10"></div>
+        {/* Fallback baggrund billede */}
+        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/backgrounds/hero-background.png')]" />
+       
+      </div>
+      
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-transparent lg:bg-gradient-to-r lg:from-gray-900/90 lg:via-gray-900/50 lg:to-transparent" />
       <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent opacity-40" />
 
