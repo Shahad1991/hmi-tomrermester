@@ -45,10 +45,10 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="space-y-12 md:space-y-12 pt-28">
-      <HeroSection />     
-      <Reviews />
+      <HeroSection /> 
+      <ServicesSection />    
       <AboutSection />
-      <ServicesSection />
+      <Reviews />
       <ContactSection />
       <ContactInfoSection />
     </div>

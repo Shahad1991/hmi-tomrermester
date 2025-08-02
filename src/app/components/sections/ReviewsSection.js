@@ -71,7 +71,7 @@ const Reviews = () => {
   };
 
   return (
-    <section className="py-6 bg-white">
+    <section id="reviews" className="py-6 bg-white">
       <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Overskrift */}
         <div className="mb-12">
@@ -80,83 +80,82 @@ const Reviews = () => {
           <div className="w-24 h-1 bg-accent mx-auto"></div>
         </div>
 
-        {/* Mobil: én anmeldelse */}
-        <div className="flex justify-center md:hidden">
-          <div 
-            className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow w-full max-w-2xl flex flex-col justify-between **h-[40rem]**"
-          >
-            <div>
-              <div className="flex justify-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    className="w-6 h-6 fill-accent text-accent"
-                    fill="currentColor"
-                  />
-                ))}
-              </div>
-              <blockquote className="text-gray-600 italic mb-6 text-lg">
-                &quot;{reviews[currentIndex].quote}&quot;
-              </blockquote>
-            </div>
-            <div className="border-t border-gray-200 pt-4">
-              <p className="font-semibold text-darkblue">{reviews[currentIndex].author}</p>
-              <p className="text-sm text-gray-500">{reviews[currentIndex].role}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Desktop: tre anmeldelser */}
-        <div 
-          className="hidden md:grid md:grid-cols-3 gap-8 mx-auto"
-        >
-          {getDesktopReviews().map((review, idx) => (
-            <div 
-              key={idx} 
-              className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow w-full mx-auto flex flex-col justify-between **h-[40rem]**"
-            >
-              <div>
-                <div className="flex justify-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className="w-6 h-6 fill-accent text-accent"
-                      fill="currentColor"
-                    />
-                  ))}
+        {/* Mobil: scrollbar med alle anmeldelser */}
+        <div className="md:hidden">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-6 pb-4" style={{ width: 'max-content' }}>
+              {reviews.map((review, idx) => (
+                <div 
+                  key={idx}
+                  className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-[35rem] w-80 flex-shrink-0"
+                >
+                  <div>
+                    <div className="flex justify-center mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className="w-5 h-5 fill-accent text-accent"
+                          fill="currentColor"
+                        />
+                      ))}
+                    </div>
+                    <blockquote className="text-gray-600 italic mb-6 text-base leading-relaxed">
+                      &quot;{review.quote}&quot;
+                    </blockquote>
+                  </div>
+                  <div className="border-t border-gray-200 pt-4">
+                    <p className="font-semibold text-darkblue">{review.author}</p>
+                    <p className="text-sm text-gray-500">{review.role}</p>
+                  </div>
                 </div>
-                <blockquote className="text-gray-600 italic mb-6 text-lg leading-relaxed">
-                  &quot;{review.quote}&quot;
-                </blockquote>
-              </div>
-              <div className="border-t border-gray-200 pt-4">
-                <p className="font-semibold text-darkblue">{review.author}</p>
-                <p className="text-sm text-gray-500">{review.role}</p>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Navigation */}
-        <div className="mt-8 flex flex-col items-center">
-          <ReviewNavigation
-            onPrev={prevReview}
-            onNext={nextReview}
-            buttonClass="bg-gray-100 hover:bg-accent transition-colors p-2 rounded-full"
-            iconClass="text-grey-800"
-          />
-          
-          {/* Indicator dots */}
-          <div className="flex gap-2 mt-4">
-            {reviews.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => goToReview(idx)}
-                className={`w-3 h-3 rounded-full transition-colors ${currentIndex === idx ? 'bg-accent' : 'bg-gray-300'}`}
-                aria-label={`Go to review ${idx + 1}`}
-              />
-            ))}
+        {/* Desktop: scrollbar med alle anmeldelser */}
+        <div className="hidden md:block">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-8 pb-4" style={{ width: 'max-content' }}>
+              {reviews.map((review, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-[40rem] w-96 flex-shrink-0"
+                >
+                  <div>
+                    <div className="flex justify-center mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className="w-6 h-6 fill-accent text-accent"
+                          fill="currentColor"
+                        />
+                      ))}
+                    </div>
+                    <blockquote className="text-gray-600 italic mb-6 text-lg leading-relaxed">
+                      &quot;{review.quote}&quot;
+                    </blockquote>
+                  </div>
+                  <div className="border-t border-gray-200 pt-4">
+                    <p className="font-semibold text-darkblue">{review.author}</p>
+                    <p className="text-sm text-gray-500">{review.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+
+        {/* Indicator dots */}
+        <div className="flex gap-2 mt-8 justify-center">
+          {reviews.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => goToReview(idx)}
+              className={`w-3 h-3 rounded-full transition-colors ${currentIndex === idx ? 'bg-accent' : 'bg-gray-300'}`}
+              aria-label={`Go to review ${idx + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
