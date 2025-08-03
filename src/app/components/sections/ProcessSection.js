@@ -49,8 +49,8 @@ export function ProcessSection() {
           <div className="h-1 w-24 bg-accent mx-auto rounded-full"></div>
         </div>
 
-        {/* Numbered circles with connecting line */}
-        <div className="relative flex justify-center mb-16">
+        {/* Numbered circles with connecting line - desktop only */}
+        <div className="relative justify-center mb-16 hidden md:flex">
           <div className="absolute top-1/2 h-1 bg-gray-300 w-2/3 -translate-y-1/2 z-0"></div>
           <div className="flex justify-between w-2/3 relative z-10">
             {steps.map((step) => (
@@ -67,29 +67,36 @@ export function ProcessSection() {
         {/* Process steps grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step) => (
-            <div
-              key={step.id}
-              className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white"
-            >
-              {/* Icon container */}
-              <div className="p-8 flex justify-center bg-gray-50">
-                <div className="text-accent p-6 rounded-full bg-white shadow-md group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                  {step.icon}
+            <div key={step.id} className="relative">
+              {/* Number circle - mobile only, outside the card */}
+              <div className="flex md:hidden mb-4">
+                <div className="w-16 h-16 rounded-full bg-accent text-darkblue flex items-center justify-center font-bold text-2xl shadow-lg mr-4 flex-shrink-0">
+                  {step.id}
                 </div>
               </div>
+              
+              {/* Card container */}
+              <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+                {/* Icon container */}
+                <div className="p-4 md:p-8 flex justify-center bg-gray-50">
+                  <div className="text-accent p-4 md:p-6 rounded-full bg-white shadow-md group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                    {step.icon}
+                  </div>
+                </div>
 
-              {/* Title */}
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-serif font-bold text-darkblue mb-4">
-                  {step.title}
-                </h3>
-              </div>
-
-              {/* Hidden description that appears on hover */}
-              <div className="absolute inset-0 bg-accent bg-opacity-90 p-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-lg leading-relaxed text-center">
-                  {step.description}
-                </p>
+                {/* Title */}
+                <div className="p-4 md:p-6 text-center">
+                  <h3 className="text-lg md:text-xl font-serif font-bold text-darkblue mb-0 md:mb-4">
+                    {step.title}
+                  </h3>
+                </div>
+                
+                {/* Hidden description that appears on hover */}
+                <div className="absolute inset-0 bg-accent bg-opacity-90 p-4 md:p-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-lg leading-relaxed text-center">
+                    {step.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
