@@ -1,9 +1,12 @@
 'use client';
 import { Star } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ReviewNavigation from "../buttons/ReviewNavigation";
 
 const Reviews = () => {
+  const mobileScrollRef = useRef(null);
+  const desktopScrollRef = useRef(null);
+  
   const reviews = [
     {
       quote: "Vi vil give vores bedste anbefalinger til HMI. Vi har fået udskiftet låger og opsat nye elementer i køkken. Nye elementer og afdækning af faldstamme mm. på badeværelse. HMI's medarbejder var super dygtig og trods vores ændringer undervejs, så klarede HMI det hele til et super flot resultat. Vi vil helt klart bruge dem igen.",
@@ -50,15 +53,35 @@ const Reviews = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextReview = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
+    const newIndex = (currentIndex + 1) % reviews.length;
+    setCurrentIndex(newIndex);
+    scrollToReview(newIndex);
   };
 
   const prevReview = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length);
+    const newIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+    setCurrentIndex(newIndex);
+    scrollToReview(newIndex);
   };
 
   const goToReview = (index) => {
     setCurrentIndex(index);
+    scrollToReview(index);
+  };
+
+  const scrollToReview = (index) => {
+    const isMobile = window.innerWidth < 768;
+    const scrollContainer = isMobile ? mobileScrollRef.current : desktopScrollRef.current;
+    
+    if (scrollContainer) {
+      const reviewWidth = isMobile ? 320 + 24 : 384 + 32; // width + gap
+      const scrollPosition = index * reviewWidth;
+      
+      scrollContainer.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const getDesktopReviews = () => {
@@ -82,11 +105,12 @@ const Reviews = () => {
 
         {/* Mobil: scrollbar med alle anmeldelser */}
         <div className="md:hidden">
-          <div className="overflow-x-auto scrollbar-hide">
+          <div ref={mobileScrollRef} className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-6 pb-4" style={{ width: 'max-content' }}>
               {reviews.map((review, idx) => (
                 <div 
                   key={idx}
+                  data-review-index={idx}
                   className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-[35rem] w-80 flex-shrink-0"
                 >
                   <div>
@@ -115,11 +139,12 @@ const Reviews = () => {
 
         {/* Desktop: scrollbar med alle anmeldelser */}
         <div className="hidden md:block">
-          <div className="overflow-x-auto scrollbar-hide">
+          <div ref={desktopScrollRef} className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-8 pb-4" style={{ width: 'max-content' }}>
               {reviews.map((review, idx) => (
                 <div 
-                  key={idx} 
+                  key={idx}
+                  data-review-index={idx}
                   className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-[40rem] w-96 flex-shrink-0"
                 >
                   <div>
@@ -157,6 +182,14 @@ const Reviews = () => {
             />
           ))}
         </div>
+
+        {/* Review Navigation inde i sektionen */}
+        <ReviewNavigation
+          onPrev={prevReview}
+          onNext={nextReview}
+          buttonClass="bg-gray-100 hover:bg-accent transition-colors p-2 rounded-full"
+          iconClass="text-gray-800"
+        />
       </div>
     </section>
   );
