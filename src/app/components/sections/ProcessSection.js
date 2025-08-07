@@ -76,17 +76,17 @@ export function ProcessSection() {
               </div>
               
               {/* Card container */}
-              <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+              <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white min-h-80 md:min-h-0">
                 {/* Icon container */}
-                <div className="p-4 md:p-8 flex justify-center bg-gray-50">
-                  <div className="text-accent p-4 md:p-6 rounded-full bg-white shadow-md group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                <div className="p-6 md:p-8 flex justify-center bg-gray-50">
+                  <div className="text-accent p-6 md:p-6 rounded-full bg-white shadow-md group-hover:bg-accent group-hover:text-white transition-colors duration-300">
                     {step.icon}
                   </div>
                 </div>
 
                 {/* Title */}
-                <div className="p-4 md:p-6 text-center">
-                  <h3 className="text-lg md:text-xl font-serif font-bold text-darkblue mb-0 md:mb-4">
+                <div className="p-6 md:p-6 text-center">
+                  <h3 className="text-lg md:text-xl font-serif font-bold text-darkblue mb-4 md:mb-4">
                     {step.title}
                   </h3>
                 </div>
