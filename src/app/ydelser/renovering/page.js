@@ -1,6 +1,6 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import { Hammer, Paintbrush, Zap, Wrench, BrickWall, Truck } from 'lucide-react';
+import { Hammer, Paintbrush, Zap, Wrench, BrickWall, Shovel } from 'lucide-react';
 import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
 
 
@@ -65,7 +65,7 @@ export default async function RenoveringPage() {
           description: "Komplet VVS-arbejde, rør og sanitet."
         },
         {
-          icon: <Truck className="w-6 h-6" strokeWidth={1.5} />,
+          icon: <Shovel className="w-6 h-6" strokeWidth={1.5} />,
           title: "Gravarbejde",
           description: "Udgravning, fundamentering og jordarbejde."
         }
