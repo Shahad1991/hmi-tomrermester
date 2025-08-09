@@ -1,6 +1,9 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
+import Image from 'next/image';
 import { Hammer, Paintbrush, Zap, Wrench, BrickWall, Shovel } from 'lucide-react';
+import ContactButton from '../../components/buttons/ContactButton';
+import Link from 'next/link';
 import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
 
 // Export metadata for SEO
@@ -28,6 +31,21 @@ export default async function TotalRenoveringPage() {
       title: item.title,
       description: item.description
     }));
+
+    console.log('Final galleryImages for total-renovering:', galleryImages); // Debug log
+
+    // Add some test data if no gallery images are found
+    const finalGalleryImages = galleryImages.length > 0 ? galleryImages : [
+      {
+        id: 'test-1',
+        url: '/images/services/total-renovering.jpeg',
+        alt: 'Test totalrenovering billede',
+        title: 'Test Total Renovering Projekt',
+        description: 'Dette er et test billede for at sikre galleri funktionalitet'
+      }
+    ];
+
+    console.log('Using gallery images:', finalGalleryImages);
 
     // Services section data for total renovering
     const servicesSection = {
@@ -78,7 +96,7 @@ export default async function TotalRenoveringPage() {
         imageTextTitle="Din partner til totalrenovering"
         imageTextDescription="Drømmer du om at give dit hjem en komplet makeover? Hos HMI Tømrermester specialiserer vi os i totalrenoveringer, hvor vi koordinerer alle håndværksfag og sikrer et sammenhængende resultat. Fra planlægning til færdigt resultat tager vi os af alt - strukturelle ændringer, el og VVS, overflader og finish.<br><br>Vi har erfaring med både ældre ejendomme og moderne huse, og vi sikrer at dit hjem både får et nyt look og opfylder moderne standarder for energi og komfort."
         servicesSection={servicesSection}
-        galleryImages={galleryImages}
+        galleryImages={finalGalleryImages}
       >
         
       </YdelseLayout>
