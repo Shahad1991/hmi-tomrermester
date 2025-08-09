@@ -6,6 +6,7 @@ import ReviewNavigation from "../buttons/ReviewNavigation";
 const Reviews = () => {
   const mobileScrollRef = useRef(null);
   const desktopScrollRef = useRef(null);
+  const [expandedReviews, setExpandedReviews] = useState({});
   
   const reviews = [
     {
@@ -19,34 +20,44 @@ const Reviews = () => {
       role: "Flere tømreropgaver"
     },
     {
-      quote: "Fantastisk arbejde til gode priser! Han lavede os et praktisk og flot klædeskab med godt håndværk. Jeg var især glad for, hvordan han hele vejen igennem processen var lydhør over for vores ønsker og behov. Vi vil helt sikkert tage kontakt til ham igen.",
+      quote: "Fantastisk arbejde til gode priser!\nHan lavede os et praktisk og flot klædeskab med godt håndværk. Udover skabene tog han sig også af gipsvæggene med samme professionelle tilgang og præcision. Jeg var især glad for, hvordan han hele vejen igennem processen var lydhør over for vores ønsker og behov. Jeg kan varmt anbefale hans tjenester til alle, der søger en dygtig, serviceorienteret og pålidelig tømrere til deres projekter. Vi vil helt sikkert tage kontakt til ham igen for fremtidige opgaver. Tak for det fantastiske arbejde Ali!.",
       author: "Fatme Mustafa",
       role: "Klædeskab"
     },
     {
-      quote: "Ali fik lavet lysninger til vores nye ovenlysvinduer og til trods for de mange detaljer, formåede han at levere et rigtigt flot resultat. Han stod for koordinering med tagdækker og ingeniør og holdt os løbende opdateret. Mine varmeste anbefalinger herfra.",
+      quote: "Udførligt arbejde med øje for detaljer til en konkurrencedygtig pris.\nAli fik lavet lysninger til vores nye ovenlysvinduer og til trods for at vinduerne var placeret i overgangen mellem gammelt hus og tilbygning og krævede understøtning af spær, samt at arbejdet krævede en snedker grundet de mange detaljer, formåede han at levere et rigtigt flot resultat.\nSom en del af de forberedende arbejder stod Ali for koordinering med tagdækker og ingeniør og holdt os løbende opdateret.\nMine varmeste anbefalinger herfra.",
       author: "Ali H.",
       role: "Ovenlysvinduer installation"
     },
     {
-      quote: "Fik skiftet vindue + dør til altan. Trods flere udfordringer undervejs, klarede en meget løsningsorienteret Ali opgaven med et flot finish. Vi er rigtig glade for resultatet og giver vores bedste anbefalinger.",
+      quote: "Fik skiftet vindue + dør til altan. Trods flere udfordringer undervejs, klarede en meget løsningsorienteret Ali opgaven til UG med et flot finish. Vi er rigtig glade for resultatet og giver vores bedste anbefalinger.",
       author: "Dennis Preuss",
       role: "Vindue- og dørskift"
     },
     {
-      quote: "Fra drøm til virkelighed. Vi gik med tanker om nyt køkken, udvidelse af værelser. Ali overholdt alle aftaler og tider. Han arrangerede hele opgaven mellem elektriker, VVS og maler. Tusind tak for hjælpen.",
+      quote: "Fra drøm til virkelighed.\nVi gik med tanker om nyt køkken, udvidelse af værelser, samme sæt andre rum.\nFra 1. dag Ali var forbi og kigge på opgaven, dagen efter fik vi tilbuddet som var super fornuftig.\nAli overholdt alle aftaler, og tider.\nHan arrangeret hele opgaven mellem Elektrikker vvs og maler. Trods uforudsete udfordringer, stoppet det ikke Ali i at overholde tiden.\nTusind tak for hjælpen.",
       author: "Carlo Muradian",
       role: "Totalrenovering"
     },
     {
       quote: "Gav en rigtig god og fair pris på et 6 meter hegn. Da de gik i gang tog det kun 2 dage at få lavet. Virkelig flink fyr. Godt håndværk!",
       author: "Sarah",
-      role: "Hegnmontering"
+      role: "Etablering af hegn"
     },
     {
       quote: "Vi har fået lavet nedsænket gipsloft med stålforskaldning på toilettet. Ali var punktlig, behagelig og grundig. Vi er meget tilfredse.",
       author: "Benedikte Lorentz",
       role: "Gipsloft installation"
+    },
+    {
+      quote: "Har fået sat nyt hegn op rigtig godt arbejde holder aftaler kommer til tiden gør som man vil have det skal gøres super godt",
+      author: "Seref Ozturk",
+      role: "Etablering af hegn"
+    },
+    {
+      quote: "Jeg anbefaler stærkt denne virksomhed. Meget pålidelig, og deres tidtagning er fantastisk. Professionel og venlig, konkurrencedygtige priser.",
+      author: "Justyna Kubas",
+      role: "Tømreropgaver"
     }
   ];
 
@@ -82,6 +93,24 @@ const Reviews = () => {
         behavior: 'smooth'
       });
     }
+  };
+
+  const toggleReviewExpanded = (reviewIndex) => {
+    setExpandedReviews(prev => ({
+      ...prev,
+      [reviewIndex]: !prev[reviewIndex]
+    }));
+  };
+
+  const truncateText = (text, reviewIndex) => {
+    const words = text.split(' ');
+    const isExpanded = expandedReviews[reviewIndex];
+    
+    if (isExpanded || words.length <= 20) {
+      return text;
+    }
+    
+    return words.slice(0, 20).join(' ') + '...';
   };
 
   const getDesktopReviews = () => {
@@ -124,7 +153,15 @@ const Reviews = () => {
                       ))}
                     </div>
                     <blockquote className="text-gray-600 italic mb-6 text-base leading-relaxed">
-                      &quot;{review.quote}&quot;
+                      &quot;{truncateText(review.quote, idx)}&quot;
+                      {review.quote.split(' ').length > 20 && (
+                        <button
+                          onClick={() => toggleReviewExpanded(idx)}
+                          className="block mt-2 text-accent hover:text-darkblue font-medium text-sm transition-colors"
+                        >
+                          {expandedReviews[idx] ? 'Læs mindre' : 'Læs mere'}
+                        </button>
+                      )}
                     </blockquote>
                   </div>
                   <div className="border-t border-gray-200 pt-4">
@@ -158,7 +195,15 @@ const Reviews = () => {
                       ))}
                     </div>
                     <blockquote className="text-gray-600 italic mb-6 text-lg leading-relaxed">
-                      &quot;{review.quote}&quot;
+                      &quot;{truncateText(review.quote, idx)}&quot;
+                      {review.quote.split(' ').length > 20 && (
+                        <button
+                          onClick={() => toggleReviewExpanded(idx)}
+                          className="block mt-2 text-accent hover:text-darkblue font-medium text-sm transition-colors"
+                        >
+                          {expandedReviews[idx] ? 'Læs mindre' : 'Læs mere'}
+                        </button>
+                      )}
                     </blockquote>
                   </div>
                   <div className="border-t border-gray-200 pt-4">
