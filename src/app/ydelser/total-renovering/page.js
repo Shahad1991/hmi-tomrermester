@@ -14,7 +14,7 @@ export default async function TotalRenoveringPage() {
     // Filter for total-renovering items - now using exact category match
     const totalRenoveringItems = allItems.filter(item => 
       item.categories && item.categories.some(category => 
-        category.slug === 'total-renovering' || category.slug === 'renovering'
+        category.slug === 'total-renovering' || category.slug === 'total-renovering'
       )
     );
 

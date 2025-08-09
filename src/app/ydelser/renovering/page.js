@@ -1,6 +1,9 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
+import Image from 'next/image';
 import { Hammer, Paintbrush, Zap, Wrench, BrickWall, Shovel } from 'lucide-react';
+import ContactButton from '../../components/buttons/ContactButton';
+import Link from 'next/link';
 import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
 
 
@@ -30,7 +33,20 @@ export default async function RenoveringPage() {
       description: item.description
     }));
 
-    
+    console.log('Final galleryImages for renovering:', galleryImages); // Debug log
+
+    // Add some test data if no gallery images are found
+    const finalGalleryImages = galleryImages.length > 0 ? galleryImages : [
+      {
+        id: 'test-1',
+        url: '/images/services/renovering.png',
+        alt: 'Test renovering billede',
+        title: 'Test Renovering Projekt',
+        description: 'Dette er et test billede for at sikre galleri funktionalitet'
+      }
+    ];
+
+    console.log('Using gallery images:', finalGalleryImages);
 
     // Services section data for renovering
     const servicesSection = {
@@ -82,7 +98,7 @@ export default async function RenoveringPage() {
         imageTextTitle="Renovering med overblik og kvalitet"
         imageTextDescription="Skal dit hjem have en kærlig hånd eller en større renovering? Hos HMI Tømrermester tager vi os af alt fra mindre reparationer til omfattende renoveringer. Vi koordinerer alle håndværksfag og sikrer, at dit projekt gennemføres professionelt og til tiden.<br><br>Vores erfaring spænder fra badrenovering og køkkenrenovering til komplet husrenovering. Vi hjælper dig med planlægning, materialevalg og udførelse, så du får det drømmehjem du ønsker dig."
         servicesSection={servicesSection}
-        galleryImages={galleryImages}
+        galleryImages={finalGalleryImages}
       >
         
       </YdelseLayout>
