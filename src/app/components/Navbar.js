@@ -134,12 +134,12 @@ const Navbar = () => {
               <div className="flex justify-between items-center h-20">
                 <Link href="/" className="flex-shrink-0" onClick={closeAll}>
                   <Image
-                    src="/images/logo/logo-mobil.svg"
+                    src="/images/logo/logo.svg"
                     alt="Logo"
-                    width={140}
-                    height={60}
+                    width={160}
+                    height={70}
                     priority
-                    className="hover:opacity-90 transition-opacity"
+                    className="hover:opacity-90 transition-opacity filter brightness-110 contrast-125"
                   />
                 </Link>
                 <button
