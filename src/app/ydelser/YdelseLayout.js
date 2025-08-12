@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import ContactButton from '../components/buttons/ContactButton';
 import Link from 'next/link';
+import "../globals.css";
 
 export default function YdelseLayout({ 
   heroImage, 
@@ -104,7 +105,7 @@ export default function YdelseLayout({
   }, []);
   
   return (
-    <main > {/* Tilføj en main wrapper */}
+    <main> {/* Tilføj en main wrapper */}
       <div className="mx-auto pt-28">
         {/* Hero Section */}
         <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
