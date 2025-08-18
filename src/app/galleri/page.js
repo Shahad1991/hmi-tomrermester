@@ -169,7 +169,7 @@ export default function GalleryPage() {
               <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400  mb-8"></div>
             </div>
             
-            <div className="space-y-6 ml-2 md:ml-0">
+            <div className="space-y-6 md:ml-0">
               <p className="text-white text-xl leading-relaxed opacity-90">
                 Hvert projekt er unikt og fortæller sin egen historie. Fra køkkenrenoveringer til komplette byggerenovering, har vi stolt dokumenteret vores arbejde gennem årene.
               </p>
