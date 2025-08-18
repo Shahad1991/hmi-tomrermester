@@ -239,7 +239,7 @@ const DropdownMenu = ({ title, children, isOpen, onClick, isScrolled, pathname }
         />
       </button>
       {isOpen && (
-        <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 z-50 max-h-[70vh] overflow-y-auto">
+        <div className="absolute left-0 mt-2 w-56 bg-white z-50 max-h-[70vh] overflow-y-auto">
           {children}
         </div>
       )}
@@ -251,7 +251,7 @@ const DropdownItem = ({ href, children, onClick }) => (
   <Link
     href={href}
     onClick={onClick}
-    className="block px-4 py-3 text-gray-700 hover:bg-accent/5 hover:text-accent transition-all duration-200 border-b border-gray-100 last:border-b-0 text-base rounded-lg mx-1"
+    className="block px-4 py-3 text-gray-700 hover:bg-accent/5 hover:text-accent transition-all duration-200 last:border-b-0 text-base rounded-lg mx-1"
   >
     {children}
   </Link>
