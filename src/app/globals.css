@@ -2,30 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Fix logo clarity on mobile */
-nav img[alt="Logo"] {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-/* Specific logo image class for better mobile rendering */
-.logo-image {
-  image-rendering: optimizeQuality;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
 
 
 a.block.px-4.py-3.text-gray-700.hover\:bg-accent\/5.hover\:text-accent.transition-all.duration-200.border-b.border-gray-100.last\:border-b-0.text-base.rounded-lg.mx-1 {
