@@ -75,7 +75,6 @@ const Navbar = () => {
               width={140}
               height={60}
               priority
-              style={{ color: 'inherit', filter: 'none' }}
             />
           </Link>
 
@@ -119,79 +118,72 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-md transition-colors duration-200 hover:bg-gray-100"
+            className="md:hidden p-2 rounded-md"
             onClick={toggleMenu}
             aria-label="Menu"
           >
-            {isMounted && isOpen ? <X size={70} strokeWidth={1.2} /> : <Menu size={70} strokeWidth={1.2}/>}
+            {isMounted && isOpen ? <X size={70} /> : <Menu size={70} strokeWidth={1.2}/>}
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {isMounted && (
-        <div className={`md:hidden fixed top-0 left-0 w-full h-full z-40 transition-all duration-300 ease-in-out ${
-          isOpen ? 'opacity-100 visible bg-white' : 'opacity-0 invisible bg-white'
-        }`}>
-          <div className="overflow-y-auto h-full">
-            {/* Mobile Header with Close Button */}
-            <div className="py-4 border-b border-gray-100">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20">
-                  <Link href="/" className="flex-shrink-0" onClick={closeAll}>
-                    <Image
-                      src="/images/logo/logo.svg"
-                      alt="Logo"
-                      width={140}
-                      height={60}
-                      style={{ color: 'inherit', filter: 'none' }}
-                    />
-                  </Link>
-                  <button
-                    className="p-2 rounded-md text-darkblue hover:text-accent transition-colors"
-                    onClick={closeAll}
-                    aria-label="Luk menu"
-                  >
-                    <X size={70} strokeWidth={1.2} />
-                  </button>
-                </div>
+      {isMounted && isOpen && (
+        <div className="md:hidden fixed inset-0 z-40 overflow-y-auto bg-white">
+          {/* Mobile Header with Close Button */}
+          <div className="py-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center h-20">
+                <Link href="/" className="flex-shrink-0" onClick={closeAll}>
+                  <Image
+                    src="/images/logo/logo.svg"
+                    alt="Logo"
+                    width={160}
+                    height={70}
+                  />
+                </Link>
+                <button
+                  className="p-2 rounded-md text-darkblue hover:text-accent transition-colors"
+                  onClick={closeAll}
+                  aria-label="Luk menu"
+                >
+                  <X size={70} strokeWidth={1.2} />
+                </button>
               </div>
             </div>
-            
-            {/* Mobile Menu Content */}
-            <div className="px-6 py-8">
-              <div className={`flex flex-col space-y-2 transition-opacity duration-200 ${
-                isOpen ? 'opacity-100' : 'opacity-0'
-              }`}>
-                <MobileNavLink href="/" onClick={closeAll} pathname={pathname}>
-                  Forside
-                </MobileNavLink>
-                
-                <div className="py-2">
-                  <MobileDropdown title="Ydelser" pathname={pathname}>
-                    {services.map((service) => (
-                      <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
-                        {service.name}
-                      </DropdownItem>
-                    ))}
-                  </MobileDropdown>
-                </div>
-                
-                <MobileNavLink href="/galleri" onClick={closeAll} pathname={pathname}>
-                  Galleri
-                </MobileNavLink>
-                
-                <MobileNavLink href="/om-os" onClick={closeAll} pathname={pathname}>
-                  Om Os
-                </MobileNavLink>
-                
-                <div className="pt-8 mt-8">
-                  <Link href="/kontakt" onClick={closeAll}>
-                    <button className="w-full px-8 py-4 bg-accent text-white rounded-xl hover:bg-accent/90 transition-all duration-200 font-semibold text-lg">
-                      Book et møde
-                    </button>
-                  </Link>
-                </div>
+          </div>
+          
+          {/* Mobile Menu Content */}
+          <div className="px-6 py-8">
+            <div className="flex flex-col space-y-2">
+              <MobileNavLink href="/" onClick={closeAll} pathname={pathname}>
+                Forside
+              </MobileNavLink>
+              
+              <div className="py-2">
+                <MobileDropdown title="Ydelser" pathname={pathname}>
+                  {services.map((service) => (
+                    <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
+                      {service.name}
+                    </DropdownItem>
+                  ))}
+                </MobileDropdown>
+              </div>
+              
+              <MobileNavLink href="/galleri" onClick={closeAll} pathname={pathname}>
+                Galleri
+              </MobileNavLink>
+              
+              <MobileNavLink href="/om-os" onClick={closeAll} pathname={pathname}>
+                Om Os
+              </MobileNavLink>
+              
+              <div className="pt-8 mt-8">
+                <Link href="/kontakt" onClick={closeAll}>
+                  <button className="w-full px-8 py-4 bg-accent text-white rounded-xl hover:bg-accent/90 transition-all duration-200 font-semibold text-lg">
+                    Book et møde
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -239,7 +231,7 @@ const DropdownMenu = ({ title, children, isOpen, onClick, isScrolled, pathname }
         />
       </button>
       {isOpen && (
-        <div className="absolute left-0 mt-2 w-56 bg-white z-50 max-h-[70vh] overflow-y-auto">
+        <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 z-50 max-h-[70vh] overflow-y-auto">
           {children}
         </div>
       )}
@@ -251,7 +243,7 @@ const DropdownItem = ({ href, children, onClick }) => (
   <Link
     href={href}
     onClick={onClick}
-    className="block px-4 py-3 text-gray-700 hover:bg-accent/5 hover:text-accent transition-all duration-200 last:border-b-0 text-base rounded-lg mx-1"
+    className="block px-4 py-3 text-gray-700 hover:bg-accent/5 hover:text-accent transition-all duration-200 border-b border-gray-100 last:border-b-0 text-base rounded-lg mx-1"
   >
     {children}
   </Link>
