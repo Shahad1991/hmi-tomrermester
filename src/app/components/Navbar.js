@@ -61,8 +61,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 py-4 transition-all duration-300 ${
-        isMounted && isScrolled ? "bg-white shadow-lg" : "bg-white/90 backdrop-blur-sm"
+      className={`fixed top-0 w-full z-50 py-4 transition-all duration-300 bg-white ${
+        isMounted && isScrolled ? "shadow-lg" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,6 +75,7 @@ const Navbar = () => {
               width={140}
               height={60}
               priority
+              className="logo-image"
             />
           </Link>
 
@@ -138,8 +139,9 @@ const Navbar = () => {
                   <Image
                     src="/images/logo/logo.svg"
                     alt="Logo"
-                    width={160}
-                    height={70}
+                    width={140}
+                    height={60}
+                    className="logo-image"
                   />
                 </Link>
                 <button
