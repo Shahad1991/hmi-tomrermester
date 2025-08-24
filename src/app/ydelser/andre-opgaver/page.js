@@ -1,8 +1,10 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
+import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
 import { Hammer, Drill, Ruler } from 'lucide-react';
 
-
+// Export metadata for SEO
+export const metadata = generateServiceMetadata('andre-opgaver');
 
 
 export default async function AndreOpgaverPage() {

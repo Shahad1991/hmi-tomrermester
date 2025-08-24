@@ -123,16 +123,16 @@ const Navbar = () => {
             onClick={toggleMenu}
             aria-label="Menu"
           >
-            {isMounted && isOpen ? <X size={70} /> : <Menu size={70} strokeWidth={1.2}/>}
+            {isMounted && isOpen ? <X size={50} /> : <Menu size={50} strokeWidth={1.0}/>}
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMounted && isOpen && (
-        <div className="md:hidden fixed inset-0 z-40 overflow-y-auto bg-white">
+        <div className="md:hidden fixed inset-0 z-40 overflow-y-auto bg-white shadow-lg">
           {/* Mobile Header with Close Button */}
-          <div className="py-4">
+          <div className="py-4 shadow-sm mb-4">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-20">
                 <Link href="/" className="flex-shrink-0" onClick={closeAll}>
@@ -141,6 +141,7 @@ const Navbar = () => {
                     alt="Logo"
                     width={140}
                     height={60}
+                    priority
                     className="logo-image"
                   />
                 </Link>
@@ -149,28 +150,26 @@ const Navbar = () => {
                   onClick={closeAll}
                   aria-label="Luk menu"
                 >
-                  <X size={70} strokeWidth={1.2} />
+                  <X size={40} strokeWidth={1.0} />
                 </button>
               </div>
             </div>
           </div>
           
           {/* Mobile Menu Content */}
-          <div className="px-6 py-8">
-            <div className="flex flex-col space-y-2">
+          <div className="px-6 py-2 space-y-2">
+            <div className="flex flex-col">
               <MobileNavLink href="/" onClick={closeAll} pathname={pathname}>
                 Forside
               </MobileNavLink>
               
-              <div className="py-2">
-                <MobileDropdown title="Ydelser" pathname={pathname}>
-                  {services.map((service) => (
-                    <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
-                      {service.name}
-                    </DropdownItem>
-                  ))}
-                </MobileDropdown>
-              </div>
+              <MobileDropdown title="Ydelser" pathname={pathname}>
+                {services.map((service) => (
+                  <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
+                    {service.name}
+                  </DropdownItem>
+                ))}
+              </MobileDropdown>
               
               <MobileNavLink href="/galleri" onClick={closeAll} pathname={pathname}>
                 Galleri
@@ -180,12 +179,16 @@ const Navbar = () => {
                 Om Os
               </MobileNavLink>
               
-              <div className="pt-8 mt-8">
-                <Link href="/kontakt" onClick={closeAll}>
-                  <button className="w-full px-8 py-4 bg-accent text-white rounded-xl hover:bg-accent/90 transition-all duration-200 font-semibold text-lg">
-                    Book et møde
-                  </button>
-                </Link>
+              <div className="pt-4">
+                <BookButton 
+                  href="/kontakt" 
+                  onClick={closeAll}
+                  variant="primary"
+                  size="lg"
+                  className="w-full"
+                >
+                  Book et møde
+                </BookButton>
               </div>
             </div>
           </div>
@@ -258,7 +261,7 @@ const MobileNavLink = ({ href, children, onClick, pathname }) => {
     <Link
       href={href}
       onClick={onClick}
-      className={`py-4 px-4 text-lg font-medium rounded-xl transition-all duration-200 relative overflow-hidden group ${
+      className={`py-2 px-4 text-lg font-medium rounded-xl transition-all duration-200 relative overflow-hidden group ${
         isActive 
           ? "text-accent bg-accent/5" 
           : "text-darkblue hover:text-accent hover:bg-accent/5"
@@ -277,7 +280,7 @@ const MobileDropdown = ({ title, children, pathname }) => {
   
   return (
     <details className="group">
-      <summary className={`py-4 px-4 text-lg font-medium rounded-xl list-none flex justify-between items-center cursor-pointer relative overflow-hidden transition-all duration-200 ${
+      <summary className={`py-2 px-4 text-lg font-medium rounded-xl list-none flex justify-between items-center cursor-pointer relative overflow-hidden transition-all duration-200 ${
         isYdelserActive 
           ? "text-accent bg-accent/5" 
           : "text-darkblue hover:text-accent hover:bg-accent/5"
@@ -288,7 +291,7 @@ const MobileDropdown = ({ title, children, pathname }) => {
         )}
         <ChevronDown className="w-6 h-6 group-open:rotate-180 transition-transform duration-200" strokeWidth={1.5} />
       </summary>
-      <div className="ml-4 mt-2 space-y-1">
+      <div className="ml-4 mt-1 space-y-0">
         {children}
       </div>
     </details>

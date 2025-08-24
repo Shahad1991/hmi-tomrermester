@@ -31,3 +31,9 @@ main {
 section {
   margin: 0;
 }
+
+/* Simple Safari fix for layout stability */
+body {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}

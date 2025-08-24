@@ -49,11 +49,6 @@ const Footer = () => {
             <h3 className="text-lg md:text-xl font-bold font-serif mb-4 md:mb-6">LINKS</h3>
             <ul className="space-y-2 md:space-y-3">
               <li>
-                <Link href="/" className="text-gray-600 hover:text-accent transition-colors text-sm md:text-base">
-                  Forside
-                </Link>
-              </li>
-              <li>
                 <Link href="/galleri" className="text-gray-600 hover:text-accent transition-colors text-sm md:text-base">
                   Galleri
                 </Link>
@@ -65,7 +60,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/kontakt" className="text-gray-600 hover:text-accent transition-colors text-sm md:text-base">
-                  Kontakt
+                  Book et møde
                 </Link>
               </li>
             </ul>
@@ -105,17 +100,6 @@ const Footer = () => {
                 </div>
                 
               </li>
-
-              <li className="flex items-start justify-start">
-                <svg className="w-4 h-4 md:w-5 md:h-5 mt-1 mr-2 md:mr-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <rect x="3" y="7" width="18" height="13" rx="2" strokeWidth="2" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 3v4M8 3v4" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 11h18" />
-                </svg>
-                <div className="text-left">
-                  <p className="text-sm md:text-base">43 80 62 11</p>
-                </div>
-              </li>
             </ul>
           </div>
         </div>
@@ -125,7 +109,9 @@ const Footer = () => {
           <p className="text-gray-500 text-xs md:text-sm mb-3 md:mb-0 text-left">
             © {new Date().getFullYear()} HMI Tømrermester. Alle rettigheder forbeholdes.
           </p>
-          
+          <p className="text-gray-500 text-xs md:text-sm text-left">
+            CVR nr: 43 80 62 11
+          </p>
         </div>
       </div>
     </footer>

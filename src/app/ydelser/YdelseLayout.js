@@ -105,8 +105,7 @@ export default function YdelseLayout({
   }, []);
   
   return (
-    <main> {/* Tilføj en main wrapper */}
-      <div className="mx-auto pt-28">
+    <div className="pt-28"> {/* Match forside struktur */}
         {/* Hero Section */}
         <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
           <div className="absolute inset-0 w-full h-full">
@@ -380,7 +379,6 @@ export default function YdelseLayout({
           </div>
         )}
 
-      </div>
-    </main>
+    </div>
   );
 }
