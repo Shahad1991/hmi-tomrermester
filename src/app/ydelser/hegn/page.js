@@ -3,7 +3,7 @@ import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Hammer, Wrench, Ruler } from 'lucide-react';
+import { Hammer, Ruler, Drill } from 'lucide-react';
 import ContactButton from '../../components/buttons/ContactButton';
 import Link from 'next/link';
 
@@ -59,12 +59,12 @@ export default function HegnPage() {
         description: "Præcis opmåling og planlægning af dit hegn."
       },
       {
-        icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
+        icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
         title: "Tømrer",
         description: "Professionel konstruktion og montering af hegn."
       },
       {
-        icon: <Wrench className="w-6 h-6" strokeWidth={1.5} />,
+        icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
         title: "Støbning af stolper",
         description: "Professionel støbning og etablering af stabile hegnstolper."
       }

@@ -3,7 +3,7 @@ import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Hammer, Paintbrush, Zap, Wrench, BrickWall, Shovel } from 'lucide-react';
+import { Drill, Paintbrush, Zap, Wrench, BrickWall, Shovel } from 'lucide-react';
 import ContactButton from '../../components/buttons/ContactButton';
 import Link from 'next/link';
 
@@ -54,7 +54,7 @@ export default function TotalRenoveringPage() {
     backgroundImage: "/images/backgrounds/om-os-service-bg.jpeg",
     services: [
       {
-        icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
+        icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
         title: "Tømrer/ Snedker",
         description: "Professionel tømrerarbejde til totalrenovering og ombygning."
       },

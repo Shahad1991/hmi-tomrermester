@@ -2,7 +2,7 @@
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import { useState, useEffect } from 'react';
-import { Hammer, Zap, Paintbrush } from 'lucide-react';
+import { Drill, Zap, Paintbrush } from 'lucide-react';
 
 export default function CarportPage() {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -55,7 +55,7 @@ export default function CarportPage() {
         description: "Professionel overfladebehandling og beskyttelse af carport."
       },
       {
-        icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
+        icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
         title: "Tømrer",
         description: "Professionel konstruktion og montering af carport."
       },

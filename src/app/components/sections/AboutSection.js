@@ -4,7 +4,7 @@ import AboutButton from '../buttons/AboutButton';
 export default function AboutSection() {
   return (
     <section className="py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Billede-sektion med overlappende badge */}
           <div className="relative w-full h-72 sm:h-96 md:h-full rounded-lg overflow-hidden shadow-lg min-h-[300px]">

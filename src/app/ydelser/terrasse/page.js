@@ -3,7 +3,7 @@ import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Hammer, Ruler } from 'lucide-react';
+import { Drill, Ruler } from 'lucide-react';
 import ContactButton from '../../components/buttons/ContactButton';
 import Link from 'next/link';
 
@@ -59,7 +59,7 @@ export default function TerrassePage() {
         description: "Præcis opmåling og planlægning af din terrasse."
       },
       {
-        icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
+        icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
         title: "Tømrer/ Snedker",
         description: "Professionel konstruktion og montering af terrasse."
       }

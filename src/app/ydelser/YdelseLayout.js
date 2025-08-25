@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import ContactButton from '../components/buttons/ContactButton';
+import InstagramButton from '../components/buttons/InstagramButton';
 import Link from 'next/link';
 import "../globals.css";
 
@@ -289,23 +290,23 @@ export default function YdelseLayout({
         )}
 
         {/* Call to Action - Full Width */}
-        <section className="w-full py-16 bg-gradient-to-r from-gray-900 to-gray-900">
-          <div className="max-w-4xl mx-auto text-center px-4">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-serif">
+        <section className="w-full py-16 bg-gray-900 relative overflow-hidden">
+          {/* Background Pattern for better contrast */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent"></div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-serif drop-shadow-lg">
               Interesseret i at se mere af vores arbejde?
             </h3>
-            <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400  mx-auto mb-8"></div>
-            <p className="text-white text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+            <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400 mx-auto mb-8"></div>
+            <p className="text-white text-lg mb-8 opacity-95 max-w-2xl mx-auto drop-shadow-md">
               Udforsk vores arbejde og bliv inspireret af vores håndværk
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <ContactButton />
-              <a href="https://www.instagram.com/hmitomrermester" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden inline-flex items-center justify-center px-8 py-3 bg-gradient-to-br from-accent via-[#FFC600] to-[#FFB600] text-gray-900 font-semibold rounded-lg shadow-lg hover:shadow-accent transition-all duration-300 text-lg transform hover:-translate-y-1">
-                <span className="relative z-10 flex items-center font-serif">
-                  Følg os på Instagram
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 group-hover:opacity-50 transition-opacity duration-300"></span>
-              </a>
+              <InstagramButton />
             </div>
           </div>
         </section>

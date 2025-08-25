@@ -3,7 +3,7 @@ import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Hammer, Wrench, Drill } from 'lucide-react';
+import { Hammer, Drill, Layers } from 'lucide-react';
 import ContactButton from '../../components/buttons/ContactButton';
 import Link from 'next/link';
 
@@ -54,12 +54,12 @@ export default function GulvPage() {
     backgroundImage: "/images/backgrounds/om-os-service-bg.jpeg",
     services: [
       {
-        icon: <Wrench className="w-6 h-6" strokeWidth={1.5} />,
+        icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
         title: "Støj konstruktion",
         description: "Lydreducerende undergulve og støjdæmpende løsninger."
       },
       {
-        icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
+        icon: <Layers className="w-6 h-6" strokeWidth={1.5} />,
         title: "Gulvlægning",
         description: "Professionel installation af alle gulvtyper."
       },

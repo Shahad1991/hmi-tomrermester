@@ -39,7 +39,7 @@ export function ProcessSection() {
 
   return (
     <section className="bg-white py-24">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
           <p className="text-accent font-semibold mb-2 uppercase">SÅDAN GÅR PROCESSEN</p>

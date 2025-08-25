@@ -4,11 +4,11 @@ import { Phone, Mail, Clock, MapPin } from "lucide-react";
 export default function ContactInfoCards() {
   return (
     <section className="bg-darkblue py-16 w-full sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Adresse kort */}
-          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-accent-md transition-all duration-300 border border-gray-light text-center">
+          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-accent-md transition-all duration-300 border border-gray-light text-center sm:px">
             <div className="flex justify-center mb-4">
               <div className="bg-accent/10 p-4 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
                 <MapPin className="w-12 h-12 text-accent group-hover:text-accent/90 transition-colors duration-300" />
