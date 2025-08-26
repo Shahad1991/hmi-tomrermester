@@ -15,9 +15,7 @@ body {
   overflow-x: hidden;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -27,13 +25,13 @@ main {
   padding: 0;
 }
 
-/* Ensure sections have no unwanted margins */
-section {
-  margin: 0;
-}
 
-/* Simple Safari fix for layout stability */
-body {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+
+
+
+.ydelse-layout {
+  overflow-x: hidden;
+  box-sizing: border-box;
+   margin: 0;
+  padding: 0;
 }

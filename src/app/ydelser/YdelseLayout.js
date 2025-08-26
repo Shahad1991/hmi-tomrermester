@@ -106,7 +106,7 @@ export default function YdelseLayout({
   }, []);
   
   return (
-    <div className="pt-28"> {/* Match forside struktur */}
+    <div className="pt-28 ydelse-layout"> {/* Match forside struktur */}
         {/* Hero Section */}
         <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
           <div className="absolute inset-0 w-full h-full">
@@ -132,7 +132,7 @@ export default function YdelseLayout({
         </section>
 
         {/* image-text Section */}
-        <section className="bg-gray-900 text-white py-28 px-4">
+        <section className="bg-gray-900 text-white py-28 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Text Left */}
@@ -190,7 +190,7 @@ export default function YdelseLayout({
 
         {/* Services Section */}
         {servicesSection && (
-          <section className="relative px-6 py-16 md:py-20 bg-gray-900 overflow-hidden items-center content-center">
+          <section className="relative px-4 sm:px-6 lg:px-8 py-16 md:py-20 bg-gray-900 overflow-hidden items-center content-center">
             <div className="relative max-w-4xl mx-auto text-center mb-16 z-10">
               <span className="text-accent font-medium uppercase tracking-wider text-sm">Services vi tilbyder</span>
               <h2 className="text-3xl md:text-4xl font-bold font-serif text-white mt-2 mb-4">
@@ -224,7 +224,7 @@ export default function YdelseLayout({
 
         {/* Galleri Section */}
         {galleryImages && galleryImages.length > 0 && (
-          <section className="bg-gradient-to-b from-gray-50 to-white py-24 px-4">
+          <section className="bg-gradient-to-b from-gray-50 to-white py-24 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               {/* Header */}
               <div className="text-center mb-16">
@@ -296,7 +296,7 @@ export default function YdelseLayout({
             <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent"></div>
           </div>
           
-          <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-serif drop-shadow-lg">
               Interesseret i at se mere af vores arbejde?
             </h3>
