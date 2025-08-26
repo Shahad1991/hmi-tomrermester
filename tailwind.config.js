@@ -4,6 +4,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
       colors: {
@@ -16,6 +17,13 @@ module.exports = {
           dark: '#4B5563',
         },
         black: '#000000',
+        // Dark mode specific colors
+        dark: {
+          bg: '#0F172A', // Very dark blue-gray
+          surface: '#1E293B', // Dark surface
+          text: '#F8FAFC', // Light text
+          muted: '#64748B', // Muted text
+        },
       },
       boxShadow: {
         'accent': '0 4px 14px 0 rgba(255, 182, 0, 0.4)',

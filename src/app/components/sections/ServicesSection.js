@@ -58,11 +58,11 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="py-16 bg-gray-50 w-full text-center">
+    <section className="py-16 m-0 bg-gray-50 dark:bg-dark-surface w-full text-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <p className="text-accent font-medium mb-2">VORES YDELSER</p>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-darkblue mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-darkblue dark:text-dark-text mb-4">
             Professionelle løsninger til alle dine bygge- og renoveringsbehov
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto"></div>
@@ -73,7 +73,7 @@ const ServicesSection = () => {
             <Link
               href={service.link}
               key={index}
-              className="group relative block rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+              className="group relative block rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-dark-bg shadow-sm hover:shadow-md dark:hover:shadow-gray-700/50 transition-all duration-300 overflow-hidden"
             >
               <div className="w-full h-64 relative">
                 <Image
@@ -88,8 +88,8 @@ const ServicesSection = () => {
                 <div className="absolute inset-0 bg-darkblue bg-opacity-50 z-10 group-hover:bg-opacity-30 transition-all duration-300"></div>
               </div>
 
-              <div className="bg-gray-900 p-4 text-center">
-                <h3 className="text-lg font-semibold font-serif text-white group-hover:text-accent transition-colors duration-300">
+              <div className="bg-gray-900 dark:bg-dark-bg p-4 text-center">
+                <h3 className="text-lg font-semibold font-serif text-white dark:text-dark-text group-hover:text-accent transition-colors duration-300">
                   {service.title}
                 </h3>
               </div>

@@ -3,11 +3,11 @@ import AboutButton from '../buttons/AboutButton';
 
 export default function AboutSection() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-16 w-full sm:px-5 lg:px-8 bg-white dark:bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Billede-sektion med overlappende badge */}
-          <div className="relative w-full h-72 sm:h-96 md:h-full rounded-lg overflow-hidden shadow-lg min-h-[300px]">
+          <div className="relative w-full h-72 sm:h-96 md:h-full rounded-lg overflow-hidden shadow-lg dark:shadow-gray-700/50 min-h-[300px]">
             <Image
               src="/images/ali-hmi/hmi-ali.png"
               alt="HMI Tømrermester i både private hjem og erhvervsprojekter"
@@ -31,13 +31,13 @@ export default function AboutSection() {
           <div>
             <div className="mb-8">
               <p className="text-accent font-medium mb-2">HVORFOR VÆLGE OS SOM DIN TØMRER?</p>
-              <h2 className="text-3xl md:text-4xl font-bold font-serif text-darkblue mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold font-serif text-darkblue dark:text-dark-text mb-4">
                 Pålidelig tømrermester til dine projekter
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400"></div>
-              <p className="text-lg text-gray-600 mt-4 mb-6">
-                Vi leverer <strong>præcist håndværk</strong> til både private og virksomheder. Uanset om du skal renovere dit køkken eller 
-                udføre en større erhvervsopgave, sørger vi for <strong>kvalitet, punktlighed og fair priser</strong>.
+              <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 mb-6">
+                Vi leverer <strong className="text-gray-800 dark:text-dark-text">præcist håndværk</strong> til både private og virksomheder. Uanset om du skal renovere dit køkken eller 
+                udføre en større erhvervsopgave, sørger vi for <strong className="text-gray-800 dark:text-dark-text">kvalitet, punktlighed og fair priser</strong>.
               </p>
             </div>
 
@@ -55,8 +55,8 @@ export default function AboutSection() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="ml-3 text-gray-700">
-                    <strong>{text.split(" - ")[0]}</strong>
+                  <p className="ml-3 text-gray-700 dark:text-gray-300">
+                    <strong className="text-gray-800 dark:text-dark-text">{text.split(" - ")[0]}</strong>
                     {text.includes(" - ") && <> - {text.split(" - ")[1]}</>}
                   </p>
                 </div>

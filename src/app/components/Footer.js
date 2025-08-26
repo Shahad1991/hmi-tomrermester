@@ -3,13 +3,13 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-800 py-8 md:py-12 border-t border-gray-200">
+    <footer className="bg-white dark:bg-dark-bg text-gray-800 dark:text-dark-text py-8 md:py-12 border-t border-gray-200 dark:border-gray-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Om os med sociale medier */}
           <div className="md:col-span-1 text-left">
             <h2 className="text-xl md:text-2xl font-bold font-serif mb-3 md:mb-4">HMI Tømrermester</h2>
-            <p className="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">
+            <p className="text-gray-600 dark:text-gray-300 mb-4 md:mb-6 text-sm md:text-base">
               Din pålidelige partner for alle tømrer- og byggeprojekter.
             </p>
             
@@ -19,7 +19,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="bg-white p-2 md:p-3 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20"
+                className="bg-white dark:bg-dark-surface p-2 md:p-3 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20"
               >
                 <Facebook className="w-5 h-5 md:w-6 md:h-6 text-accent hover:text-accent/90" />
               </a>
@@ -28,7 +28,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="bg-white p-2 md:p-3 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20"
+                className="bg-white dark:bg-dark-surface p-2 md:p-3 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20"
               >
                 <Instagram className="w-5 h-5 md:w-6 md:h-6 text-accent hover:text-accent/90" />
               </a>
@@ -37,7 +37,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="bg-white p-2 md:p-3 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20"
+                className="bg-white dark:bg-dark-surface p-2 md:p-3 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20"
               >
                 <Linkedin className="w-5 h-5 md:w-6 md:h-6 text-accent hover:text-accent/90" />
               </a>
@@ -49,17 +49,17 @@ const Footer = () => {
             <h3 className="text-lg md:text-xl font-bold font-serif mb-4 md:mb-6">LINKS</h3>
             <ul className="space-y-2 md:space-y-3">
               <li>
-                <Link href="/galleri" className="text-gray-600 hover:text-accent transition-colors text-sm md:text-base">
+                <Link href="/galleri" className="text-gray-600 dark:text-gray-300 hover:text-accent transition-colors text-sm md:text-base">
                   Galleri
                 </Link>
               </li>
               <li>
-                <Link href="/om-os" className="text-gray-600 hover:text-accent transition-colors text-sm md:text-base">
+                <Link href="/om-os" className="text-gray-600 dark:text-gray-300 hover:text-accent transition-colors text-sm md:text-base">
                   Om Os
                 </Link>
               </li>
               <li>
-                <Link href="/kontakt" className="text-gray-600 hover:text-accent transition-colors text-sm md:text-base">
+                <Link href="/kontakt" className="text-gray-600 dark:text-gray-300 hover:text-accent transition-colors text-sm md:text-base">
                   Book et møde
                 </Link>
               </li>
@@ -105,11 +105,11 @@ const Footer = () => {
         </div>
 
         {/* Bundlinje */}
-        <div className="border-t border-gray-200 pt-6 md:pt-8 mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-start md:items-center">
-          <p className="text-gray-500 text-xs md:text-sm mb-3 md:mb-0 text-left">
+        <div className="border-t border-gray-200 dark:border-gray-600 pt-6 md:pt-8 mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-start md:items-center">
+          <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm mb-1 md:mb-0 text-left">
             © {new Date().getFullYear()} HMI Tømrermester. Alle rettigheder forbeholdes.
           </p>
-          <p className="text-gray-500 text-xs md:text-sm text-left">
+          <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm text-left">
             CVR nr: 43 80 62 11
           </p>
         </div>

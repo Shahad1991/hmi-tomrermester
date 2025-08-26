@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import BookButton from "./buttons/BookButton";
+import DarkModeToggle from "./buttons/DarkModeToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,8 +62,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 py-4 transition-all duration-300 bg-white ${
-        isMounted && isScrolled ? "shadow-lg" : ""
+      className={`fixed top-0 w-full z-50 py-4 transition-all duration-300 bg-white dark:bg-dark-surface ${
+        isMounted && isScrolled ? "shadow-lg dark:shadow-gray-700/50" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +76,15 @@ const Navbar = () => {
               width={140}
               height={60}
               priority
-              className="logo-image"
+              className="logo-image dark:hidden"
+            />
+            <Image
+              src="/images/logo/logo-white.png"
+              alt="Logo"
+              width={140}
+              height={60}
+              priority
+              className="logo-image hidden dark:block"
             />
           </Link>
 
@@ -108,8 +117,9 @@ const Navbar = () => {
             </NavLink>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block ml-6">
+          {/* CTA Button and Dark Mode Toggle */}
+          <div className="hidden md:flex items-center space-x-4 ml-6">
+            <DarkModeToggle />
             <BookButton size="lg" className="group">
               <span className="group-hover:scale-105 transition-transform font-serif">
                 Book et møde
@@ -130,9 +140,9 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMounted && isOpen && (
-        <div className="md:hidden fixed inset-0 z-[9999] overflow-y-auto bg-white shadow-lg">
+        <div className="md:hidden fixed inset-0 z-[9999] overflow-y-auto bg-white dark:bg-dark-surface shadow-lg">
           {/* Mobile Header with Close Button */}
-          <div className="py-4 shadow-sm mb-4 bg-white sticky top-0 z-10">
+          <div className="py-4 shadow-sm mb-4 bg-white dark:bg-dark-surface sticky top-0 z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-20">
                 <Link href="/" className="flex-shrink-0" onClick={closeAll}>
@@ -142,16 +152,27 @@ const Navbar = () => {
                     width={140}
                     height={60}
                     priority
-                    className="logo-image"
+                    className="logo-image dark:hidden"
+                  />
+                  <Image
+                    src="/images/logo/logo-white.png"
+                    alt="Logo"
+                    width={140}
+                    height={60}
+                    priority
+                    className="logo-image hidden dark:block"
                   />
                 </Link>
-                <button
-                  className="p-2 rounded-md text-darkblue hover:text-accent transition-colors"
-                  onClick={closeAll}
-                  aria-label="Luk menu"
-                >
-                  <X size={40} strokeWidth={1.0} />
-                </button>
+                <div className="flex items-center space-x-3">
+                  <DarkModeToggle />
+                  <button
+                    className="p-2 rounded-md text-darkblue dark:text-dark-text hover:text-accent transition-colors"
+                    onClick={closeAll}
+                    aria-label="Luk menu"
+                  >
+                    <X size={40} strokeWidth={1.0} />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -207,8 +228,8 @@ const NavLink = ({ href, children, isScrolled, onClick, pathname }) => {
       href={href}
       onClick={onClick}
       className={`px-3 py-2 font-medium transition-colors text-lg relative ${
-        isScrolled ? "text-darkblue" : "text-darkblue"
-      } ${isActive ? "text-accent" : "text-darkblue hover:text-accent"}`}
+        isScrolled ? "text-darkblue dark:text-dark-text" : "text-darkblue dark:text-dark-text"
+      } ${isActive ? "text-accent" : "text-darkblue dark:text-dark-text hover:text-accent"}`}
     >
       {children}
       {isActive && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"></div>}
@@ -224,8 +245,8 @@ const DropdownMenu = ({ title, children, isOpen, onClick, isScrolled, pathname }
       <button
         onClick={onClick}
         className={`px-3 py-2 flex items-center font-medium transition-colors text-lg relative ${
-          isScrolled ? "text-darkblue" : "text-darkblue"
-        } ${isOpen || isYdelserActive ? "text-accent" : "text-darkblue hover:text-accent"}`}
+          isScrolled ? "text-darkblue dark:text-dark-text" : "text-darkblue dark:text-dark-text"
+        } ${isOpen || isYdelserActive ? "text-accent" : "text-darkblue dark:text-dark-text hover:text-accent"}`}
       >
         {title}
         {(isOpen || isYdelserActive) && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"></div>}
@@ -236,7 +257,7 @@ const DropdownMenu = ({ title, children, isOpen, onClick, isScrolled, pathname }
         />
       </button>
       {isOpen && (
-        <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 z-50 max-h-[70vh] overflow-y-auto">
+        <div className="absolute left-0 mt-2 w-56 bg-white dark:bg-dark-surface rounded-lg shadow-xl border border-gray-100 dark:border-gray-600 z-50 max-h-[70vh] overflow-y-auto">
           {children}
         </div>
       )}
@@ -248,7 +269,7 @@ const DropdownItem = ({ href, children, onClick }) => (
   <Link
     href={href}
     onClick={onClick}
-    className="block px-4 py-3 my-1 text-gray-700 hover:bg-accent/5 hover:text-accent transition-all duration-200 border-b border-gray-100 last:border-b-0 text-base rounded-lg mx-1"
+    className="block px-4 py-3 my-1 text-gray-700 dark:text-dark-text hover:bg-accent/5 hover:text-accent transition-all duration-200 border-b border-gray-100 dark:border-gray-600 last:border-b-0 text-base rounded-lg mx-1"
   >
     {children}
   </Link>
@@ -264,7 +285,7 @@ const MobileNavLink = ({ href, children, onClick, pathname }) => {
       className={`py-2 px-4 text-lg font-medium rounded-xl transition-all duration-200 relative overflow-hidden group ${
         isActive 
           ? "text-accent bg-accent/5" 
-          : "text-darkblue hover:text-accent hover:bg-accent/5"
+          : "text-darkblue dark:text-dark-text hover:text-accent hover:bg-accent/5"
       }`}
     >
       <span className="relative z-10">{children}</span>
@@ -283,7 +304,7 @@ const MobileDropdown = ({ title, children, pathname }) => {
       <summary className={`py-2 px-4 text-lg font-medium rounded-xl list-none flex justify-between items-center cursor-pointer relative overflow-hidden transition-all duration-200 ${
         isYdelserActive 
           ? "text-accent bg-accent/5" 
-          : "text-darkblue hover:text-accent hover:bg-accent/5"
+          : "text-darkblue dark:text-dark-text hover:text-accent hover:bg-accent/5"
       }`}>
         <span className="relative z-10">{title}</span>
         {isYdelserActive && (

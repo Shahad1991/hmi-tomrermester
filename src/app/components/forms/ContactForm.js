@@ -46,7 +46,7 @@ export default function ContactForm() {
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Navn
           </label>
           <input
@@ -54,11 +54,11 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text focus:outline-none focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Telefon
           </label>
           <input
@@ -66,11 +66,11 @@ export default function ContactForm() {
             id="phone"
             name="phone"
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text focus:outline-none focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Email
           </label>
           <input
@@ -78,11 +78,11 @@ export default function ContactForm() {
             id="email"
             name="email"
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text focus:outline-none focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Besked
           </label>
           <textarea
@@ -90,7 +90,7 @@ export default function ContactForm() {
             name="message"
             rows="8"
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text focus:outline-none focus:ring-amber-500 focus:border-amber-500"
           ></textarea>
         </div>
         <SendButton />

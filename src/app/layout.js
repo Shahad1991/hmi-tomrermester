@@ -46,8 +46,21 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${montserrat.variable} ${ibmPlexSerif.variable} font-sans antialiased`}
+        className={`${montserrat.variable} ${ibmPlexSerif.variable} font-sans antialiased bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
         <Navbar />
         {children}
         <Footer />

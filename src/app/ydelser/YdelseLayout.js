@@ -106,7 +106,7 @@ export default function YdelseLayout({
   }, []);
   
   return (
-    <div className="pt-28 ydelse-layout"> {/* Match forside struktur */}
+    <div className="ydelse-layout"> {/* Match forside struktur */}
         {/* Hero Section */}
         <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
           <div className="absolute inset-0 w-full h-full">
@@ -132,7 +132,7 @@ export default function YdelseLayout({
         </section>
 
         {/* image-text Section */}
-        <section className="bg-gray-900 text-white py-28 px-4 sm:px-6 lg:px-8">
+        <section className="bg-gray-900 dark:bg-dark-bg text-white py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Text Left */}
@@ -190,7 +190,7 @@ export default function YdelseLayout({
 
         {/* Services Section */}
         {servicesSection && (
-          <section className="relative px-4 sm:px-6 lg:px-8 py-16 md:py-20 bg-gray-900 overflow-hidden items-center content-center">
+          <section className="relative px-4 sm:px-6 lg:px-8 py-16 md:py-20 bg-gray-900 dark:bg-dark-bg overflow-hidden items-center content-center">
             <div className="relative max-w-4xl mx-auto text-center mb-16 z-10">
               <span className="text-accent font-medium uppercase tracking-wider text-sm">Services vi tilbyder</span>
               <h2 className="text-3xl md:text-4xl font-bold font-serif text-white mt-2 mb-4">
@@ -206,13 +206,13 @@ export default function YdelseLayout({
               {servicesSection.services.map((service, index) => (
                 <div 
                   key={index}
-                  className="bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1 w-full sm:w-64 md:w-72"
+                  className="bg-white dark:bg-dark-surface p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1 w-full sm:w-64 md:w-72"
                 >
-                  <div className="bg-white text-accent p-4 md:p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
+                  <div className="bg-white dark:bg-dark-surface text-accent p-4 md:p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
                     {service.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-darkblue mb-2 mt-4">{service.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                  <h3 className="text-lg font-bold text-darkblue dark:text-dark-text mb-2 mt-4">{service.title}</h3>
+                  <p className="text-gray-600 dark:text-dark-muted text-sm leading-relaxed">{service.description}</p>
                 </div>
               ))}
             </div>
@@ -224,26 +224,25 @@ export default function YdelseLayout({
 
         {/* Galleri Section */}
         {galleryImages && galleryImages.length > 0 && (
-          <section className="bg-gradient-to-b from-gray-50 to-white py-24 px-4 sm:px-6 lg:px-8">
+          <section className="bg-gradient-to-b from-gray-50 to-white dark:from-dark-surface dark:to-dark-bg py-24 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               {/* Header */}
               <div className="text-center mb-16">
-                <h2 className="text-5xl md:text-6xl font-bold text-darkblue mb-6 font-serif">Galleri</h2>
+                <h2 className="text-5xl md:text-6xl font-bold text-darkblue dark:text-dark-text mb-6 font-serif">Galleri</h2>
                 <div className="w-32 h-1.5 bg-gradient-to-r from-accent to-orange-400 mx-auto mb-8"></div>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl text-gray-600 dark:text-dark-muted max-w-3xl mx-auto leading-relaxed">
                   Se et udvalg af vores tidligere opgaver og bliv inspireret af vores arbejde med kvalitet og præcision.
                 </p>
               </div>
 
               {/* Gallery Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-                {galleryImages.map((img, index) => (
-                  <div 
+                {galleryImages.map((img, index) => (                    <div 
                     key={img.id || index} 
-                    className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                    className="group relative bg-white dark:bg-dark-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
                   >
                     {/* Image Container */}
-                    <div className="relative h-80 overflow-hidden bg-gray-100">
+                    <div className="relative h-80 overflow-hidden bg-gray-100 dark:bg-dark-bg">
                       <Image 
                         src={img.url}
                         alt={img.alt || `Galleri billede ${index + 1}`}
@@ -270,14 +269,13 @@ export default function YdelseLayout({
                       </div>
                     </div>
 
-                    {/* Card Content */}
-                    <div className="p-6">
+                    {/* Card Content */}                      <div className="p-6">
                       {img.title && (
-                        <h3 className="text-xl font-bold text-darkblue mb-2 group-hover:text-accent transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-darkblue dark:text-dark-text mb-2 group-hover:text-accent transition-colors duration-300">
                           {img.title}
                         </h3>
                       )}
-                      {img.description && <p className="text-sm text-gray-600">{img.description}</p>}
+                      {img.description && <p className="text-sm text-gray-600 dark:text-dark-muted">{img.description}</p>}
                     </div>
 
                     {/* Decorative corner */}
@@ -290,7 +288,7 @@ export default function YdelseLayout({
         )}
 
         {/* Call to Action - Full Width */}
-        <section className="w-full py-16 bg-gray-900 relative overflow-hidden">
+        <section className="w-full py-16 bg-gray-900 dark:bg-dark-bg relative overflow-hidden">
           {/* Background Pattern for better contrast */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent"></div>

@@ -123,12 +123,12 @@ const Reviews = () => {
   };
 
   return (
-    <section id="reviews" className="py-6 bg-white">
+    <section id="reviews" className=" py-16 bg-white dark:bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Overskrift */}
         <div className="mb-12">
           <p className="text-accent font-medium mb-2">ANMELDELSER</p>
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-darkblue mb-4">Hvad vores kunder siger</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-darkblue dark:text-dark-text mb-4">Hvad vores kunder siger</h2>
           <div className="w-24 h-1 bg-accent mx-auto"></div>
         </div>
 
@@ -140,7 +140,7 @@ const Reviews = () => {
                 <div 
                   key={idx}
                   data-review-index={idx}
-                  className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-[35rem] w-80 flex-shrink-0"
+                  className="bg-gray-50 dark:bg-dark-surface p-6 rounded-xl shadow-sm dark:shadow-gray-700/50 hover:shadow-md dark:hover:shadow-gray-600/50 transition-shadow flex flex-col justify-between h-[35rem] w-80 flex-shrink-0"
                 >
                   <div>
                     <div className="flex justify-center mb-4">
@@ -152,21 +152,21 @@ const Reviews = () => {
                         />
                       ))}
                     </div>
-                    <blockquote className="text-gray-600 italic mb-6 text-base leading-relaxed">
+                    <blockquote className="text-gray-600 dark:text-gray-300 italic mb-6 text-base leading-relaxed">
                       &quot;{truncateText(review.quote, idx)}&quot;
                       {review.quote.split(' ').length > 20 && (
                         <button
                           onClick={() => toggleReviewExpanded(idx)}
-                          className="block mt-2 text-accent hover:text-darkblue font-medium text-sm transition-colors"
+                          className="block mt-2 text-accent hover:text-darkblue dark:hover:text-dark-text font-medium text-sm transition-colors"
                         >
                           {expandedReviews[idx] ? 'Læs mindre' : 'Læs mere'}
                         </button>
                       )}
                     </blockquote>
                   </div>
-                  <div className="border-t border-gray-200 pt-4">
-                    <p className="font-semibold text-darkblue">{review.author}</p>
-                    <p className="text-sm text-gray-500">{review.role}</p>
+                  <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
+                    <p className="font-semibold text-darkblue dark:text-dark-text">{review.author}</p>
+                    <p className="text-sm text-gray-500 dark:text-dark-muted">{review.role}</p>
                   </div>
                 </div>
               ))}
@@ -182,7 +182,7 @@ const Reviews = () => {
                 <div 
                   key={idx}
                   data-review-index={idx}
-                  className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-[40rem] w-96 flex-shrink-0"
+                  className="bg-gray-50 dark:bg-dark-surface p-8 rounded-xl shadow-sm dark:shadow-gray-700/50 hover:shadow-md dark:hover:shadow-gray-600/50 transition-shadow flex flex-col justify-between h-[40rem] w-96 flex-shrink-0"
                 >
                   <div>
                     <div className="flex justify-center mb-4">
@@ -194,21 +194,21 @@ const Reviews = () => {
                         />
                       ))}
                     </div>
-                    <blockquote className="text-gray-600 italic mb-6 text-lg leading-relaxed">
+                    <blockquote className="text-gray-600 dark:text-gray-300 italic mb-6 text-lg leading-relaxed">
                       &quot;{truncateText(review.quote, idx)}&quot;
                       {review.quote.split(' ').length > 20 && (
                         <button
                           onClick={() => toggleReviewExpanded(idx)}
-                          className="block mt-2 text-accent hover:text-darkblue font-medium text-sm transition-colors"
+                          className="block mt-2 text-accent hover:text-darkblue dark:hover:text-dark-text font-medium text-sm transition-colors"
                         >
                           {expandedReviews[idx] ? 'Læs mindre' : 'Læs mere'}
                         </button>
                       )}
                     </blockquote>
                   </div>
-                  <div className="border-t border-gray-200 pt-4">
-                    <p className="font-semibold text-darkblue">{review.author}</p>
-                    <p className="text-sm text-gray-500">{review.role}</p>
+                  <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
+                    <p className="font-semibold text-darkblue dark:text-dark-text">{review.author}</p>
+                    <p className="text-sm text-gray-500 dark:text-dark-muted">{review.role}</p>
                   </div>
                 </div>
               ))}
@@ -222,7 +222,7 @@ const Reviews = () => {
             <button
               key={idx}
               onClick={() => goToReview(idx)}
-              className={`w-3 h-3 rounded-full transition-colors ${currentIndex === idx ? 'bg-accent' : 'bg-gray-300'}`}
+              className={`w-3 h-3 rounded-full transition-colors ${currentIndex === idx ? 'bg-accent' : 'bg-gray-300 dark:bg-gray-600'}`}
               aria-label={`Go to review ${idx + 1}`}
             />
           ))}
@@ -232,8 +232,8 @@ const Reviews = () => {
         <ReviewNavigation
           onPrev={prevReview}
           onNext={nextReview}
-          buttonClass="bg-gray-100 hover:bg-accent transition-colors p-2 rounded-full"
-          iconClass="text-gray-800"
+          buttonClass="bg-gray-100 dark:bg-dark-surface hover:bg-accent dark:hover:bg-accent transition-colors p-2 rounded-full"
+          iconClass="text-gray-800 dark:text-dark-text"
         />
       </div>
     </section>

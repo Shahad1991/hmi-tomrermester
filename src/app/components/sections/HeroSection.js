@@ -4,7 +4,7 @@ import HeroButtons from "../buttons/HeroButtons";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-between bg-gray-900 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-between w-full">
       {/* Video baggrund */}
       <div className="absolute inset-0 w-full h-full">
         <video
