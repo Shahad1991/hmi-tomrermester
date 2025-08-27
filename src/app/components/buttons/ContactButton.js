@@ -16,7 +16,7 @@ const ContactButton = ({
       href={href}
       className={`${buttonClasses} ${className}`}
     >
-      <span className="relative z-10 flex items-center font-serif">
+      <span className="relative z-10 flex items-center font-serif dark:text-gray-300">
         {text}
         <span className="transition-transform duration-300 group-hover:translate-x-1 ">
           {icon}

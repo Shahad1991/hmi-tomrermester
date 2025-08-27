@@ -3,17 +3,17 @@
 export default function PopupMessage({ message, onClose }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-2xl p-6 mx-4 max-w-md w-full animate-fade-in">
+      <div className="bg-white dark:bg-dark-surface rounded-lg shadow-2xl dark:shadow-gray-700/50 p-6 mx-4 max-w-md w-full animate-fade-in border dark:border-gray-600">
         <div className="flex items-center mb-4">
           <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 className="text-lg font-semibold text-gray-800">Besked sendt!</h3>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-dark-text">Besked sendt!</h3>
         </div>
         
-        <p className="text-sm text-gray-500 mb-3">Din besked er blevet sendt med succes.</p>
+        <p className="text-sm text-gray-500 dark:text-gray-300 mb-3">Din besked er blevet sendt med succes.</p>
         
         <div className="flex justify-end">
           <button

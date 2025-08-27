@@ -38,12 +38,12 @@ export function ProcessSection() {
   ];
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white dark:bg-dark-bg py-16">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
           <p className="text-accent font-semibold mb-2 uppercase">SÅDAN GÅR PROCESSEN</p>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-darkblue mb-4">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-darkblue dark:text-dark-text mb-4">
             Vi guider dig sikkert gennem hele processen
           </h2>
           <div className="h-1 w-24 bg-accent mx-auto rounded-full"></div>
@@ -51,7 +51,7 @@ export function ProcessSection() {
 
         {/* Numbered circles with connecting line - desktop only */}
         <div className="relative justify-center mb-16 hidden md:flex">
-          <div className="absolute top-1/2 h-1 bg-gray-300 w-2/3 -translate-y-1/2 z-0"></div>
+          <div className="absolute top-1/2 h-1 bg-gray-300 dark:bg-gray-600 w-2/3 -translate-y-1/2 z-0"></div>
           <div className="flex justify-between w-2/3 relative z-10">
             {steps.map((step) => (
               <div
@@ -76,17 +76,19 @@ export function ProcessSection() {
               </div>
               
               {/* Card container */}
-              <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white min-h-80 md:min-h-0">
+              <div className="group relative overflow-hidden rounded-lg shadow-md dark:shadow-gray-700/50 hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all duration-300 bg-white dark:bg-dark-surface min-h-80 md:min-h-0">
                 {/* Icon container */}
-                <div className="p-6 md:p-8 flex justify-center bg-gray-50">
-                  <div className="text-accent p-6 md:p-6 rounded-full bg-white shadow-md group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                    {step.icon}
+                <div className="p-6 md:p-8 flex justify-center bg-gray-50 dark:bg-dark-bg">
+                  <div className="bg-white dark:bg-dark-surface p-2 md:p-3 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
+                    <div className="text-accent hover:text-accent/90">
+                      {step.icon}
+                    </div>
                   </div>
                 </div>
 
                 {/* Title */}
                 <div className="p-6 md:p-6 text-center">
-                  <h3 className="text-lg md:text-xl font-serif font-bold text-darkblue mb-4 md:mb-4">
+                  <h3 className="text-lg md:text-xl font-serif font-bold text-darkblue dark:text-dark-text mb-4 md:mb-4">
                     {step.title}
                   </h3>
                 </div>

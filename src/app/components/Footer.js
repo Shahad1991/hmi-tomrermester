@@ -55,7 +55,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/om-os" className="text-gray-600 dark:text-gray-300 hover:text-accent transition-colors text-sm md:text-base">
-                  Om Os
+                  Om os
                 </Link>
               </li>
               <li>

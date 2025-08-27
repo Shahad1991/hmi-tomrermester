@@ -42,7 +42,7 @@ const OmOs = () => {
   ];
 
   return (
-    <div className="mx-auto pt-28">
+    <div className="mx-auto pt-28 bg-white dark:bg-dark-bg">
       {/* Hero Section */}
       <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
         <Image 
@@ -56,7 +56,7 @@ const OmOs = () => {
         <div className="absolute inset-0 bg-darkblue bg-opacity-70 z-10"></div>
         <div className="relative z-20 max-w-4xl px-5 text-primary">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif">Hvem er vi?</h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto text-gray-100">
             En passioneret gruppe fagfolk dedikeret til at levere højkvalitets løsninger for vores kunder.
           </p>
           <ContactButton/>
@@ -64,10 +64,10 @@ const OmOs = () => {
       </section>
 
       {/* Virksomhedsbeskrivelse */}
-      <section className="flex flex-col lg:flex-row gap-12 px-6 py-16 md:py-24 max-w-6xl mx-auto">
+      <section className="flex flex-col lg:flex-row gap-12 px-6 py-16 md:py-24 max-w-6xl mx-auto bg-white dark:bg-dark-bg">
         <div className="lg:w-1/2 lg:pr-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-darkblue mb-6 font-serif">Vores historie</h2>
-          <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold text-darkblue dark:text-dark-text mb-6 font-serif">Vores historie</h2>
+          <div className="space-y-6 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
             <div className="w-24 h-1 bg-gradient-to-r from-accent to-orange-400 "></div>
             <p>
               <strong>HMI Tømrermester</strong> er en tømrervirksomhed med store kompetencer inden for træarbejde. 
@@ -79,7 +79,7 @@ const OmOs = () => {
               målsætning at skabe værdi for kunden, så det bliver en god oplevelse med os på holdet, uanset 
               opgavens størrelse.
             </p>
-            <p className="font-medium text-darkblue">
+            <p className="font-medium text-darkblue dark:text-gray-300">
               Vi måler vores succes på vores kunders tilfredshed og et veludført arbejde. Vores passion for 
               håndværk og æstetik går hånd i hånd med en grundig tilgang til hvert enkelt projekt.
             </p>
@@ -118,7 +118,7 @@ const OmOs = () => {
             Faglige services til dit byggeprojekt
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto"></div>
-          <p className="text-white /90 mt-6 max-w-2xl mx-auto">
+          <p className="text-white dark:text-gray-200 mt-6 max-w-2xl mx-auto">
             Vi tilbyder specialiserede løsninger inden for byggeri og renovering
           </p>
         </div>
@@ -127,13 +127,13 @@ const OmOs = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1"
+              className="bg-white dark:bg-dark-surface p-8 rounded-lg shadow-lg dark:shadow-gray-700/50 hover:shadow-xl dark:hover:shadow-gray-600/50 transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1"
             >
-              <div className="bg-white text-accent p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
+              <div className="bg-white dark:bg-dark-surface text-accent p-6 rounded-full shadow-inner hover:shadow-accent transition-all duration-300 border border-accent/20">
                 {service.icon}
               </div>
-              <h3 className="text-lg font-bold text-darkblue mb-2 mt-4">{service.title}</h3>
-              <p className="text-gray-600 text-sm">{service.description}</p>
+              <h3 className="text-lg font-bold text-darkblue dark:text-dark-text mb-2 mt-4">{service.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">{service.description}</p>
             </div>
           ))}
         </div>

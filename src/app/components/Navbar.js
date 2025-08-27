@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import BookButton from "./buttons/BookButton";
 import DarkModeToggle from "./buttons/DarkModeToggle";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,21 +70,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" onClick={closeAll}>
-            <Image
-              src="/images/logo/logo.png"
-              alt="Logo"
-              width={140}
-              height={60}
-              priority
-              className="logo-image dark:hidden"
-            />
-            <Image
-              src="/images/logo/logo-white.png"
-              alt="Logo"
-              width={140}
-              height={60}
-              priority
-              className="logo-image hidden dark:block"
+            <Logo
+              width={150}
+              height={65}
+              className="text-black dark:text-white transition-colors duration-200"
             />
           </Link>
 
@@ -146,21 +135,10 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-20">
                 <Link href="/" className="flex-shrink-0" onClick={closeAll}>
-                  <Image
-                    src="/images/logo/logo.png"
-                    alt="Logo"
-                    width={140}
-                    height={60}
-                    priority
-                    className="logo-image dark:hidden"
-                  />
-                  <Image
-                    src="/images/logo/logo-white.png"
-                    alt="Logo"
-                    width={140}
-                    height={60}
-                    priority
-                    className="logo-image hidden dark:block"
+                  <Logo
+                    width={150}
+                    height={65}
+                    className="text-black dark:text-white transition-colors duration-200"
                   />
                 </Link>
                 <div className="flex items-center space-x-3">
