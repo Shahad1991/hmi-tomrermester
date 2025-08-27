@@ -126,7 +126,6 @@ export const jsonLdSchema = {
   openingHours: [
     "Mo-Fr 07:00-16:00",
     "Sa 08:00-12:00"
-
   ],
   priceRange: "$$",
   areaServed: [
@@ -147,13 +146,90 @@ export const jsonLdSchema = {
     "Andre byggeopgaver",
     "Total renovering",
     "Akustikpaneler",
-    "Specialiserede håndværksløsninger",
-
+    "Specialiserede håndværksløsninger"
   ],
   sameAs: [
     "https://www.facebook.com/hmitomrermester",
     "https://www.instagram.com/hmitomrermester",
     "https://www.linkedin.com/company/hmi-t%C3%B8mrermester"
+  ],
+  // Add explicit sitelinks to guide Google  
+  potentialAction: [
+    {
+      "@type": "ViewAction",
+      target: "https://hmi-tomrermester.dk/kontakt",
+      "name": "Kontakt HMI Tømrermester",
+      "description": "Kontakt os for tilbud på tømrerarbejde"
+    },
+    {
+      "@type": "ViewAction", 
+      target: "https://hmi-tomrermester.dk/galleri",
+      "name": "Se vores projekter",
+      "description": "Galleri med færdige projekter og portefølje"
+    },
+    {
+      "@type": "ViewAction",
+      target: "https://hmi-tomrermester.dk/om-os", 
+      "name": "Om HMI Tømrermester",
+      "description": "Lær mere om vores virksomhed og erfaring"
+    },
+    {
+      "@type": "ViewAction",
+      target: "https://hmi-tomrermester.dk/ydelser",
+      "name": "Vores ydelser",
+      "description": "Se alle vores tømrer- og byggetekniske ydelser"
+    }
+  ],
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://hmi-tomrermester.dk"
+  }
+};
+
+// Website navigation structured data for better sitelinks
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "HMI Tømrermester",
+  url: "https://hmi-tomrermester.dk",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://hmi-tomrermester.dk/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// Navigation schema for sitelinks
+export const navigationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  name: "HMI Tømrermester Navigation",
+  url: "https://hmi-tomrermester.dk",
+  hasPart: [
+    {
+      "@type": "SiteNavigationElement",
+      name: "Kontakt",
+      description: "Kontakt HMI Tømrermester for tilbud",
+      url: "https://hmi-tomrermester.dk/kontakt"
+    },
+    {
+      "@type": "SiteNavigationElement", 
+      name: "Galleri",
+      description: "Se vores projekter og portefølje",
+      url: "https://hmi-tomrermester.dk/galleri"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Om os", 
+      description: "Lær mere om HMI Tømrermester",
+      url: "https://hmi-tomrermester.dk/om-os"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Ydelser",
+      description: "Se vores tømrer og byggeydelser", 
+      url: "https://hmi-tomrermester.dk/ydelser"
+    }
   ]
 };
 

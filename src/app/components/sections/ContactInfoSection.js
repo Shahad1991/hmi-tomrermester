@@ -1,5 +1,6 @@
 "use client";
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
+import { trackPhoneClick, trackEmailClick } from "../GoogleAnalytics";
 
 export default function ContactInfoCards() {
   return (
@@ -47,13 +48,21 @@ export default function ContactInfoCards() {
             <ul className="text-gray-dark dark:text-gray-300 space-y-1">
               <li>
                 <span className="font-medium">Tlf:</span> 
-                <a href="tel:+4528225060" className="hover:text-accent transition-colors group ml-1">
+                <a 
+                  href="tel:+4528225060" 
+                  className="hover:text-accent transition-colors group ml-1"
+                  onClick={trackPhoneClick}
+                >
                   <span className="group-hover:text-accent">+45 28 22 50 60</span>
                 </a>
               </li>
               <li>
                 <span className="font-medium">E-mail:</span> 
-                <a href="mailto:ali@hmi-tomrermester.dk" className="hover:text-accent transition-colors group ml-1">
+                <a 
+                  href="mailto:ali@hmi-tomrermester.dk" 
+                  className="hover:text-accent transition-colors group ml-1"
+                  onClick={trackEmailClick}
+                >
                   <span className="group-hover:text-accent">ali@hmi-tomrermester.dk</span>
                 </a>
               </li>

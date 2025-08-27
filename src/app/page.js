@@ -10,14 +10,18 @@ export const metadata = {
   metadataBase: siteMetadata.metadataBase,
   title: siteMetadata.title.default,
   description: siteMetadata.description,
-  keywords: siteMetadata.keywords,
+  keywords: siteMetadata.keywords.join(', '), // Fix: Convert array to string
   authors: siteMetadata.authors,
   creator: siteMetadata.creator,
   publisher: siteMetadata.publisher,
   robots: siteMetadata.robots,
   category: siteMetadata.category,
+  alternates: {
+    canonical: 'https://hmi-tomrermester.dk',
+  },
   openGraph: {
     ...siteMetadata.openGraph,
+    url: 'https://hmi-tomrermester.dk',
     images: [
       {
         url: siteMetadata.openGraph.images[0].url,

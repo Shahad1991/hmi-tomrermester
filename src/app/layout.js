@@ -1,9 +1,14 @@
 import { Montserrat, IBM_Plex_Serif } from "next/font/google";
 import "./globals.css";
-import { jsonLdSchema } from '../metadata/MetaDataCollection';
+import { jsonLdSchema, websiteSchema, navigationSchema } from '../metadata/MetaDataCollection';
 import siteMetadata from '../metadata/MetaDataCollection';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { GoogleAnalytics } from "./components/GoogleAnalytics";
+import ScrollTracker from "./components/ScrollTracker";
+
+// Google Analytics ID (erstatt med din egen)
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -22,7 +27,7 @@ export const metadata = {
   metadataBase: siteMetadata.metadataBase,
   title: siteMetadata.title,
   description: siteMetadata.description,
-  keywords: siteMetadata.keywords,
+  keywords: siteMetadata.keywords.join(', '), // Fix: Convert array to string
   authors: siteMetadata.authors,
   creator: siteMetadata.creator,
   publisher: siteMetadata.publisher,
@@ -38,10 +43,41 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
+        {/* Main business schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(jsonLdSchema),
+          }}
+        />
+        {/* Website schema for search functionality */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+        {/* Navigation schema for sitelinks */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(navigationSchema),
+          }}
+        />
+        <link rel="canonical" href="https://hmi-tomrermester.dk" />
+        
+        {/* Google Analytics */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
           }}
         />
       </head>
@@ -62,6 +98,8 @@ export default function RootLayout({ children }) {
           }}
         />
         <Navbar />
+        <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
+        <ScrollTracker />
         {children}
         <Footer />
       </body>

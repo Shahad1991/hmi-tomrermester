@@ -1,5 +1,6 @@
 'use client';
 import { Instagram } from 'lucide-react';
+import { trackInstagramClick } from '../GoogleAnalytics';
 
 export default function InstagramButton() {
   return (
@@ -8,6 +9,7 @@ export default function InstagramButton() {
       target="_blank" 
       rel="noopener noreferrer" 
       className="group relative overflow-hidden inline-flex items-center justify-center px-8 py-3 bg-gradient-to-br from-accent via-[#FFC600] to-[#FFB600] text-darkblue font-semibold rounded-lg shadow-lg hover:shadow-accent transition-all duration-300 text-lg transform hover:-translate-y-1"
+      onClick={trackInstagramClick}
     >
       <span className="relative z-10 flex items-center font-serif">
         Følg os på Instagram

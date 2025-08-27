@@ -2,6 +2,7 @@
 import { useState } from "react";
 import PopupMessage from "./PopupMessage";
 import SendButton from "../buttons/SendButton";
+import { trackContactForm } from "../GoogleAnalytics";
 
 export default function ContactForm() {
   const [showPopup, setShowPopup] = useState(false);
@@ -31,6 +32,9 @@ export default function ContactForm() {
         setPopupMessage("Formularen blev sendt succesfuldt!");
         setShowPopup(true);
         form.reset();
+        
+        // Track successful form submission
+        trackContactForm('main_contact');
       } else {
         throw new Error(`Fejl: ${response.status} - ${response.statusText}`);
       }

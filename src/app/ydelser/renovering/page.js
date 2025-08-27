@@ -3,7 +3,9 @@ import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Paintbrush, Zap, Wrench, BrickWall, Shovel, Drill } from 'lucide-react';
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';import { Paintbrush, Zap, Wrench, BrickWall, Shovel, Drill } from 'lucide-react';
 import ContactButton from '../../components/buttons/ContactButton';
 import Link from 'next/link';
 

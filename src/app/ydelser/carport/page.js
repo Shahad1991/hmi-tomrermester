@@ -3,12 +3,19 @@ import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import { useState, useEffect } from 'react';
 import { Drill, Zap, Paintbrush } from 'lucide-react';
+import { trackServiceView } from '../../components/GoogleAnalytics';
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
 
 export default function CarportPage() {
   const [galleryImages, setGalleryImages] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Track that user viewed this service page
+    trackServiceView('carport');
+
     async function fetchGalleryData() {
       try {
         const allItems = await getAllGalleryItems();

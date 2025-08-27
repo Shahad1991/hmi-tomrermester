@@ -1,51 +1,37 @@
-'use client';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
 import { Drill, Ruler } from 'lucide-react';
-import ContactButton from '../../components/buttons/ContactButton';
-import Link from 'next/link';
 
-export default function DorVinduerPage() {
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+// Server-side data fetching
+async function getDorVinduerData() {
+  try {
+    const allItems = await getAllGalleryItems();
+    
+    // Filter for dør og vinduer items
+    const dorVinduerItems = allItems.filter(item => 
+      item.categories && item.categories.some(category => 
+        category.slug === 'dor-og-vinduer' 
+      )
+    );
 
-  useEffect(() => {
-    async function fetchGalleryData() {
-      try {
-        const allItems = await getAllGalleryItems();
-        console.log('All items:', allItems); // Debug log
+    // Map data til galleri-format
+    const mappedGalleryImages = dorVinduerItems.map(item => ({
+      id: item.id,
+      url: item.acf?.image || '/images/services/dør-vinduer.png',
+      alt: item.title?.rendered || 'Dør og vinduer projekt',
+      title: item.title?.rendered || 'Dør og vinduer',
+      description: item.acf?.description || 'Professionel montering af døre og vinduer'
+    }));
 
-        // Filter for dør og vinduer items - now using exact category match
-        const dorVinduerItems = allItems.filter(item => 
-          item.categories && item.categories.some(category => 
-            category.slug === 'dor-og-vinduer' 
-          )
-        );
+    return mappedGalleryImages;
+  } catch (error) {
+    console.error('Error fetching dør og vinduer data:', error);
+    return [];
+  }
+}
 
-        console.log('Filtered dør og vinduer items:', dorVinduerItems); // Debug log
-
-        // Map data til galleri-format
-        const mappedGalleryImages = dorVinduerItems.map(item => ({
-          url: item.imageUrl,
-          alt: item.altText,
-          id: item.id,
-          title: item.title,
-          description: item.description
-        }));
-
-        console.log('Final galleryImages for dor-vinduer:', mappedGalleryImages); // Debug log
-        setGalleryImages(mappedGalleryImages);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching gallery data:', error);
-        setLoading(false);
-      }
-    }
-
-    fetchGalleryData();
-  }, []);
+export default async function DorVinduerPage() {
+  const galleryImages = await getDorVinduerData();
 
   // Services section data for dør og vinduer
   const servicesSection = {
@@ -65,10 +51,6 @@ export default function DorVinduerPage() {
     ]
   };
 
-  if (loading) {
-    return <div>Indlæser...</div>;
-  }
-
   return (
     <YdelseLayout
       heroImage="/images/services/dør-vinduer.png"
@@ -79,8 +61,6 @@ export default function DorVinduerPage() {
       imageTextDescription="Skal dine døre eller vinduer udskiftes eller opgraderes? Hos HMI Tømrermester tilbyder vi professionelle løsninger til både nye og eksisterende boliger – uanset om det gælder enkelte elementer eller en komplet udskiftning.<br><br>Vi sørger for alt fra opmåling og rådgivning til præcis montering med fokus på finish, tæthed og holdbarhed. Vores løsninger er skræddersyet til dine ønsker og behov og lever op til nutidens krav til både æstetik, komfort og energieffektivitet.<br><br>Kontakt os i dag og få et uforpligtende tilbud på nye døre og vinduer – vi står klar til at hjælpe dig sikkert gennem hele processen."
       servicesSection={servicesSection}
       galleryImages={galleryImages}
-    >
-      
-    </YdelseLayout>
+    />
   );
 }
