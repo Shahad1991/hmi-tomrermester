@@ -1,8 +1,9 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx}",
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
   ],
   darkMode: 'class', // Enable class-based dark mode
   theme: {
@@ -37,14 +38,12 @@ module.exports = {
           '0%, 100%': { 'box-shadow': '0 0 5px #FFB600' },
           '50%': { 'box-shadow': '0 0 20px #FFB600' },
         },
-    
       },
       fontFamily: {
-      sans: ['var(--font-montserrat)'],
-      serif: ['var(--font-ibm-plex-serif)'],
-    },
-    },
-    filter: { // if not already present
+        sans: ['var(--font-montserrat)'],
+        serif: ['var(--font-ibm-plex-serif)'],
+      },
+      filter: {
         'none': 'none',
         'sepia-30': 'sepia(30%)',
         'brightness-90': 'brightness(90%)',
@@ -52,6 +51,9 @@ module.exports = {
         'contrast-110': 'contrast(110%)',
         'hue-rotate-15': 'hue-rotate(15deg)',
       },
+    },
   },
-  plugins: [ require('tailwindcss-filters'),],
+  plugins: [
+    require('tailwindcss-filters'),
+  ],
 }
