@@ -224,7 +224,7 @@ export default function YdelseLayout({
 
         {/* Galleri Section */}
         {galleryImages && galleryImages.length > 0 && (
-          <section className="bg-gradient-to-b from-gray-50 to-white dark:from-dark-surface pt-16 dark:to-dark-bg px-4 sm:px-6 lg:px-8">
+          <section className="bg-gradient-to-b from-gray-50 to-white dark:from-dark-surface py-16 dark:to-dark-bg px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               {/* Header */}
               <div className="text-center mb-16">
