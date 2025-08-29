@@ -186,6 +186,36 @@ export const jsonLdSchema = {
   }
 };
 
+// Organization schema for logo display in Google
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "HMI Tømrermester",
+  url: "https://hmi-tomrermester.dk",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://hmi-tomrermester.dk/images/logo/logo1.svg",
+    width: 600,
+    height: 60,
+    caption: "HMI Tømrermester Logo"
+  },
+  image: [
+    "https://hmi-tomrermester.dk/images/logo/logo1.svg",
+    "https://hmi-tomrermester.dk/images/ali-hmi/hmi-ali.png"
+  ],
+  sameAs: [
+    "https://www.facebook.com/hmitomrermester",
+    "https://www.instagram.com/hmitomrermester",
+    "https://www.linkedin.com/company/hmi-t%C3%B8mrermester"
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+45-28-22-50-60",
+    contactType: "customer service",
+    availableLanguage: "Danish"
+  }
+};
+
 // Website navigation structured data for better sitelinks
 export const websiteSchema = {
   "@context": "https://schema.org",
