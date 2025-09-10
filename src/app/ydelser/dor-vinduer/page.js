@@ -14,23 +14,16 @@ async function getDorVinduerData() {
       )
     );
 
-    // Map data til galleri-format og fjern dubletter
+    // Map data til galleri-format
     const mappedGalleryImages = dorVinduerItems.map(item => ({
       id: item.id,
-      url: item.imageUrl || '/images/services/dør-vinduer.png',
-      alt: item.altText || item.title || 'Dør og vinduer projekt',
-      title: item.title || 'Dør og vinduer',
-      description: item.acf?.description || item.description || 'Professionel montering af døre og vinduer'
+      url: item.acf?.image || '/images/services/dør-vinduer.png',
+      alt: item.title?.rendered || 'Dør og vinduer projekt',
+      title: item.title?.rendered || 'Dør og vinduer',
+      description: item.acf?.description || 'Professionel montering af døre og vinduer'
     }));
 
-    // Fjern dubletter baseret på id
-    const uniqueGalleryImages = mappedGalleryImages.filter((item, index, self) => 
-      index === self.findIndex(t => t.id === item.id)
-    );
-
-    console.log('Dør og vinduer items:', dorVinduerItems.length, 'Unique items:', uniqueGalleryImages.length);
-    
-    return uniqueGalleryImages;
+    return mappedGalleryImages;
   } catch (error) {
     console.error('Error fetching dør og vinduer data:', error);
     return [];

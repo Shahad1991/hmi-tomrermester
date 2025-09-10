@@ -1,6 +1,6 @@
 import { Montserrat, IBM_Plex_Serif } from "next/font/google";
 import "./globals.css";
-import { jsonLdSchema, websiteSchema, navigationSchema, organizationSchema } from '../metadata/MetaDataCollection';
+import { jsonLdSchema, websiteSchema, navigationSchema } from '../metadata/MetaDataCollection';
 import siteMetadata from '../metadata/MetaDataCollection';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -48,13 +48,6 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(jsonLdSchema),
-          }}
-        />
-        {/* Organization schema for logo display */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
           }}
         />
         {/* Website schema for search functionality */}

@@ -180,6 +180,7 @@ const Navbar = () => {
               
               <div className="pt-4">
                 <BookButton 
+                  href="/kontakt" 
                   onClick={closeAll}
                   variant="primary"
                   size="lg"

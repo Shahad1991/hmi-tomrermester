@@ -30,7 +30,6 @@ const BookButton = ({
     return (
       <Link
         href={href}
-        onClick={onClick} // Add onClick handler for Link as well
         className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
         {...props}
       >
