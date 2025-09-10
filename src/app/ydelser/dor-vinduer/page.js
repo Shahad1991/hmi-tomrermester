@@ -7,23 +7,55 @@ async function getDorVinduerData() {
   try {
     const allItems = await getAllGalleryItems();
     
-    // Filter for dør og vinduer items
+    console.log('Total items from API:', allItems.length);
+    
+    // Debug: Log alle kategorier for at se hvad der findes
+    const allCategories = new Set();
+    allItems.forEach(item => {
+      if (item.categories) {
+        item.categories.forEach(cat => {
+          allCategories.add(cat.slug);
+        });
+      }
+    });
+    console.log('Available categories:', Array.from(allCategories));
+    
+    // Filter for dør og vinduer items - check flere mulige slugs
     const dorVinduerItems = allItems.filter(item => 
       item.categories && item.categories.some(category => 
-        category.slug === 'dor-og-vinduer' 
+        category.slug === 'dor-og-vinduer' || 
+        category.slug === 'door-and-windows' ||
+        category.slug === 'vinduer-og-dore' ||
+        category.slug === 'gallery_category-dor-og-vinduer' ||
+        category.name?.toLowerCase().includes('dør') ||
+        category.name?.toLowerCase().includes('vindue')
       )
     );
 
-    // Map data til galleri-format
+    console.log('Filtered dør og vinduer items:', dorVinduerItems.length);
+    
+    // Debug: Log first few items to see structure
+    if (dorVinduerItems.length > 0) {
+      console.log('First item structure:', dorVinduerItems[0]);
+    }
+
+    // Map data til galleri-format og fjern dubletter
     const mappedGalleryImages = dorVinduerItems.map(item => ({
       id: item.id,
-      url: item.acf?.image || '/images/services/dør-vinduer.png',
-      alt: item.title?.rendered || 'Dør og vinduer projekt',
-      title: item.title?.rendered || 'Dør og vinduer',
-      description: item.acf?.description || 'Professionel montering af døre og vinduer'
+      url: item.imageUrl || '/images/services/dør-vinduer.png',
+      alt: item.altText || item.title || 'Dør og vinduer projekt',
+      title: item.title || 'Dør og vinduer',
+      description: item.acf?.description || item.description || 'Professionel montering af døre og vinduer'
     }));
 
-    return mappedGalleryImages;
+    // Fjern dubletter baseret på id
+    const uniqueGalleryImages = mappedGalleryImages.filter((item, index, self) => 
+      index === self.findIndex(t => t.id === item.id)
+    );
+
+    console.log('Final unique gallery images:', uniqueGalleryImages.length);
+    
+    return uniqueGalleryImages;
   } catch (error) {
     console.error('Error fetching dør og vinduer data:', error);
     return [];
