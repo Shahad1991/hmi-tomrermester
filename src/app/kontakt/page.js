@@ -61,10 +61,8 @@ export default function Kontakt() {
           </div>
         </div>
       </section>
-
-      {/* Process Section med baggrundsbillede */}
+ 
       <section className="relative z-10 overflow-hidden">
-        {/* Baggrund kun for denne del */}
         <div className="absolute inset-0 w-full h-full -z-10">
           <Image
             src="/images/backgrounds/kontakt-process-bg.png"
