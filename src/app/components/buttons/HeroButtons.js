@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, Instagram } from "lucide-react";
+import { ArrowRight} from "lucide-react";
 
 const HeroButtons = () => {
   return (
