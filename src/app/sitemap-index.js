@@ -1,6 +1,4 @@
-import { MetadataRoute } from 'next'
-
-export default function sitemapIndex(): MetadataRoute.Sitemap {
+export function sitemapIndex() {
   return [
     {
       url: 'https://hmi-tomrermester.dk/sitemap.xml',
