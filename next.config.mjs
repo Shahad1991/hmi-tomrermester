@@ -127,8 +127,6 @@ const nextConfig = {
         pathname: '/**',
       }
     ],
-    // Fallback for legacy domains config
-    domains: ['api.hmi-tomrermester.dk', 'hmi-tomrermester.vercel.app', 'hmi-tomrermester.dk', 'www.hmi-tomrermester.dk'],
   },
 };
 
