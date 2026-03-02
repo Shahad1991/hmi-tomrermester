@@ -19,8 +19,13 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm install
+      # Add retry logic to npm install
+      - name: Install dependencies with retry
+        run: |
+          for i in 1 2 3; do
+            npm install && break
+            sleep 10
+          done
 
       - name: Build Next.js app
         run: npm run build
