@@ -79,7 +79,7 @@ export default function HegnPage() {
 
   return (
     <YdelseLayout
-      heroImage="/images/services/hegn.jpeg"
+      heroImage="/images/services/hegn.jpg"
       heroTitle="Hegn"
       heroText="Vi bygger solide hegn der skaber privatliv og definerer din ejendom."
       imageTextImage="/images/ali-hmi/ali-hegn.jpeg"
