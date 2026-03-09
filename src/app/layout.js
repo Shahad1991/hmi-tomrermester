@@ -8,7 +8,7 @@ import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import ScrollTracker from "./components/ScrollTracker";
 
 // Google Analytics ID (erstatt med din egen)
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const montserrat = Montserrat({
   subsets: ["latin"],
