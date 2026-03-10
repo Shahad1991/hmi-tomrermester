@@ -5,7 +5,6 @@ import siteMetadata from '../metadata/MetaDataCollection';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { GoogleAnalytics } from "./components/GoogleAnalytics";
-import ScrollTracker from "./components/ScrollTracker";
 
 // Google Analytics ID (erstatt med din egen)
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -99,7 +98,6 @@ export default function RootLayout({ children }) {
         />
         <Navbar />
         <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
-        <ScrollTracker />
         {children}
         <Footer />
       </body>

@@ -93,36 +93,3 @@ export function trackInstagramClick() {
   trackEvent('click', 'social_media', 'instagram');
   console.log('GA: Instagram click tracked');
 }
-
-// Track scroll depth
-export function trackScrollDepth(percentage) {
-  trackEvent('scroll', 'engagement', `${percentage}%`);
-}
-
-// Setup scroll tracking
-export function setupScrollTracking() {
-  if (typeof window === 'undefined') return;
-  
-  let scrollTracked = {
-    25: false,
-    50: false,
-    75: false,
-    90: false
-  };
-
-  const handleScroll = () => {
-    const scrollTop = window.pageYOffset;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = Math.floor((scrollTop / docHeight) * 100);
-
-    Object.keys(scrollTracked).forEach(threshold => {
-      if (scrollPercent >= threshold && !scrollTracked[threshold]) {
-        scrollTracked[threshold] = true;
-        trackScrollDepth(threshold);
-      }
-    });
-  };
-
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}
