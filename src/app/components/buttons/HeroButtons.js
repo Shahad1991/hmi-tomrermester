@@ -5,10 +5,6 @@ import { ArrowRight} from "lucide-react";
 const HeroButtons = () => {
   return (
     <div className="flex flex-col sm:flex-row gap-4 mt-8">
-      {/* Vores projekter-knap (bevares næsten uændret) */}
-      
-      
-      {/* Kontakt os-knap (opdateret med gul hover-effekt) */}
       <Link
         href="/kontakt"
         className="group inline-flex items-center justify-center px-8 py-3 bg-transparent text-white font-semibold rounded-lg shadow-lg border-2 border-accent hover:bg-accent hover:text-darkblue transition-all duration-300 text-lg transform hover:-translate-y-1 relative overflow-hidden"
