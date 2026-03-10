@@ -109,11 +109,7 @@ const Navbar = () => {
           {/* CTA Button and Dark Mode Toggle */}
           <div className="hidden md:flex items-center space-x-4 ml-6">
             <DarkModeToggle />
-            <BookButton size="lg" className="group">
-              <span className="group-hover:scale-105 transition-transform font-serif">
-                Book et møde
-              </span>
-            </BookButton>
+           <BookButton className="group" />
           </div>
 
           {/* Mobile menu button */}
@@ -179,14 +175,7 @@ const Navbar = () => {
               </MobileNavLink>
               
               <div className="pt-4">
-                <BookButton 
-                  onClick={closeAll}
-                  variant="primary"
-                  size="lg"
-                  className="w-full"
-                >
-                  Book et møde
-                </BookButton>
+                <BookButton className="w-full" onClick={closeAll} />
               </div>
             </div>
           </div>
