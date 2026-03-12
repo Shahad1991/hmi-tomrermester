@@ -32,14 +32,11 @@ export default function ContactForm() {
         setPopupMessage("Formularen blev sendt succesfuldt!");
         setShowPopup(true);
         form.reset();
-        
-        // Track successful form submission
         trackContactForm('main_contact');
       } else {
         throw new Error(`Fejl: ${response.status} - ${response.statusText}`);
       }
     } catch (err) {
-      console.error("Fejl:", err);
       setPopupMessage("Noget gik galt. Prøv igen.");
       setShowPopup(true);
     }

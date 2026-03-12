@@ -173,9 +173,6 @@ export default function YdelseLayout({
                     />
                     
                   )}
-                  
-                  {/* Decorative overlay - now using group-hover and positioned to not interfere */}
-                  
                   <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
                
@@ -224,7 +221,7 @@ export default function YdelseLayout({
 
         {/* Galleri Section */}
         {galleryImages && galleryImages.length > 0 && (
-          <section className="bg-gradient-to-b from-gray-50 to-white dark:from-dark-surface pt-16 dark:to-dark-bg px-4 sm:px-6 lg:px-8">
+          <section className="bg-gradient-to-b from-gray-50 to-white dark:from-dark-surface pt-20 dark:to-dark-bg px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               {/* Header */}
               <div className="text-center mb-16">
@@ -237,7 +234,8 @@ export default function YdelseLayout({
 
               {/* Gallery Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {galleryImages.map((img, index) => (                    <div 
+                {galleryImages.map((img, index) => (                   
+                   <div 
                     key={img.id || index} 
                     className="group relative bg-white dark:bg-dark-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
                   >
@@ -269,7 +267,8 @@ export default function YdelseLayout({
                       </div>
                     </div>
 
-                    {/* Card Content */}                      <div className="p-6">
+                    {/* Card Content */}                      
+                    <div className="p-6">
                       {img.title && (
                         <h3 className="text-xl font-bold text-darkblue dark:text-dark-text mb-2 group-hover:text-accent transition-colors duration-300">
                           {img.title}
@@ -287,13 +286,11 @@ export default function YdelseLayout({
           </section>
         )}
 
+        {/* Add extra space between gallery and CTA section */}
+        <div className="h-16 sm:h-24"></div>
+
         {/* Call to Action - Full Width */}
-        <section className="w-full py-16 bg-gray-900 dark:bg-dark-bg relative overflow-hidden">
-          {/* Background Pattern for better contrast */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent"></div>
-          </div>
-          
+        <section className="w-full py-20 bg-gray-900 dark:bg-dark-bg relative overflow-hidden">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-serif drop-shadow-lg">
               Interesseret i at se mere af vores arbejde?

@@ -1,13 +1,11 @@
 'use client';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { Wrench, Zap, Ruler, Drill } from 'lucide-react';
 
 // Force dynamic rendering
-export const dynamic = 'force-dynamic';import {Wrench, Zap, Ruler, Drill } from 'lucide-react';
-import ContactButton from '../../components/buttons/ContactButton';
-import Link from 'next/link';
+export const dynamic = 'force-dynamic';
 
 export default function KokkenPage() {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -17,7 +15,6 @@ export default function KokkenPage() {
     async function fetchGalleryData() {
       try {
         const allItems = await getAllGalleryItems();
-        console.log('All items:', allItems); // Debug log
 
         // Filter for køkken items - now using exact category match
         const kitchenItems = allItems.filter(item => 
@@ -25,8 +22,6 @@ export default function KokkenPage() {
             category.slug === 'kokken'
           )
         );
-
-        console.log('Filtered kitchen items:', kitchenItems); // Debug log
 
         // Map data til galleri-format
         const mappedGalleryImages = kitchenItems.map(item => ({
@@ -37,11 +32,9 @@ export default function KokkenPage() {
           description: item.description
         }));
 
-        console.log('Kitchen gallery images:', mappedGalleryImages); // Debug log
         setGalleryImages(mappedGalleryImages);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching gallery data:', error);
         setLoading(false);
       }
     }
@@ -92,7 +85,6 @@ export default function KokkenPage() {
       imageTextDescription="Drømmer du om et nyt køkken, der kombinerer funktionalitet, æstetik og høj kvalitet? Hos HMI Tømrermester specialiserer vi os i køkkenrenovering og køkkenmontering for både private og erhverv. Uanset om du ønsker et moderne køkken-alrum, en klassisk løsning eller noget helt tredje, står vi klar med rådgivning, inspiration og solidt håndværk.<br><br>Vi hjælper dig gennem hele processen – fra de første skitser til det færdige køkken. Med mange års erfaring sikrer vi, at du får en løsning, der matcher både dit hjem og din hverdag."
       servicesSection={servicesSection}
       galleryImages={galleryImages}
-    >
-    </YdelseLayout>
+    />
   );
 }

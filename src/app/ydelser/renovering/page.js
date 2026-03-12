@@ -1,13 +1,10 @@
 'use client';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { Paintbrush, Zap, Wrench, BrickWall, Shovel, Drill } from 'lucide-react';
 
-// Force dynamic rendering
-export const dynamic = 'force-dynamic';import { Paintbrush, Zap, Wrench, BrickWall, Shovel, Drill } from 'lucide-react';
-import ContactButton from '../../components/buttons/ContactButton';
-import Link from 'next/link';
+export const dynamic = 'force-dynamic';
 
 export default function RenoveringPage() {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -17,18 +14,11 @@ export default function RenoveringPage() {
     async function fetchGalleryData() {
       try {
         const allItems = await getAllGalleryItems();
-        console.log('All items:', allItems); // Debug log
-
-        // Filter for renovering items - now using exact category match
         const renoveringItems = allItems.filter(item => 
           item.categories && item.categories.some(category => 
             category.slug === 'renovering'
           )
         );
-
-        console.log('Filtered renovering items:', renoveringItems); // Debug log
-
-        // Map data til galleri-format
         const mappedGalleryImages = renoveringItems.map(item => ({
           url: item.imageUrl,
           alt: item.altText,
@@ -36,20 +26,15 @@ export default function RenoveringPage() {
           title: item.title,
           description: item.description
         }));
-
-        console.log('Final galleryImages for renovering:', mappedGalleryImages); // Debug log
         setGalleryImages(mappedGalleryImages);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching gallery data:', error);
         setLoading(false);
       }
     }
-
     fetchGalleryData();
   }, []);
 
-  // Services section data for renovering
   const servicesSection = {
     title: "Faglige services til dit renoveringsprojekt",
     description: "Vi tilbyder komplette løsninger med alle fagområder til renovering af dit hjem",
@@ -60,7 +45,6 @@ export default function RenoveringPage() {
         title: "Tømrer/ Snedker",
         description: "Professionel tømrerarbejde til alle renoveringsprojekter."
       },
-      
       {
         icon: <BrickWall className="w-6 h-6" strokeWidth={1.5} />,
         title: "Murer",
@@ -103,8 +87,6 @@ export default function RenoveringPage() {
       imageTextDescription="Skal dit hjem have en kærlig hånd eller en større renovering? Hos HMI Tømrermester tager vi os af alt fra mindre reparationer til omfattende renoveringer. Vi koordinerer alle håndværksfag og sikrer, at dit projekt gennemføres professionelt og til tiden.<br><br>Vores erfaring spænder fra badrenovering og køkkenrenovering til komplet husrenovering. Vi hjælper dig med planlægning, materialevalg og udførelse, så du får det drømmehjem du ønsker dig."
       servicesSection={servicesSection}
       galleryImages={galleryImages}
-    >
-      
-    </YdelseLayout>
+    />
   );
 }

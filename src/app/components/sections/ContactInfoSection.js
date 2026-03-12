@@ -1,5 +1,5 @@
 "use client";
-import { Phone, Mail, Clock, MapPin } from "lucide-react";
+import { Phone, Clock, MapPin } from "lucide-react";
 import { trackPhoneClick, trackEmailClick } from "../GoogleAnalytics";
 
 export default function ContactInfoCards() {

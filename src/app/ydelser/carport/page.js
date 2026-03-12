@@ -1,9 +1,9 @@
 'use client';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import { useState, useEffect } from 'react';
 import { Drill, Zap, Paintbrush } from 'lucide-react';
 import { trackServiceView } from '../../components/GoogleAnalytics';
+import { useState, useEffect } from 'react';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -19,30 +19,23 @@ export default function CarportPage() {
     async function fetchGalleryData() {
       try {
         const allItems = await getAllGalleryItems();
-        console.log('All items:', allItems); // Debug log
 
         // Filter for carport items - now using exact category match
         const carportItems = allItems.filter(item => 
-          item.categories && item.categories.some(category => 
-            category.slug === 'carport'
-          )
+          item.categories && item.categories.some(category => category.slug === 'carport')
         );
 
-        console.log('Filtered carport items:', carportItems); // Debug log
-
         // Map data til galleri-format
-        const mappedGalleryImages = carportItems.map(item => ({
-          url: item.imageUrl,
-          alt: item.altText,
-          id: item.id,
-          title: item.title,
-          description: item.description
-        }));
-
-        setGalleryImages(mappedGalleryImages);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching gallery data:', error);
+        setGalleryImages(
+          carportItems.map(item => ({
+            url: item.imageUrl,
+            alt: item.altText,
+            id: item.id,
+            title: item.title,
+            description: item.description
+          }))
+        );
+      } finally {
         setLoading(false);
       }
     }
@@ -89,7 +82,6 @@ export default function CarportPage() {
       servicesSection={servicesSection}
       galleryImages={galleryImages}
     >
-      
     </YdelseLayout>
   );
 }

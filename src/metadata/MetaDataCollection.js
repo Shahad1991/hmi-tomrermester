@@ -8,37 +8,11 @@ const siteMetadata = {
   description: "HMI Tømrermester er din lokale tømrer i Taastrup og på Sjælland. Vi tilbyder alt fra carporte og terrasser til køkkenrenovering, gulvlægning og døre/vinduer. Kvalitet, service og solidt håndværk – altid til tiden.",
   metadataBase: new URL("https://hmi-tomrermester.dk"),
   keywords: [
-  // Lokale søgninger
-  "tømrer Taastrup",
-  "håndværker Taastrup",
-  "byggefirma Taastrup",
-  "tømrer København",
-  "tømrer Sjælland",
-
-  // Ydelser + lokation
-  "carport byggeri Taastrup",
-  "el-installation carport",
-  "terrassebyggeri Taastrup",
-  "køkkenmontering Taastrup",
-  "gulvlægning Sjælland",
-  "gipsarbejde København",
-  "montering af døre og vinduer",
-
-  // Problemfokuseret søgning (godt for long-tail)
-  "hjælp til renovering",
-  "lav en carport",
-  "overdækket terrasse løsning",
-  "nyt gulv i huset",
-  "skift af vinduer og døre",
-  "professionel tømrer nær mig",
-
-  // Generelle søgninger
-  "tømrerarbejde",
-  "renovering af hus",
-  "håndværker med garanti",
-  "lokal tømrer med erfaring"
-],
-
+    "tømrer Taastrup", "håndværker Taastrup", "byggefirma Taastrup", "tømrer København", "tømrer Sjælland",
+    "carport byggeri Taastrup", "el-installation carport", "terrassebyggeri Taastrup", "køkkenmontering Taastrup", "gulvlægning Sjælland", "gipsarbejde København", "montering af døre og vinduer",
+    "hjælp til renovering", "lav en carport", "overdækket terrasse løsning", "nyt gulv i huset", "skift af vinduer og døre", "professionel tømrer nær mig",
+    "tømrerarbejde", "renovering af hus", "håndværker med garanti", "lokal tømrer med erfaring"
+  ],
   authors: [{ name: "HMI Tømrermester" }],
   creator: "HMI Tømrermester",
   publisher: "HMI Tømrermester",
@@ -53,7 +27,7 @@ const siteMetadata = {
       'max-snippet': -1,
     },
   },
-  openGraph: { // Open Graph metadata for social media sharing
+  openGraph: {
     title: "HMI Tømrermester - Professionel tømrer og byggefirma",
     description: "Professionelle tømrer- og byggeløsninger i Taastrup og omegn. Carporte, terrasser, køkkener, renovering og meget mere. Kontakt os for et uforpligtende tilbud.",
     url: "https://hmi-tomrermester.dk",
@@ -69,7 +43,7 @@ const siteMetadata = {
     locale: "da_DK",
     type: "website",
   },
-  twitter: { // Twitter Card metadata
+  twitter: {
     card: "summary_large_image",
     title: "HMI Tømrermester - Professionel tømrer og byggefirma",
     description: "Professionelle tømrer- og byggeløsninger i Taastrup og omegn. Carporte, terrasser, køkkener, renovering og meget mere.",
@@ -83,9 +57,9 @@ const siteMetadata = {
     ],
   },
   verification: {
-    google: "", // Add Google Search Console verification code here
-    yandex: "", // Add Yandex verification code here
-    yahoo: "", // Add Yahoo verification code here
+    google: "",
+    yandex: "",
+    yahoo: "",
     other: {
       me: ["mailto:ali@hmi-tomrermester.dk", "tel:+4528225060"],
     },
@@ -94,13 +68,13 @@ const siteMetadata = {
   classification: "Business",
   other: {
     "business:contact_data:street_address": "Vibevej 7",
-    "business:contact_data:locality": "Taastrup", 
+    "business:contact_data:locality": "Taastrup",
     "business:contact_data:postal_code": "2630",
     "business:contact_data:country_name": "Denmark",
     "business:contact_data:email": "ali@hmi-tomrermester.dk",
     "business:contact_data:phone_number": "+45 28 22 50 60",
   },
-}
+};
 
 // JSON-LD Schema for structured data (SEO)
 export const jsonLdSchema = {
@@ -128,56 +102,39 @@ export const jsonLdSchema = {
     "Sa 08:00-12:00"
   ],
   priceRange: "$$",
-  areaServed: [
-    "Taastrup",
-    "København", 
-    "Sjælland"
-  ],
+  areaServed: ["Taastrup", "København", "Sjælland"],
   serviceType: [
-    "Tømrerarbejde",
-    "Carport byggeri",
-    "Terrasse anlæggelse", 
-    "Køkkenrenovering",
-    "Gulvlægning",
-    "Renovering",
-    "Gipsarbejde",
-    "Døre og vinduer",
-    "Hegn opsætning",
-    "Andre byggeopgaver",
-    "Total renovering",
-    "Akustikpaneler",
-    "Specialiserede håndværksløsninger"
+    "Tømrerarbejde", "Carport byggeri", "Terrasse anlæggelse", "Køkkenrenovering", "Gulvlægning", "Renovering", "Gipsarbejde", "Døre og vinduer", "Hegn opsætning", "Andre byggeopgaver", "Total renovering", "Akustikpaneler", "Specialiserede håndværksløsninger"
   ],
   sameAs: [
     "https://www.facebook.com/hmitomrermester",
     "https://www.instagram.com/hmitomrermester",
     "https://www.linkedin.com/company/hmi-t%C3%B8mrermester"
   ],
-  // Add explicit sitelinks to guide Google  
   potentialAction: [
     {
       "@type": "ViewAction",
       target: "https://hmi-tomrermester.dk/kontakt",
-      "name": "Kontakt HMI Tømrermester",
-      "description": "Kontakt os for tilbud på tømrerarbejde"
-    },
-    {
-      "@type": "ViewAction", 
-      target: "https://hmi-tomrermester.dk/galleri",
-      "name": "Se vores projekter",
-      "description": "Galleri med færdige projekter og portefølje"
+      name: "Kontakt HMI Tømrermester",
+      description: "Kontakt os for tilbud på tømrerarbejde"
     },
     {
       "@type": "ViewAction",
-      target: "https://hmi-tomrermester.dk/om-os", 
-      "name": "Om HMI Tømrermester",
-      "description": "Lær mere om vores virksomhed og erfaring"
+      target: "https://hmi-tomrermester.dk/galleri",
+      name: "Se vores projekter",
+      description: "Galleri med færdige projekter og portefølje"
+    },
+    {
+      "@type": "ViewAction",
+      target: "https://hmi-tomrermester.dk/om-os",
+      name: "Om HMI Tømrermester",
+      description: "Lær mere om vores virksomhed og erfaring"
     },
     {
       "@type": "ViewAction",
       target: "https://hmi-tomrermester.dk/ydelser",
-      "name": "Vores ydelser",
-      "description": "Se alle vores tømrer- og byggetekniske ydelser"
+      name: "Vores ydelser",
+      description: "Se alle vores tømrer- og byggetekniske ydelser"
     }
   ],
   mainEntityOfPage: {
@@ -186,7 +143,6 @@ export const jsonLdSchema = {
   }
 };
 
-// Website navigation structured data for better sitelinks
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -199,7 +155,6 @@ export const websiteSchema = {
   }
 };
 
-// Navigation schema for sitelinks
 export const navigationSchema = {
   "@context": "https://schema.org",
   "@type": "SiteNavigationElement",
@@ -213,21 +168,21 @@ export const navigationSchema = {
       url: "https://hmi-tomrermester.dk/kontakt"
     },
     {
-      "@type": "SiteNavigationElement", 
+      "@type": "SiteNavigationElement",
       name: "Galleri",
       description: "Se vores projekter og portefølje",
       url: "https://hmi-tomrermester.dk/galleri"
     },
     {
       "@type": "SiteNavigationElement",
-      name: "Om os", 
+      name: "Om os",
       description: "Lær mere om HMI Tømrermester",
       url: "https://hmi-tomrermester.dk/om-os"
     },
     {
       "@type": "SiteNavigationElement",
       name: "Ydelser",
-      description: "Se vores tømrer og byggeydelser", 
+      description: "Se vores tømrer og byggeydelser",
       url: "https://hmi-tomrermester.dk/ydelser"
     }
   ]
@@ -290,7 +245,7 @@ export const serviceMetadata = {
     image: "/images/services/hegn.jpeg",
   },
   "andre-opgaver": {
-    title: "Andre byggeopgaver - Specialiserede håndværksløsninger", 
+    title: "Andre byggeopgaver - Specialiserede håndværksløsninger",
     description: "HMI Tømrermester løser alle typer byggeopgaver og specialiserede håndværksopgaver. Kontakt os for at høre hvordan vi kan hjælpe med dit projekt.",
     keywords: ["byggeopgaver", "håndværker", "specialopgaver", "byggearbejde", "tømrerarbejde", "Taastrup"],
     image: "/images/services/andre-opgaver.jpg",

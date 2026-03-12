@@ -82,13 +82,10 @@ export default function GalleryPage() {
   useEffect(() => {
     async function fetchGalleryItems() {
       try {
-        console.log('Fetching gallery items for gallery page...');
         const items = await getGalleryPageItems();
-        console.log('Gallery page items received:', items.length);
         setGalleryItems(items);
       } catch (err) {
         setError('Failed to load gallery items');
-        console.error('Gallery page error:', err);
       } finally {
         setLoading(false);
       }

@@ -55,41 +55,34 @@ export function trackConversion(conversionName) {
 // Track phone number clicks
 export function trackPhoneClick() {
   trackEvent('click', 'contact', 'phone_number');
-  console.log('GA: Phone click tracked');
 }
 
 // Track email clicks  
 export function trackEmailClick() {
   trackEvent('click', 'contact', 'email');
-  console.log('GA: Email click tracked');
 }
 
 // Track contact form submissions
 export function trackContactForm(formType = 'general') {
   trackEvent('submit', 'form', `contact_form_${formType}`);
-  console.log(`GA: Contact form submission tracked: ${formType}`);
 }
 
 // Track service page visits
 export function trackServiceView(serviceName) {
   trackEvent('view', 'services', serviceName);
-  console.log(`GA: Service view tracked: ${serviceName}`);
 }
 
 // Track gallery interactions
 export function trackGalleryInteraction(action, imageTitle) {
   trackEvent(action, 'gallery', imageTitle);
-  console.log(`GA: Gallery ${action} tracked: ${imageTitle}`);
 }
 
 // Track quote requests
 export function trackQuoteRequest(serviceType) {
   trackEvent('click', 'quote_request', serviceType);
-  console.log(`GA: Quote request tracked: ${serviceType}`);
 }
 
 // Track Instagram clicks
 export function trackInstagramClick() {
   trackEvent('click', 'social_media', 'instagram');
-  console.log('GA: Instagram click tracked');
 }

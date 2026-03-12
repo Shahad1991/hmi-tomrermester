@@ -1,13 +1,10 @@
 'use client';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { Hammer, Ruler, Drill } from 'lucide-react';
 
-// Force dynamic rendering
-export const dynamic = 'force-dynamic';import { Hammer, Ruler, Drill } from 'lucide-react';
-import ContactButton from '../../components/buttons/ContactButton';
-import Link from 'next/link';
+export const dynamic = 'force-dynamic';
 
 export default function HegnPage() {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -17,18 +14,11 @@ export default function HegnPage() {
     async function fetchGalleryData() {
       try {
         const allItems = await getAllGalleryItems();
-        console.log('All items:', allItems); // Debug log
-
-        // Filter for hegn items - now using exact category match
         const hegnItems = allItems.filter(item => 
           item.categories && item.categories.some(category => 
             category.slug === 'hegn'
           )
         );
-
-        console.log('Filtered hegn items:', hegnItems); // Debug log
-
-        // Map data til galleri-format
         const mappedGalleryImages = hegnItems.map(item => ({
           url: item.imageUrl,
           alt: item.altText,
@@ -36,20 +26,15 @@ export default function HegnPage() {
           title: item.title,
           description: item.description
         }));
-
-        console.log('Final galleryImages for hegn:', mappedGalleryImages); // Debug log
         setGalleryImages(mappedGalleryImages);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching gallery data:', error);
         setLoading(false);
       }
     }
-
     fetchGalleryData();
   }, []);
 
-  // Services section data for hegn
   const servicesSection = {
     title: "Faglige services til dit hegnprojekt",
     description: "Vi tilbyder specialiserede løsninger til din hegn konstruktion",
@@ -87,8 +72,6 @@ export default function HegnPage() {
       imageTextDescription="Har du brug for et nyt hegn til din ejendom? Hos HMI Tømrermester specialiserer vi os i konstruktion af holdbare og æstetiske hegn i forskellige materialer og designs. Uanset om du ønsker et klassisk trætræmhegn, et moderne design eller noget helt tredje, hjælper vi dig med at finde den perfekte løsning.<br><br>Vi sørger for korrekt fundamentering, præcis montering og overholdelse af alle byggeregler. Med vores erfaring får du et hegn der holder i mange år."
       servicesSection={servicesSection}
       galleryImages={galleryImages}
-    >
-      
-    </YdelseLayout>
+    />
   );
 }

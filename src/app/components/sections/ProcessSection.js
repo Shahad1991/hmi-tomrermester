@@ -1,4 +1,4 @@
-import Image from "next/image";
+"use client";
 
 export function ProcessSection() {
   const steps = [

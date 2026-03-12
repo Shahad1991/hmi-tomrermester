@@ -26,7 +26,7 @@ export const metadata = {
   metadataBase: siteMetadata.metadataBase,
   title: siteMetadata.title,
   description: siteMetadata.description,
-  keywords: siteMetadata.keywords.join(', '), // Fix: Convert array to string
+  keywords: siteMetadata.keywords.join(', '),
   authors: siteMetadata.authors,
   creator: siteMetadata.creator,
   publisher: siteMetadata.publisher,

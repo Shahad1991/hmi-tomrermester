@@ -10,16 +10,12 @@ export const metadata = generateServiceMetadata('andre-opgaver');
 export default async function AndreOpgaverPage() {
   try {
     const allItems = await getAllGalleryItems();
-    console.log('All items:', allItems); // Debug log
-
     // Filter for andre opgaver items - now using exact category match
     const andreOpgaverItems = allItems.filter(item => 
       item.categories && item.categories.some(category => 
         category.slug === 'andre-opgaver' || category.slug === 'andre_opgaver'
       )
     );
-
-    console.log('Filtered andre opgaver items:', andreOpgaverItems); // Debug log
 
     // Map data til galleri-format
     const galleryImages = andreOpgaverItems.map(item => ({
@@ -29,8 +25,6 @@ export default async function AndreOpgaverPage() {
       id: item.id,
       description: item.description
     }));
-
-    
 
     // Services section data for andre opgaver
     const servicesSection = {
@@ -55,7 +49,6 @@ export default async function AndreOpgaverPage() {
         }
       ]
     };
-
     
     return (
       <YdelseLayout
@@ -73,12 +66,10 @@ export default async function AndreOpgaverPage() {
           Kontakt os i dag for et uforpligtende tilbud – vi skræddersyr løsningen efter dine behov."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
-      >
-        
+      >  
       </YdelseLayout>
     );
   } catch (error) {
-    console.error('Error in AndreOpgaverPage:', error);
     return <div>Fejl ved indlæsning af side</div>;
   }
 }

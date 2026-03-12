@@ -5,21 +5,8 @@ import { Drill, Ruler } from 'lucide-react';
 // Server-side data fetching
 async function getDorVinduerData() {
   try {
-    const allItems = await getAllGalleryItems();
-    
-    console.log('Total items from API:', allItems.length);
-    
-    // Debug: Log alle kategorier for at se hvad der findes
-    const allCategories = new Set();
-    allItems.forEach(item => {
-      if (item.categories) {
-        item.categories.forEach(cat => {
-          allCategories.add(cat.slug);
-        });
-      }
-    });
-    console.log('Available categories:', Array.from(allCategories));
-    
+    const allItems = await getAllGalleryItems();    
+
     // Filter for dør og vinduer items - check flere mulige slugs
     const dorVinduerItems = allItems.filter(item => 
       item.categories && item.categories.some(category => 
@@ -31,14 +18,7 @@ async function getDorVinduerData() {
         category.name?.toLowerCase().includes('vindue')
       )
     );
-
-    console.log('Filtered dør og vinduer items:', dorVinduerItems.length);
     
-    // Debug: Log first few items to see structure
-    if (dorVinduerItems.length > 0) {
-      console.log('First item structure:', dorVinduerItems[0]);
-    }
-
     // Map data til galleri-format og fjern dubletter
     const mappedGalleryImages = dorVinduerItems.map(item => ({
       id: item.id,
@@ -52,12 +32,9 @@ async function getDorVinduerData() {
     const uniqueGalleryImages = mappedGalleryImages.filter((item, index, self) => 
       index === self.findIndex(t => t.id === item.id)
     );
-
-    console.log('Final unique gallery images:', uniqueGalleryImages.length);
     
     return uniqueGalleryImages;
   } catch (error) {
-    console.error('Error fetching dør og vinduer data:', error);
     return [];
   }
 }
