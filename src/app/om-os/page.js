@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 import Image from 'next/image';
 import { Hammer, Wrench, BrickWall, Paintbrush, Drill, Zap } from 'lucide-react';
@@ -42,6 +43,10 @@ const OmOs = () => {
   ];
 
   return (
+      <>
+        <Head>
+          <link rel="canonical" href={`https://hmi-tomrermester.dk/om-os`} />
+        </Head>
     <div className="mx-auto pt-28 bg-white dark:bg-dark-bg">
       {/* Hero Section */}
       <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
@@ -139,6 +144,8 @@ const OmOs = () => {
         </div>
       </section>
     </div>
+    </>
+      
   );
 };
 

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { getGalleryPageItems } from '../../lib/api';
 import GalleriSlidShow from '../components/galleri/GalleriSlidShow';
 
@@ -7,6 +8,10 @@ export default async function GalleryPage() {
   const galleryItems = await getGalleryPageItems();
 
   return (
+    <>
+      <Head>
+        <link rel="canonical" href={`https://hmi-tomrermester.dk/galleri`} />
+      </Head>
     <section className="relative min-h-screen py-28 mt-28 bg-gray-900">
       <div className="max-w-9xl mx-auto ">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-start">
@@ -45,5 +50,6 @@ export default async function GalleryPage() {
         </div>
       </div>
     </section>
+    </>
   );
 }

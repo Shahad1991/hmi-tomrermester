@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from 'next/image';
 import { Phone, Mail } from 'lucide-react';
 import ContactSection from '../components/sections/ContactSection';
@@ -11,6 +12,10 @@ export const metadata = generatePageMetadata('kontakt');
 
 export default function Kontakt() {
   return (
+    <>
+      <Head>
+        <link rel="canonical" href={`https://hmi-tomrermester.dk/kontakt`} />
+      </Head>
     <div className="mx-auto mt-28">
       {/* Hero Section */}
       <section className="relative h-screen min-h-[80vh] md:min-h-[800px] flex items-center justify-center text-center overflow-hidden">
@@ -82,5 +87,6 @@ export default function Kontakt() {
       <ContactInfoSection />
       
     </div>
+    </>
   );
 }
