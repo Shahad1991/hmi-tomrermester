@@ -1,47 +1,27 @@
-'use client';
+import Head from 'next/head';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import { Drill, Zap, Paintbrush } from 'lucide-react';
-import { trackServiceView } from '../../components/GoogleAnalytics';
-import { useState, useEffect } from 'react';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
-export default function CarportPage() {
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default async function CarportPage() {
+  const allItems = await getAllGalleryItems();
 
-  useEffect(() => {
-    // Track that user viewed this service page
-    trackServiceView('carport');
+  // Filter for carport items - now using exact category match
+  const carportItems = allItems.filter(item => 
+    item.categories && item.categories.some(category => category.slug === 'carport')
+  );
 
-    async function fetchGalleryData() {
-      try {
-        const allItems = await getAllGalleryItems();
-
-        // Filter for carport items - now using exact category match
-        const carportItems = allItems.filter(item => 
-          item.categories && item.categories.some(category => category.slug === 'carport')
-        );
-
-        // Map data til galleri-format
-        setGalleryImages(
-          carportItems.map(item => ({
-            url: item.imageUrl,
-            alt: item.altText,
-            id: item.id,
-            title: item.title,
-            description: item.description
-          }))
-        );
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchGalleryData();
-  }, []);
+  // Map data til galleri-format
+  const galleryImages = carportItems.map(item => ({
+    url: item.imageUrl,
+    alt: item.altText,
+    id: item.id,
+    title: item.title,
+    description: item.description
+  }));
 
   // Services section data for carport
   const servicesSection = {
@@ -67,21 +47,21 @@ export default function CarportPage() {
     ]
   };
 
-  if (loading) {
-    return <div>Indlæser...</div>;
-  }
-
   return (
-    <YdelseLayout
-      heroImage="/images/services/carport.jpeg"
-      heroTitle="Carport i høj kvalitet"
-      heroText="Få en skræddersyet carport, der beskytter din bil og matcher dit hjem – bygget med solide materialer og professionelt håndværk."
-      imageTextImage="/images/ali-hmi/ali-carport.jpeg"
-      imageTextTitle="Professionel carportløsning fra idé til montering"
-      imageTextDescription="Skal du have bygget en carport? Hos HMI Tømrermester tilbyder vi skræddersyede løsninger til carporte, der beskytter din bil og tilføjer både funktion og æstetik til din bolig. Vi bygger robuste carporte i høj kvalitet – med mulighed for tilvalg som el-installationer og malerbehandling.<br><br> Vi hjælper dig hele vejen fra idé og tegning til færdig montering og myndighedsgodkendelse. Se eksempler i vores galleri og kontakt os for et uforpligtende tilbud."
-      servicesSection={servicesSection}
-      galleryImages={galleryImages}
-    >
-    </YdelseLayout>
+    <>
+      <Head>
+        <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/carport" />
+      </Head>
+      <YdelseLayout
+        heroImage="/images/services/carport.jpeg"
+        heroTitle="Carport i høj kvalitet"
+        heroText="Få en skræddersyet carport, der beskytter din bil og matcher dit hjem – bygget med solide materialer og professionelt håndværk."
+        imageTextImage="/images/ali-hmi/ali-carport.jpeg"
+        imageTextTitle="Professionel carportløsning fra idé til montering"
+        imageTextDescription="Skal du have bygget en carport? Hos HMI Tømrermester tilbyder vi skræddersyede løsninger til carporte, der beskytter din bil og tilføjer både funktion og æstetik til din bolig. Vi bygger robuste carporte i høj kvalitet – med mulighed for tilvalg som el-installationer og malerbehandling.<br><br> Vi hjælper dig hele vejen fra idé og tegning til færdig montering og myndighedsgodkendelse. Se eksempler i vores galleri og kontakt os for et uforpligtende tilbud."
+        servicesSection={servicesSection}
+        galleryImages={galleryImages}
+      />
+    </>
   );
 }

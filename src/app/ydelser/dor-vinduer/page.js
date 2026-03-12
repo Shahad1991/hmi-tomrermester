@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import { Drill, Ruler } from 'lucide-react';
@@ -7,17 +8,12 @@ async function getDorVinduerData() {
   try {
     const allItems = await getAllGalleryItems();    
 
-    // Filter for dør og vinduer items - check flere mulige slugs
-    const dorVinduerItems = allItems.filter(item => 
-      item.categories && item.categories.some(category => 
-        category.slug === 'dor-og-vinduer' || 
-        category.slug === 'door-and-windows' ||
-        category.slug === 'vinduer-og-dore' ||
-        category.slug === 'gallery_category-dor-og-vinduer' ||
-        category.name?.toLowerCase().includes('dør') ||
-        category.name?.toLowerCase().includes('vindue')
-      )
-    );
+      // Filter for dør og vinduer items - check flere mulige slugs
+      const dorVinduerItems = allItems.filter(item => 
+  item.categories && item.categories.some(category =>
+    category.slug === 'dor-og-vinduer'
+  )
+);
     
     // Map data til galleri-format og fjern dubletter
     const mappedGalleryImages = dorVinduerItems.map(item => ({
@@ -61,6 +57,10 @@ export default async function DorVinduerPage() {
   };
 
   return (
+    <>
+      <Head>
+        <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/dor-vinduer" />
+      </Head>
     <YdelseLayout
       heroImage="/images/services/dør-vinduer.png"
       heroTitle="Dør & Vinduer"
@@ -71,5 +71,6 @@ export default async function DorVinduerPage() {
       servicesSection={servicesSection}
       galleryImages={galleryImages}
     />
+    </>
   );
 }

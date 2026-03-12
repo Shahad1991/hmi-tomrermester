@@ -1,38 +1,22 @@
-'use client';
+import Head from 'next/head';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import { useState, useEffect } from 'react';
 import { Drill, Paintbrush, Zap } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
-export default function GipsarbejdePage() {
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchGalleryData() {
-      try {
-        const allItems = await getAllGalleryItems();
-        const gipsarbejdeItems = allItems.filter(item => 
-          item.categories && item.categories.some(category => category.slug === 'gipsarbejde')
-        );
-        setGalleryImages(
-          gipsarbejdeItems.map(item => ({
-            url: item.imageUrl,
-            alt: item.altText,
-            id: item.id,
-            title: item.title,
-            description: item.description
-          }))
-        );
-      } catch {
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchGalleryData();
-  }, []);
+export default async function GipsarbejdePage() {
+  const allItems = await getAllGalleryItems();
+  const gipsarbejdeItems = allItems.filter(item =>
+    item.categories && item.categories.some(category => category.slug === 'gipsarbejde')
+  );
+  const galleryImages = gipsarbejdeItems.map(item => ({
+    url: item.imageUrl,
+    alt: item.altText,
+    id: item.id,
+    title: item.title,
+    description: item.description
+  }));
 
   const servicesSection = {
     title: "Faglige services til gipsarbejde",
@@ -57,22 +41,25 @@ export default function GipsarbejdePage() {
     ]
   };
 
-  if (loading) return <div>Indlæser...</div>;
-
   return (
-    <YdelseLayout
-      heroImage="/images/services/gipsarbejde.jpeg"
-      heroTitle="Gipsarbejde"
-      heroText="Vi leverer professionelle gipsløsninger til vægge og lofter."
-      imageTextImage="/images/ali-hmi/ali-gipsarbejde.png"
-      imageTextTitle="Gipsarbejde i høj kvalitet til vægge og lofter "
-      imageTextDescription="Hos HMI Tømrermester tilbyder vi professionelt gipsarbejde til både nybyg, renovering og ombygning. Vi udfører alt fra opsætning af gipsvægge og lofter til spartling, grundbehandling og malerklargøring – altid med fokus på et flot og holdbart resultat.<br><br>
+    <>
+      <Head>
+        <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/gipsarbejde" />
+      </Head>
+      <YdelseLayout
+        heroImage="/images/services/gipsarbejde.jpeg"
+        heroTitle="Gipsarbejde"
+        heroText="Vi leverer professionelle gipsløsninger til vægge og lofter."
+        imageTextImage="/images/ali-hmi/ali-gipsarbejde.png"
+        imageTextTitle="Gipsarbejde i høj kvalitet til vægge og lofter "
+        imageTextDescription="Hos HMI Tømrermester tilbyder vi professionelt gipsarbejde til både nybyg, renovering og ombygning. Vi udfører alt fra opsætning af gipsvægge og lofter til spartling, grundbehandling og malerklargøring – altid med fokus på et flot og holdbart resultat.<br><br>
 
         Vores erfarne håndværkere sikrer præcise afslutninger og glatte overflader, uanset om der er tale om nye rumopdelinger, loftssænkninger eller reparation af eksisterende konstruktioner.
 
         Har du brug for el bag væggene? Vi sørger også for koordinering af installationer, så du får en komplet og gennemtænkt løsning."
-      servicesSection={servicesSection}
-      galleryImages={galleryImages}
-    />
+        servicesSection={servicesSection}
+        galleryImages={galleryImages}
+      />
+    </>
   );
 }

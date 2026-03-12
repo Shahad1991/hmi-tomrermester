@@ -1,39 +1,22 @@
-'use client';
+import Head from 'next/head';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import { useState, useEffect } from 'react';
 import { Paintbrush, Zap, Wrench, BrickWall, Shovel, Drill } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
-export default function RenoveringPage() {
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchGalleryData() {
-      try {
-        const allItems = await getAllGalleryItems();
-        const renoveringItems = allItems.filter(item => 
-          item.categories && item.categories.some(category => 
-            category.slug === 'renovering'
-          )
-        );
-        const mappedGalleryImages = renoveringItems.map(item => ({
-          url: item.imageUrl,
-          alt: item.altText,
-          id: item.id,
-          title: item.title,
-          description: item.description
-        }));
-        setGalleryImages(mappedGalleryImages);
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-      }
-    }
-    fetchGalleryData();
-  }, []);
+export default async function RenoveringPage() {
+  const allItems = await getAllGalleryItems();
+  const renoveringItems = allItems.filter(item =>
+    item.categories && item.categories.some(category => category.slug === 'renovering')
+  );
+  const galleryImages = renoveringItems.map(item => ({
+    url: item.imageUrl,
+    alt: item.altText,
+    id: item.id,
+    title: item.title,
+    description: item.description
+  }));
 
   const servicesSection = {
     title: "Faglige services til dit renoveringsprojekt",
@@ -73,20 +56,21 @@ export default function RenoveringPage() {
     ]
   };
 
-  if (loading) {
-    return <div>Indlæser...</div>;
-  }
-
   return (
-    <YdelseLayout
-      heroImage="/images/services/renovering.png"
-      heroTitle="Renovering"
-      heroText="Vi gennemfører omfattende renoveringer der giver dit hjem nyt liv og øget værdi."
-      imageTextImage="/images/ali-hmi/ali-renovering.jpeg"
-      imageTextTitle="Renovering med overblik og kvalitet"
-      imageTextDescription="Skal dit hjem have en kærlig hånd eller en større renovering? Hos HMI Tømrermester tager vi os af alt fra mindre reparationer til omfattende renoveringer. Vi koordinerer alle håndværksfag og sikrer, at dit projekt gennemføres professionelt og til tiden.<br><br>Vores erfaring spænder fra badrenovering og køkkenrenovering til komplet husrenovering. Vi hjælper dig med planlægning, materialevalg og udførelse, så du får det drømmehjem du ønsker dig."
-      servicesSection={servicesSection}
-      galleryImages={galleryImages}
-    />
+    <>
+      <Head>
+        <link rel="canonical" href={`https://hmi-tomrermester.dk/ydelser/renovering`} />
+      </Head>
+      <YdelseLayout
+        heroImage="/images/services/renovering.png"
+        heroTitle="Renovering"
+        heroText="Vi gennemfører omfattende renoveringer der giver dit hjem nyt liv og øget værdi."
+        imageTextImage="/images/ali-hmi/ali-renovering.jpeg"
+        imageTextTitle="Renovering med overblik og kvalitet"
+        imageTextDescription="Skal dit hjem have en kærlig hånd eller en større renovering? Hos HMI Tømrermester tager vi os af alt fra mindre reparationer til omfattende renoveringer. Vi koordinerer alle håndværksfag og sikrer, at dit projekt gennemføres professionelt og til tiden.<br><br>Vores erfaring spænder fra badrenovering og køkkenrenovering til komplet husrenovering. Vi hjælper dig med planlægning, materialevalg og udførelse, så du får det drømmehjem du ønsker dig."
+        servicesSection={servicesSection}
+        galleryImages={galleryImages}
+      />
+    </>
   );
 }

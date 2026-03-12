@@ -1,43 +1,23 @@
-'use client';
+import Head from 'next/head';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import { useState, useEffect } from 'react';
 import { Drill, Paintbrush, Zap, Wrench, BrickWall, Shovel } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
-export default function TotalRenoveringPage() {
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default async function TotalRenoveringPage() {
+  const allItems = await getAllGalleryItems();
+  const totalRenoveringItems = allItems.filter(item =>
+    item.categories && item.categories.some(category => category.slug === 'total-renovering')
+  );
+  const galleryImages = totalRenoveringItems.map(item => ({
+    url: item.imageUrl,
+    alt: item.altText,
+    id: item.id,
+    title: item.title,
+    description: item.description
+  }));
 
-  useEffect(() => {
-    async function fetchGalleryData() {
-      try {
-        const allItems = await getAllGalleryItems();
-        // Filter for total-renovering items - now using exact category match
-        const totalRenoveringItems = allItems.filter(item => 
-          item.categories && item.categories.some(category => 
-            category.slug === 'total-renovering'
-          )
-        );
-        // Map data til galleri-format
-        const mappedGalleryImages = totalRenoveringItems.map(item => ({
-          url: item.imageUrl,
-          alt: item.altText,
-          id: item.id,
-          title: item.title,
-          description: item.description
-        }));
-        setGalleryImages(mappedGalleryImages);
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-      }
-    }
-    fetchGalleryData();
-  }, []);
-
-  // Services section data for total renovering
   const servicesSection = {
     title: "Komplette faglige services til totalrenovering",
     description: "Vi koordinerer alle håndværksfag og leverer komplet totalrenovering fra A til Z",
@@ -76,20 +56,21 @@ export default function TotalRenoveringPage() {
     ]
   };
 
-  if (loading) {
-    return <div>Indlæser...</div>;
-  }
-
   return (
-    <YdelseLayout
-      heroImage="/images/services/total-renovering.jpeg"
-      heroTitle="Total Renovering"
-      heroText="Vi gennemfører komplette renoveringer fra bund til top og giver dit hjem en total transformation."
-      imageTextImage="/images/ali-hmi/ali-total-renovering.jpeg"
-      imageTextTitle="Din partner til totalrenovering"
-      imageTextDescription="Drømmer du om at give dit hjem en komplet makeover? Hos HMI Tømrermester specialiserer vi os i totalrenoveringer, hvor vi koordinerer alle håndværksfag og sikrer et sammenhængende resultat. Fra planlægning til færdigt resultat tager vi os af alt - strukturelle ændringer, el og VVS, overflader og finish.<br><br>Vi har erfaring med både ældre ejendomme og moderne huse, og vi sikrer at dit hjem både får et nyt look og opfylder moderne standarder for energi og komfort."
-      servicesSection={servicesSection}
-      galleryImages={galleryImages}
-    />
+    <>
+      <Head>
+        <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/total-renovering" />
+      </Head>
+      <YdelseLayout
+        heroImage="/images/services/total-renovering.jpeg"
+        heroTitle="Total Renovering"
+        heroText="Vi gennemfører komplette renoveringer fra bund til top og giver dit hjem en total transformation."
+        imageTextImage="/images/ali-hmi/ali-total-renovering.jpeg"
+        imageTextTitle="Din partner til totalrenovering"
+        imageTextDescription="Drømmer du om at give dit hjem en komplet makeover? Hos HMI Tømrermester specialiserer vi os i totalrenoveringer, hvor vi koordinerer alle håndværksfag og sikrer et sammenhængende resultat. Fra planlægning til færdigt resultat tager vi os af alt - strukturelle ændringer, el og VVS, overflader og finish.<br><br>Vi har erfaring med både ældre ejendomme og moderne huse, og vi sikrer at dit hjem både får et nyt look og opfylder moderne standarder for energi og komfort."
+        servicesSection={servicesSection}
+        galleryImages={galleryImages}
+      />
+    </>
   );
 }

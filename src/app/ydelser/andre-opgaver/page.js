@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
@@ -51,6 +52,10 @@ export default async function AndreOpgaverPage() {
     };
     
     return (
+      <>
+      <Head>
+        <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/andre-opgaver" />
+      </Head>
       <YdelseLayout
         heroImage="/images/services/andre-opgaver.png"
         heroTitle="Andre Tømreropgaver"
@@ -66,8 +71,8 @@ export default async function AndreOpgaverPage() {
           Kontakt os i dag for et uforpligtende tilbud – vi skræddersyr løsningen efter dine behov."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
-      >  
-      </YdelseLayout>
+      /> 
+    </>
     );
   } catch (error) {
     return <div>Fejl ved indlæsning af side</div>;

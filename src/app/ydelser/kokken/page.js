@@ -1,46 +1,29 @@
-'use client';
+import Head from 'next/head';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
-import { useState, useEffect } from 'react';
 import { Wrench, Zap, Ruler, Drill } from 'lucide-react';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
-export default function KokkenPage() {
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default async function KokkenPage() {
+  const allItems = await getAllGalleryItems();
 
-  useEffect(() => {
-    async function fetchGalleryData() {
-      try {
-        const allItems = await getAllGalleryItems();
+  // Filter for køkken items - now using exact category match
+  const kitchenItems = allItems.filter(item => 
+    item.categories && item.categories.some(category => 
+      category.slug === 'kokken'
+    )
+  );
 
-        // Filter for køkken items - now using exact category match
-        const kitchenItems = allItems.filter(item => 
-          item.categories && item.categories.some(category => 
-            category.slug === 'kokken'
-          )
-        );
-
-        // Map data til galleri-format
-        const mappedGalleryImages = kitchenItems.map(item => ({
-          url: item.imageUrl,
-          alt: item.altText,
-          id: item.id,
-          title: item.title,
-          description: item.description
-        }));
-
-        setGalleryImages(mappedGalleryImages);
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-      }
-    }
-
-    fetchGalleryData();
-  }, []);
+  // Map data til galleri-format
+  const galleryImages = kitchenItems.map(item => ({
+    url: item.imageUrl,
+    alt: item.altText,
+    id: item.id,
+    title: item.title,
+    description: item.description
+  }));
 
   // Services section data for køkken
   const servicesSection = {
@@ -71,20 +54,21 @@ export default function KokkenPage() {
     ]
   };
 
-  if (loading) {
-    return <div>Indlæser...</div>;
-  }
-
   return (
-    <YdelseLayout
-      heroImage="/images/kontakt/kontakt-bg1.png"
-      heroTitle="Køkken Renovering"
-      heroText="Vi gør dine køkkendrømme til virkelighed med kvalitet og funktionalitet."
-      imageTextImage="/images/ali-hmi/ali-kokken.jpeg"
-      imageTextTitle="Din kvalitetsbevidste køkkenmontør"
-      imageTextDescription="Drømmer du om et nyt køkken, der kombinerer funktionalitet, æstetik og høj kvalitet? Hos HMI Tømrermester specialiserer vi os i køkkenrenovering og køkkenmontering for både private og erhverv. Uanset om du ønsker et moderne køkken-alrum, en klassisk løsning eller noget helt tredje, står vi klar med rådgivning, inspiration og solidt håndværk.<br><br>Vi hjælper dig gennem hele processen – fra de første skitser til det færdige køkken. Med mange års erfaring sikrer vi, at du får en løsning, der matcher både dit hjem og din hverdag."
-      servicesSection={servicesSection}
-      galleryImages={galleryImages}
-    />
+    <>
+      <Head>
+        <link rel="canonical" href={`https://hmi-tomrermester.dk/ydelser/kokken`} />
+      </Head>
+      <YdelseLayout
+        heroImage="/images/kontakt/kontakt-bg1.png"
+        heroTitle="Køkken Renovering"
+        heroText="Vi gør dine køkkendrømme til virkelighed med kvalitet og funktionalitet."
+        imageTextImage="/images/ali-hmi/ali-kokken.jpeg"
+        imageTextTitle="Din kvalitetsbevidste køkkenmontør"
+        imageTextDescription="Drømmer du om et nyt køkken, der kombinerer funktionalitet, æstetik og høj kvalitet? Hos HMI Tømrermester specialiserer vi os i køkkenrenovering og køkkenmontering for både private og erhverv. Uanset om du ønsker et moderne køkken-alrum, en klassisk løsning eller noget helt tredje, står vi klar med rådgivning, inspiration og solidt håndværk.<br><br>Vi hjælper dig gennem hele processen – fra de første skitser til det færdige køkken. Med mange års erfaring sikrer vi, at du får en løsning, der matcher både dit hjem og din hverdag."
+        servicesSection={servicesSection}
+        galleryImages={galleryImages}
+      />
+    </>
   );
 }
