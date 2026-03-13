@@ -57,7 +57,7 @@ export default async function AndreOpgaverPage() {
         <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/andre-opgaver" />
       </Head>
       <YdelseLayout
-        heroImage="/images/services/andre-opgaver.png"
+        heroImage="/images/ydelser/andre-opgaver.png"
         heroTitle="Andre Tømreropgaver"
         heroText="Vi udfører specialiserede tømreropgaver såsom montering af akustikpaneler og opsætning af vindskeder – altid med fokus på høj kvalitet og funktionalitet."
         imageTextImage="/images/ali-hmi/andre-opgaver.jpg"

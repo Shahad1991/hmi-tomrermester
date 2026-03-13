@@ -53,7 +53,7 @@ export default async function CarportPage() {
         <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/carport" />
       </Head>
       <YdelseLayout
-        heroImage="/images/services/carport.jpeg"
+        heroImage="/images/ydelser/carport.jpeg"
         heroTitle="Carport i høj kvalitet"
         heroText="Få en skræddersyet carport, der beskytter din bil og matcher dit hjem – bygget med solide materialer og professionelt håndværk."
         imageTextImage="/images/ali-hmi/carport.jpg"

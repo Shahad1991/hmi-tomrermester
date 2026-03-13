@@ -47,7 +47,7 @@ export default async function GulvPage() {
         <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/gulv" />
       </Head>
       <YdelseLayout
-        heroImage="/images/services/gulv.png"
+        heroImage="/images/ydelser/gulv.png"
         heroTitle="Gulv"
         heroText="Vi leverer professionelle gulvløsninger der forvandler dit hjem."
         imageTextImage="/images/ali-hmi/gulv.png"

@@ -47,7 +47,7 @@ export default async function HegnPage() {
         <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/hegn" />
       </Head>
       <YdelseLayout
-        heroImage="/images/services/hegn.jpg"
+        heroImage="/images/ydelser/hegn.jpg"
         heroTitle="Hegn"
         heroText="Vi bygger solide hegn der skaber privatliv og definerer din ejendom."
         imageTextImage="/images/ali-hmi/hegn.jpg"

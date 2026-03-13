@@ -62,7 +62,7 @@ export default async function DorVinduerPage() {
         <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/dor-vinduer" />
       </Head>
     <YdelseLayout
-      heroImage="/images/services/dør-vinduer.png"
+      heroImage="/images/ydelser/dør-vinduer.png"
       heroTitle="Dør & Vinduer"
       heroText="Vi leverer professionelle løsninger til installation af døre og vinduer."
       imageTextImage="/images/ali-hmi/vindue.jpg"

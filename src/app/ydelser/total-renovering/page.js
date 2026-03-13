@@ -62,7 +62,7 @@ export default async function TotalRenoveringPage() {
         <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/total-renovering" />
       </Head>
       <YdelseLayout
-        heroImage="/images/services/total-renovering.jpeg"
+        heroImage="/images/ydelser/total-renovering.jpeg"
         heroTitle="Total Renovering"
         heroText="Vi gennemfører komplette renoveringer fra bund til top og giver dit hjem en total transformation."
         imageTextImage="/images/ali-hmi/total-renovering.jpg"
