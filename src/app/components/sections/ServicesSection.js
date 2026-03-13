@@ -4,101 +4,101 @@ import Link from "next/link";
 import Image from "next/image";
 
 const services = [
-  {
-    title: "Dør & Vindue",
-    link: "/ydelser/dor-vinduer",
-    bgImage: "/images/services/dør-vinduer.png",
-  },
-  {
-    title: "Gulv",
-    link: "/ydelser/gulv",
-    bgImage: "/images/services/gulv.png",
-  },
-  {
-    title: "Hegn",
-    link: "/ydelser/hegn",
-    bgImage: "/images/services/hegn.jpeg",
-  },
-  {
-    title: "Terrasse",
-    link: "/ydelser/terrasse",
-    bgImage: "/images/services/terrasse.jpg",
-  },
-  {
-    title: "Køkken Renovering",
-    link: "/ydelser/kokken",
-    bgImage: "/images/services/køkken.png",
-  },
-  {
-    title: "Gipsarbejde",
-    link: "/ydelser/gipsarbejde",
-    bgImage: "/images/services/gipsarbejde.jpeg",
-  },
-  {
-    title: "Renovering",
-    link: "/ydelser/renovering",
-    bgImage: "/images/services/renovering.png",
-  },
-  {
-    title: "Total Renovering",
-    link: "/ydelser/total-renovering",
-    bgImage: "/images/services/total-renovering.jpeg",
-  },
-  {
-    title: "Carport",
-    link: "/ydelser/carport",
-    bgImage: "/images/services/carport.jpeg",
-  },
-  {
-    title: "Andre Opgaver",
-    link: "/ydelser/andre-opgaver",
-    bgImage: "/images/services/andre-opgaver.png",
-  },
+	{
+		title: "Dør & Vindue",
+		link: "/ydelser/dor-vinduer",
+		bgImage: "/images/ydelser/dør-vinduer.webp",
+	},
+	{
+		title: "Gulv",
+		link: "/ydelser/gulv",
+		bgImage: "/images/ydelser/gulv.webp",
+	},
+	{
+		title: "Hegn",
+		link: "/ydelser/hegn",
+		bgImage: "/images/ydelser/hegn.webp",
+	},
+	{
+		title: "Terrasse",
+		link: "/ydelser/terrasse",
+		bgImage: "/images/ydelser/terrasse.webp",
+	},
+	{
+		title: "Køkken Renovering",
+		link: "/ydelser/kokken",
+		bgImage: "/images/ydelser/køkken.webp",
+	},
+	{
+		title: "Gipsarbejde",
+		link: "/ydelser/gipsarbejde",
+		bgImage: "/images/ydelser/gipsarbejde.webp",
+	},
+	{
+		title: "Renovering",
+		link: "/ydelser/renovering",
+		bgImage: "/images/ydelser/renovering.webp",
+	},
+	{
+		title: "Total Renovering",
+		link: "/ydelser/total-renovering",
+		bgImage: "/images/ydelser/total-renovering.webp",
+	},
+	{
+		title: "Carport",
+		link: "/ydelser/carport",
+		bgImage: "/images/ydelser/carport.webp",
+	},
+	{
+		title: "Andre Opgaver",
+		link: "/ydelser/andre-opgaver",
+		bgImage: "/images/ydelser/andre-opgaver.webp",
+	},
 ];
 
 const ServicesSection = () => {
-  return (
-    <section className="py-16 m-0 bg-gray-50 dark:bg-dark-surface w-full text-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <p className="text-accent font-medium mb-2">VORES YDELSER</p>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-darkblue dark:text-dark-text mb-4">
-            Professionelle løsninger til alle dine bygge- og renoveringsbehov
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto"></div>
-        </div>
+	return (
+		<section className="py-16 m-0 bg-gray-50 dark:bg-dark-surface w-full text-center">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="mb-12">
+					<p className="text-accent font-medium mb-2">VORES YDELSER</p>
+					<h2 className="text-3xl md:text-4xl font-serif font-bold text-darkblue dark:text-dark-text mb-4">
+						Professionelle løsninger til alle dine bygge- og renoveringsbehov
+					</h2>
+					<div className="w-24 h-1 bg-accent mx-auto"></div>
+				</div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 md:grid-cols-4 gap-6 max-w-8xl mx-auto">
-          {services.map((service, index) => (
-            <Link
-              href={service.link}
-              key={index}
-              className="group relative block rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-dark-bg shadow-sm hover:shadow-md dark:hover:shadow-gray-700/50 transition-all duration-300 overflow-hidden"
-            >
-              <div className="w-full h-64 relative">
-                <Image
-                  src={service.bgImage}
-                  alt={`${service.title} service`}
-                  width={400}
-                  height={400}
-                  className="object-cover w-full h-full"
-                  quality={85}
-                  priority={index < 4}
-                />
-                <div className="absolute inset-0 bg-darkblue bg-opacity-50 z-10 group-hover:bg-opacity-30 transition-all duration-300"></div>
-              </div>
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 md:grid-cols-4 gap-6 max-w-8xl mx-auto">
+					{services.map((service, index) => (
+						<Link
+							href={service.link}
+							key={index}
+							className="group relative block rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-dark-bg shadow-sm hover:shadow-md dark:hover:shadow-gray-700/50 transition-all duration-300 overflow-hidden"
+						>
+							<div className="w-full h-64 relative">
+								<Image
+									src={service.bgImage}
+									alt={`${service.title} service`}
+									width={400}
+									height={400}
+									className="object-cover w-full h-full"
+									quality={85}
+									priority={index < 4}
+								/>
+								<div className="absolute inset-0 bg-darkblue bg-opacity-50 z-10 group-hover:bg-opacity-30 transition-all duration-300"></div>
+							</div>
 
-              <div className="bg-gray-900 dark:bg-dark-bg p-4 text-center">
-                <h3 className="text-lg font-semibold font-serif text-white dark:text-dark-text group-hover:text-accent transition-colors duration-300">
-                  {service.title}
-                </h3>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+							<div className="bg-gray-900 dark:bg-dark-bg p-4 text-center">
+								<h3 className="text-lg font-semibold font-serif text-white dark:text-dark-text group-hover:text-accent transition-colors duration-300">
+									{service.title}
+								</h3>
+							</div>
+						</Link>
+					))}
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default ServicesSection;
