@@ -63,7 +63,7 @@ export default async function KokkenPage() {
         heroImage="/images/kontakt/kontakt-bg1.png"
         heroTitle="Køkken Renovering"
         heroText="Vi gør dine køkkendrømme til virkelighed med kvalitet og funktionalitet."
-        imageTextImage="/images/ali-hmi/ali-kokken.jpeg"
+        imageTextImage="/images/ali-hmi/kokken.jpg"
         imageTextTitle="Din kvalitetsbevidste køkkenmontør"
         imageTextDescription="Drømmer du om et nyt køkken, der kombinerer funktionalitet, æstetik og høj kvalitet? Hos HMI Tømrermester specialiserer vi os i køkkenrenovering og køkkenmontering for både private og erhverv. Uanset om du ønsker et moderne køkken-alrum, en klassisk løsning eller noget helt tredje, står vi klar med rådgivning, inspiration og solidt håndværk.<br><br>Vi hjælper dig gennem hele processen – fra de første skitser til det færdige køkken. Med mange års erfaring sikrer vi, at du får en løsning, der matcher både dit hjem og din hverdag."
         servicesSection={servicesSection}
