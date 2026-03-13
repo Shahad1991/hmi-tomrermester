@@ -118,6 +118,7 @@ export default function YdelseLayout({
                 className="object-cover"
                 priority
                 sizes="100vw"
+                quality={70}
               />
             )}
           </div>

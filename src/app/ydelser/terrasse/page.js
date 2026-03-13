@@ -42,7 +42,7 @@ export default async function TerrassePage() {
         <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/terrasse" />
       </Head>
       <YdelseLayout
-        heroImage="/images/ydelser/terrasse.jpg"
+        heroImage="/images/ydelser/terrasse.webp"
         heroTitle="Terrasse"
         heroText="Vi bygger smukke terrasser der udvider dit hjem og skaber det perfekte uderum."
         imageTextImage="/images/ali-hmi/terrasse.jpg"

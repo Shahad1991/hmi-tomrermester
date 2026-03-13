@@ -47,7 +47,7 @@ export default async function GipsarbejdePage() {
         <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/gipsarbejde" />
       </Head>
       <YdelseLayout
-        heroImage="/images/ydelser/gipsarbejde.jpeg"
+        heroImage="/images/ydelser/gipsarbejde.webp"
         heroTitle="Gipsarbejde"
         heroText="Vi leverer professionelle gipsløsninger til vægge og lofter."
         imageTextImage="/images/ali-hmi/gipsarbejde.png"
