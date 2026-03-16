@@ -5,6 +5,7 @@ import ContactSection from '../components/sections/ContactSection';
 import ContactInfoSection from '../components/sections/ContactInfoSection';
 import { ProcessSection } from '../components/sections/ProcessSection';
 import { generatePageMetadata } from '../../metadata/MetaDataCollection';
+import FAQSection from '../components/sections/FAQSection';
 
 // Export metadata for SEO
 export const metadata = generatePageMetadata('kontakt');
@@ -84,6 +85,7 @@ export default function Kontakt() {
 
       {/* Kontaktformular og info */}
       <ContactSection className="w-full" />
+      <FAQSection />
       <ContactInfoSection />
       
     </div>
