@@ -238,7 +238,7 @@ export const serviceMetadata = {
     keywords: ["terrasse", "terrasse anlæggelse", "træterrasse", "udendørs strukturer", "terrasse Taastrup", "terrasse byggeri"],
     image: "/images/ydelser/terrasse.jpg",
   },
-  kokken: {
+  "kokken-renovering": {
     title: "Køkkenrenovering og køkkenmontering - Professionel udførelse",
     description: "Lad HMI Tømrermester tage sig af din køkkenrenovering. Fra design til montering leverer vi komplette køkkenløsninger med fokus på kvalitet og funktionalitet.",
     keywords: ["køkken", "køkkenrenovering", "køkkenmontering", "køkken installation", "køkken Taastrup", "køkken byggeri"],

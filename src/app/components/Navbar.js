@@ -60,7 +60,7 @@ const Navbar = () => {
     { name: "Gulv", href: "/ydelser/gulv" },
     { name: "Hegn", href: "/ydelser/hegn" },
     { name: "Renovering", href: "/ydelser/renovering" },
-    { name: "Køkken Renovering", href: "/ydelser/kokken" },
+    { name: "Køkken Renovering", href: "/ydelser/kokken-renovering" },
     { name: "Total Renovering", href: "/ydelser/total-renovering" },
     { name: "Andre Opgaver", href: "/ydelser/andre-opgaver" }
   ];

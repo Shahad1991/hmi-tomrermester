@@ -57,7 +57,7 @@ export default async function KokkenPage() {
   return (
     <>
       <Head>
-        <link rel="canonical" href={`https://hmi-tomrermester.dk/ydelser/kokken`} />
+        <link rel="canonical" href={`https://hmi-tomrermester.dk/ydelser/kokken-renovering`} />
       </Head>
       <YdelseLayout
         heroImage="/images/kontakt/kontakt-bg1.png"

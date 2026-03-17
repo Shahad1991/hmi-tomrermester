@@ -60,9 +60,9 @@ const OmOs = () => {
         />
         <div className="absolute inset-0 bg-darkblue bg-opacity-70 z-10"></div>
         <div className="relative z-20 max-w-4xl px-5 text-primary">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif">Hvem er vi?</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif">Din lokale tømrer i Taastrup</h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto text-gray-100">
-            En passioneret gruppe fagfolk dedikeret til at levere højkvalitets løsninger for vores kunder.
+            Eksperter i tømrerarbejde – din garanti for kvalitet.
           </p>
           <ContactButton/>
         </div>
