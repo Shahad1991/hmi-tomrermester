@@ -42,7 +42,7 @@ export default function sitemap() {
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/ydelser/kokken`,
+      url: `${baseUrl}/ydelser/kokken-renovering`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
