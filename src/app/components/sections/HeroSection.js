@@ -25,9 +25,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-darkblue bg-opacity-70 z-10"></div>
         {/* Fallback baggrund billede */}
         <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/backgrounds/hero-background.png')]" />
-       
       </div>
-      
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-transparent lg:bg-gradient-to-r lg:from-gray-900/90 lg:via-gray-900/50 lg:to-transparent" />
       <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent opacity-40" />
@@ -60,7 +58,7 @@ const HeroSection = () => {
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
           >
             <span className="block">Fra drøm til</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-[orange-400]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
               Virkelighed
             </span>
           </motion.h1>
@@ -71,7 +69,10 @@ const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-xl md:text-2xl text-gray-100 max-w-2xl font-light leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
           >
-            Skabende kvalitet og ekspertise i hver detalje - hvor visioner bliver til <span className="font-medium text-accent">arkitektoniske mesterværker</span>
+            Skabende kvalitet og ekspertise i hver detalje - hvor visioner bliver til {" "}
+            <span className="font-medium text-accent dark:text-accent text-white/90 dark:text-accent">
+              arkitektoniske mesterværker
+            </span>
           </motion.p>
           
           <motion.div
@@ -89,7 +90,7 @@ const HeroSection = () => {
                 key={index} 
                 className="text-left relative bg-gray-900/70 px-4 py-3 rounded-lg backdrop-blur-sm"
               >
-                <div className="text-3xl md:text-4xl font-bold text-accent">
+                <div className="text-3xl md:text-4xl font-bold text-accent dark:text-yellow-400">
                   {stat.value}
                 </div>
                 <div className="text-gray-300 mt-1 text-sm">{stat.label}</div>
@@ -107,9 +108,6 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      
-      
     </section>
   );
 };
