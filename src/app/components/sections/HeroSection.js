@@ -19,6 +19,13 @@ const HeroSection = () => {
           }}
         >
           <source src="/videos/hero-video.mp4" type="video/mp4" />
+          <track
+            kind="captions"
+            src="/videos/hero-video.vtt"
+            srcLang="da"
+            label="Danske undertekster"
+            default
+          />
           {/* Fallback baggrund hvis video ikke kan indlæses */}
         </video>
         {/* Video opacity overlay */}
