@@ -40,7 +40,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="da" suppressHydrationWarning={true}>
       <head>
         {/* Main business schema */}
         <script
@@ -98,7 +98,9 @@ export default function RootLayout({ children }) {
         />
         <Navbar />
         <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
-        {children}
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

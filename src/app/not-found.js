@@ -1,14 +1,13 @@
-import Link from 'next/link'
-import { Metadata } from 'next'
+import Link from 'next/link';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Side ikke fundet | HMI Tømrermester',
   description: 'Siden du leder efter kunne ikke findes. Gå tilbage til forsiden eller find hvad du søger i vores menu.',
   robots: {
     index: false,
     follow: false,
   },
-}
+};
 
 export default function NotFound() {
   return (
@@ -23,51 +22,54 @@ export default function NotFound() {
             Undskyld, siden du leder efter findes ikke eller er blevet flyttet.
           </p>
         </div>
-        
         <div className="mt-8 space-y-4">
           <Link 
             href="/"
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors"
+            aria-label="Gå til forsiden"
+            title="Gå til forsiden"
           >
             Gå til forsiden
           </Link>
-          
           <div className="flex space-x-4">
             <Link 
               href="/kontakt"
               className="flex-1 text-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors"
+              aria-label="Kontakt os"
+              title="Kontakt os"
             >
               Kontakt os
             </Link>
             <Link 
               href="/galleri"
               className="flex-1 text-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors"
+              aria-label="Se vores projekter"
+              title="Se vores projekter"
             >
               Se vores projekter
             </Link>
           </div>
         </div>
-
         <div className="mt-8">
           <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
             Populære sider:
           </h3>
           <div className="space-y-2">
-            <Link href="/ydelser/carport" className="block text-orange-600 hover:text-orange-500 transition-colors">
+            <Link href="/ydelser/carport" className="block text-orange-600 hover:text-orange-500 transition-colors" aria-label="Carport byggeri" title="Carport byggeri">
               Carport byggeri
             </Link>
-            <Link href="/ydelser/terrasse" className="block text-orange-600 hover:text-orange-500 transition-colors">
+            <Link href="/ydelser/terrasse" className="block text-orange-600 hover:text-orange-500 transition-colors" aria-label="Terrasser" title="Terrasser">
               Terrasser
             </Link>
-            <Link href="/ydelser/kokken" className="block text-orange-600 hover:text-orange-500 transition-colors">
+            <Link href="/ydelser/kokken" className="block text-orange-600 hover:text-orange-500 transition-colors" aria-label="Køkkenrenovering" title="Køkkenrenovering">
               Køkkenrenovering
             </Link>
-            <Link href="/om-os" className="block text-orange-600 hover:text-orange-500 transition-colors">
+            <Link href="/om-os" className="block text-orange-600 hover:text-orange-500 transition-colors" aria-label="Om os" title="Om os">
               Om os
             </Link>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

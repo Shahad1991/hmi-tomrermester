@@ -30,7 +30,7 @@
     "**/*.tsx",
     "src/app/sitemap-index.js",
     ".next/dev/types/**/*.ts"
-  ],
+, "src/app/not-found.js"  ],
   "exclude": [
     "node_modules"
   ]
