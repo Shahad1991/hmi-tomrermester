@@ -78,12 +78,13 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0" onClick={closeAll}>
+          {/* Logo with accessible label */}
+          <Link href="/" className="flex-shrink-0" onClick={closeAll} aria-label="HMI Tømrermester forside" title="Gå til forsiden">
             <Logo
               width={150}
               height={65}
               className="text-black dark:text-white transition-colors duration-200"
+              alt="HMI Tømrermester logo"
             />
           </Link>
 

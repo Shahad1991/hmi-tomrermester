@@ -8,8 +8,10 @@ export default function InstagramButton() {
       href="https://www.instagram.com/hmitomrermester" 
       target="_blank" 
       rel="noopener noreferrer" 
-      className="group relative overflow-hidden inline-flex items-center justify-center px-8 py-3 bg-gradient-to-br from-accent via-[#FFC600] to-[#FFB600] text-darkblue font-semibold rounded-lg shadow-lg hover:shadow-accent transition-all duration-300 text-lg transform hover:-translate-y-1"
+      className="group relative overflow-hidden inline-flex items-center justify-center px-8 py-3 min-w-[44px] min-h-[44px] bg-gradient-to-br from-accent via-[#FFC600] to-[#FFB600] text-darkblue font-semibold rounded-lg shadow-lg hover:shadow-accent transition-all duration-300 text-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
       onClick={trackInstagramClick}
+      aria-label="Følg os på Instagram"
+      title="Følg os på Instagram"
     >
       <span className="relative z-10 flex items-center font-serif">
         Følg os på Instagram

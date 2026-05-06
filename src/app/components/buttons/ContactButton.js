@@ -9,12 +9,14 @@ const ContactButton = ({
   icon = <ArrowRight className="ml-3 w-5 h-5" />,
   variant = 'primary'
 }) => {
-  const buttonClasses = "group inline-flex items-center justify-center px-8 py-3 bg-transparent text-white font-semibold rounded-lg shadow-lg border-2 border-accent hover:bg-accent hover:text-darkblue transition-all duration-300 text-lg transform hover:-translate-y-1 relative overflow-hidden";
+  const buttonClasses = "group inline-flex items-center justify-center px-8 py-3 min-w-[44px] min-h-[44px] bg-transparent text-white font-semibold rounded-lg shadow-lg border-2 border-accent hover:bg-accent hover:text-darkblue transition-all duration-300 text-lg transform hover:-translate-y-1 relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2";
 
   return (
     <Link
       href={href}
       className={`${buttonClasses} ${className}`}
+      aria-label={text}
+      title={text}
     >
       <span className="relative z-10 flex items-center font-serif dark:text-gray-300">
         {text}
