@@ -101,33 +101,44 @@ const nextConfig = {
     ]
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'api.hmi-tomrermester.dk',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'hmi-tomrermester.vercel.app',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'hmi-tomrermester.dk',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'www.hmi-tomrermester.dk',
-        port: '',
-        pathname: '/**',
-      }
-    ],
-  },
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'api.hmi-tomrermester.dk',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'hmi-tomrermester.vercel.app',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'hmi-tomrermester.dk',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'www.hmi-tomrermester.dk',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: '**.optimole.com',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: '**.optimole.io',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: '**.omcdn.io',
+      pathname: '/**',
+    }
+  ],
+},
 };
 
 export default nextConfig;
