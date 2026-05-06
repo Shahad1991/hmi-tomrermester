@@ -8,7 +8,10 @@ const NavLink = ({ href, children, isScrolled, onClick, pathname }) => {
     <Link
       href={href}
       onClick={onClick}
-      className={`px-3 py-2 font-medium transition-colors text-lg relative ${
+      role="menuitem"
+      tabIndex={0}
+      aria-current={isActive ? "page" : undefined}
+      className={`px-3 py-2 font-medium transition-colors text-lg relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 ${
         isScrolled ? "text-darkblue dark:text-dark-text" : "text-darkblue dark:text-dark-text"
       } ${isActive ? "text-accent" : "text-darkblue dark:text-dark-text hover:text-accent"}`}
     >

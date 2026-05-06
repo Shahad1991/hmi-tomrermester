@@ -12,6 +12,20 @@ import DropdownItem from "./navbar/DropdownItem";
 import MobileNavLink from "./navbar/MobileNavLink";
 import MobileDropdown from "./navbar/MobileDropdown";
 
+// Move services array outside the component for memoization
+const services = [
+  { name: "Carport", href: "/ydelser/carport" },
+  { name: "Terrasse", href: "/ydelser/terrasse" },
+  { name: "Dør og Vinduer", href: "/ydelser/dor-vinduer" },
+  { name: "Gipsarbejde", href: "/ydelser/gipsarbejde" },
+  { name: "Gulv", href: "/ydelser/gulv" },
+  { name: "Hegn", href: "/ydelser/hegn" },
+  { name: "Renovering", href: "/ydelser/renovering" },
+  { name: "Køkken Renovering", href: "/ydelser/kokken-renovering" },
+  { name: "Total Renovering", href: "/ydelser/total-renovering" },
+  { name: "Andre Opgaver", href: "/ydelser/andre-opgaver" }
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -29,41 +43,32 @@ const Navbar = () => {
     setOpenDropdown(openDropdown === name ? null : name);
   };
 
+  // Debounced scroll handler for performance
   useEffect(() => {
     setIsMounted(true);
-    
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    
-    const handleClickOutside = (event) => {
-      if (!event.target.closest('.dropdown-menu')) {
-        setOpenDropdown(null);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 10);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    
     window.addEventListener("scroll", handleScroll);
-    document.addEventListener("click", handleClickOutside);
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("click", handleClickOutside);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Liste over alle ydelser
-  const services = [
-    { name: "Carport", href: "/ydelser/carport" },
-    { name: "Terrasse", href: "/ydelser/terrasse" },
-    { name: "Dør og Vinduer", href: "/ydelser/dor-vinduer" },
-    { name: "Gipsarbejde", href: "/ydelser/gipsarbejde" },
-    { name: "Gulv", href: "/ydelser/gulv" },
-    { name: "Hegn", href: "/ydelser/hegn" },
-    { name: "Renovering", href: "/ydelser/renovering" },
-    { name: "Køkken Renovering", href: "/ydelser/kokken-renovering" },
-    { name: "Total Renovering", href: "/ydelser/total-renovering" },
-    { name: "Andre Opgaver", href: "/ydelser/andre-opgaver" }
-  ];
+  // Only add click outside when dropdown is open
+  useEffect(() => {
+    if (!openDropdown) return;
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.dropdown-menu')) setOpenDropdown(null);
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [openDropdown]);
 
   return (
     <nav
@@ -94,6 +99,9 @@ const Navbar = () => {
               isOpen={isMounted && openDropdown === "services"}
               onClick={() => toggleDropdown("services")}
               pathname={pathname}
+              aria-haspopup="true"
+              aria-expanded={openDropdown === "services"}
+              aria-controls="services-dropdown"
             >
               {services.map((service) => (
                 <DropdownItem key={service.href} href={service.href} onClick={closeAll}>
