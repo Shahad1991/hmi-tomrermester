@@ -7,8 +7,7 @@ import Footer from "./components/Footer";
 import { GoogleAnalytics } from "./components/GoogleAnalytics";
 
 // Google Analytics ID (erstatt med din egen)
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
-
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",

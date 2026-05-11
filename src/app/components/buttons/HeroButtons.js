@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { ArrowRight} from "lucide-react";
+import { trackQuoteRequest } from "../GoogleAnalytics";
 
 const HeroButtons = () => {
   return (
@@ -10,6 +11,7 @@ const HeroButtons = () => {
         className="group inline-flex items-center justify-center px-8 py-3 min-w-[44px] min-h-[44px] bg-transparent text-white font-semibold rounded-lg shadow-lg border-2 border-accent hover:bg-accent hover:text-darkblue transition-all duration-300 text-lg transform hover:-translate-y-1 relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
         aria-label="Kontakt os"
         title="Kontakt os"
+        onClick={() => trackQuoteRequest('hero_kontakt')}
       >
         <span className="relative z-10">Kontakt os</span>
         <span className="absolute inset-0 bg-accent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
@@ -20,6 +22,7 @@ const HeroButtons = () => {
         className="group relative overflow-hidden inline-flex items-center justify-center px-8 py-3 min-w-[44px] min-h-[44px] bg-gradient-to-br from-accent via-[#FFC600] to-[#FFB600] text-darkblue font-semibold rounded-lg shadow-lg hover:shadow-accent transition-all duration-300 text-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
         aria-label="Læs vores anmeldelser"
         title="Læs vores anmeldelser"
+        onClick={() => trackQuoteRequest('hero_anmeldelser')}
       >
         <span className="relative z-10 flex items-center font-serif">
           Læs vores anmeldelser

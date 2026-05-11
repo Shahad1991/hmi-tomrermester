@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { trackQuoteRequest } from '../GoogleAnalytics';
 
 const ContactButton = ({
   href = '/kontakt',
@@ -17,6 +18,7 @@ const ContactButton = ({
       className={`${buttonClasses} ${className}`}
       aria-label={text}
       title={text}
+      onClick={() => trackQuoteRequest('contact_button')}
     >
       <span className="relative z-10 flex items-center font-serif dark:text-gray-300">
         {text}
