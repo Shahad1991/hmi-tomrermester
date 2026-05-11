@@ -286,27 +286,47 @@ export const serviceMetadata = {
     keywords: ["byggeopgaver", "håndværker", "specialopgaver", "byggearbejde", "tømrerarbejde", "Taastrup"],
     image: "/images/ydelser/andre-opgaver.jpg",
   },
+  badevaerelse: {
+    title: "Badeværelse renovering og tømrerarbejde i Taastrup - HMI Tømrermester",
+    description: "Professionel renovering og tømrerarbejde til badeværelse i Taastrup og på Sjælland. Få et moderne, funktionelt og æstetisk badeværelse med HMI Tømrermester. Kontakt os for et uforpligtende tilbud på badeværelsesrenovering og specialopgaver.",
+    keywords: [
+      "badeværelse", "badeværelsesrenovering", "badeværelse Taastrup", "tømrer badeværelse", "renovering badeværelse", "nyt badeværelse", "badeværelse håndværker", "badeværelse Sjælland", "badeværelse modernisering", "badeværelse tilbud", "tømrer Taastrup"
+    ],
+    image: "/images/ydelser/badevaerelse.webp",
+  },
 };
 
 // Page-specific metadata
 export const pageMetadata = {
   galleri: {
-    title: "Galleri - Se vores projekter og portefølje",
-    description: "Se HMI Tømrermesters portefølje af færdige projekter. Carporte, terrasser, køkkener, renoveringer og meget mere. Bliv inspireret af vores kvalitetsarbejde.",
-    keywords: ["galleri", "portfolio", "projekter", "før og efter", "carport eksempler", "terrasse projekter", "køkken galleri", "renovering billeder"],
+    title: "Galleri – Se vores tømrerprojekter og referencer",
+    description: "Bliv inspireret af vores tidligere projekter inden for carporte, terrasser, køkkener og renoveringer. Se billeder og få idéer til dit næste byggeprojekt.",
+    keywords: ["galleri", "tømrer projekter", "byggeri billeder", "carport galleri", "terrasse referencer", "køkkenrenovering billeder"],
     image: "/images/backgrounds/galleri-bg.png",
   },
   kontakt: {
-    title: "Kontakt HMI Tømrermester - Få et uforpligtende tilbud",
-    description: "Kontakt HMI Tømrermester for et uforpligtende tilbud på dit byggeprojekt. Vi svarer hurtigt og kommer gerne ud og ser på opgaven.",
-    keywords: ["kontakt", "tilbud", "byggeprojekt", "tømrer Taastrup", "byggetilbud"],
+    title: "Kontakt din lokale tømrer i Taastrup – Få et tilbud i dag",
+    description: "Kontakt HMI Tømrermester for et uforpligtende tilbud på tømrerarbejde, renovering eller specialopgaver. Vi svarer hurtigt og hjælper dig videre.",
+    keywords: ["kontakt tømrer", "tilbud tømrer", "tømrer Taastrup", "byggetilbud", "kontakt byggefirma"],
     image: "/images/kontakt/kontakt-ali.jpeg",
   },
   "om-os": {
-    title: "Om HMI Tømrermester - Din pålidelige byggepartner",
-    description: "Lær mere om HMI Tømrermester og vores erfaring inden for byggeri og tømrerarbejde. Vi har mange års erfaring og leverer altid kvalitetsarbejde.",
-    keywords: ["om os", "erfaring", "tømrermester", "byggefirma", "kvalitet", "Taastrup"],
+    title: "Om HMI Tømrermester – Erfaring, kvalitet og lokalt engagement",
+    description: "Læs om HMI Tømrermesters historie, værdier og erfaring. Vi er din pålidelige tømrer i Taastrup og på Sjælland med fokus på kvalitet og kundetilfredshed.",
+    keywords: ["om os", "tømrer erfaring", "byggefirma værdier", "tømrer Taastrup", "lokal tømrer"],
     image: "/images/om-os/om-os-ali.png",
+  },
+  faq: {
+    title: "FAQ - Ofte stillede spørgsmål om tømrerarbejde | HMI Tømrermester",
+    description: "Få svar på de mest almindelige spørgsmål om tømrerarbejde, renovering, priser og processer hos HMI Tømrermester. Kontakt os for mere information.",
+    keywords: ["FAQ", "spørgsmål", "tømrer FAQ", "byggeri spørgsmål", "tømrer Taastrup", "renovering FAQ"],
+    image: "/images/backgrounds/om-os-bg.jpg",
+  },
+  index: {
+    title: "Tømrer Taastrup & Sjælland – HMI Tømrermester | Kvalitet og service",
+    description: "Din lokale tømrer i Taastrup og på Sjælland. Vi tilbyder alt fra carporte, terrasser og køkkenrenovering til totalrenovering og specialopgaver. Kontakt os for et uforpligtende tilbud.",
+    keywords: ["tømrer Taastrup", "tømrer Sjælland", "byggefirma Taastrup", "carport", "terrasse", "køkkenrenovering", "totalrenovering", "tømrerarbejde"],
+    image: "/images/ali-hmi/hmi-ali.png",
   },
 };
 
