@@ -92,53 +92,59 @@ const nextConfig = {
         destination: '/ydelser/total-renovering',
         permanent: true,
       },
+      {
+        source: '/badevaerelse.html',
+        destination: '/ydelser/badevaerelse',
+        permanent: true,
+      },
       // Catch-all for any .html files
       {
         source: '/:path*.html',
         destination: '/:path*',
         permanent: true,
-      },
+      },  
     ]
   },
   images: {
-  remotePatterns: [
-    {
-      protocol: 'https',
-      hostname: 'api.hmi-tomrermester.dk',
-      pathname: '/**',
-    },
-    {
-      protocol: 'https',
-      hostname: 'hmi-tomrermester.vercel.app',
-      pathname: '/**',
-    },
-    {
-      protocol: 'https',
-      hostname: 'hmi-tomrermester.dk',
-      pathname: '/**',
-    },
-    {
-      protocol: 'https',
-      hostname: 'www.hmi-tomrermester.dk',
-      pathname: '/**',
-    },
-    {
-      protocol: 'https',
-      hostname: '**.optimole.com',
-      pathname: '/**',
-    },
-    {
-      protocol: 'https',
-      hostname: '**.optimole.io',
-      pathname: '/**',
-    },
-    {
-      protocol: 'https',
-      hostname: '**.omcdn.io',
-      pathname: '/**',
-    }
-  ],
-},
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.hmi-tomrermester.dk',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'hmi-tomrermester.vercel.app',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'hmi-tomrermester.dk',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.hmi-tomrermester.dk',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.optimole.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.optimole.io',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.omcdn.io',
+        pathname: '/**',
+      }
+    ],
+    qualities: [70, 75],
+  },
 };
 
 export default nextConfig;
