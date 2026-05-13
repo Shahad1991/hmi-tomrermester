@@ -70,19 +70,11 @@ export default async function BadevaerelsePage() {
 
         <YdelseLayout
           heroImage="/images/ydelser/badevaerelse.webp"
-          heroTitle="Badeværelsesrenovering"
-          heroText="Professionel badeværelsesrenovering i Taastrup og omegn med fokus på kvalitet, funktionalitet og moderne design."
-
-          imageTextImage="/images/ali-hmi/andre-opgaver.jpg"
+          heroTitle="Badeværelse renovering"
+          heroText="Eksperter i moderne og funktionelle badeværelser i Taastrup."
+          imageTextImage="/images/ali-hmi/renovering.jpg"
           imageTextTitle="Komplette løsninger til badeværelser"
-          imageTextDescription="
-Hos HMI Tømrermester tilbyder vi professionel badeværelsesrenovering fra start til slut.
-
-Vi hjælper med alt fra opmåling og planlægning til montering og færdiggørelse af dit nye badeværelse.
-
-Uanset om du ønsker en mindre opgradering eller en totalrenovering, leverer vi solidt håndværk og holdbare løsninger med fokus på kvalitet og æstetik.
-
-Kontakt os i dag for et uforpligtende tilbud – vi skræddersyr løsningen efter dine behov."
+          imageTextDescription="Hos HMI Tømrermester tilbyder vi professionel badeværelsesrenovering fra start til slut. Vi hjælper med alt fra opmåling og planlægning til montering og færdiggørelse af dit nye badeværelse. Uanset om du ønsker en mindre opgradering eller en totalrenovering, leverer vi solidt håndværk og holdbare løsninger med fokus på kvalitet og æstetik. Kontakt os i dag for et uforpligtende tilbud – vi skræddersyr løsningen efter dine behov."
           servicesSection={servicesSection}
           galleryImages={galleryImages}
         />

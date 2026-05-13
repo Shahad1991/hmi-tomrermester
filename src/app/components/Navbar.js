@@ -20,6 +20,7 @@ const services = [
   { name: "Gipsarbejde", href: "/ydelser/gipsarbejde" },
   { name: "Gulv", href: "/ydelser/gulv" },
   { name: "Hegn", href: "/ydelser/hegn" },
+  { name: "Badeværelse", href: "/ydelser/badevaerelse" },
   { name: "Renovering", href: "/ydelser/renovering" },
   { name: "Køkken Renovering", href: "/ydelser/kokken-renovering" },
   { name: "Total Renovering", href: "/ydelser/total-renovering" },
