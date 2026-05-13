@@ -2,23 +2,21 @@ import Head from 'next/head';
 import YdelseLayout from '../YdelseLayout';
 import { getAllGalleryItems } from '../../../lib/api';
 import { generateServiceMetadata } from '../../../metadata/MetaDataCollection';
-import { Hammer, Drill, Ruler } from 'lucide-react';
+import { Drill, BrickWall, Paintbrush, Zap, Wrench } from 'lucide-react';
 
-// Export metadata for SEO
+// SEO metadata
 export const metadata = generateServiceMetadata('badevaerelse');
-
 
 export default async function BadevaerelsePage() {
   try {
     const allItems = await getAllGalleryItems();
-    // Filter for badværelse items - now using exact category match
+
+    // Filter badeværelse items
     const bathroomItems = allItems.filter(item =>
-      item.categories && item.categories.some(category =>
-        category.slug === 'bathroom'
-      )
+      item.categories &&
+      item.categories.some(category => category.slug === 'bathroom')
     );
 
-    // Map data til galleri-format
     const galleryImages = bathroomItems.map(item => ({
       url: item.imageUrl,
       alt: item.altText,
@@ -27,53 +25,70 @@ export default async function BadevaerelsePage() {
       description: item.description
     }));
 
-    // Services section data for badevaerelse
+    // SERVICES (SEO-optimeret og relevant)
     const servicesSection = {
-      title: "Faglige services til specialiserede tømreropgaver",
-      description: "Vi tilbyder professionelle løsninger til akustikpaneler og vindskeder",
+      title: "Komplette faglige services til totalrenovering",
+      description: "Vi koordinerer alle håndværksfag og leverer komplet totalrenovering fra A til Z",
       backgroundImage: "/images/backgrounds/om-os-service-bg.jpeg",
       services: [
         {
-          icon: <Ruler className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Opmåling",
-          description: "Præcis opmåling og akustisk vurdering af rum og behov."
-        },
-        {
           icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Tømrer/Snedker",
-          description: "Professionel tømrer- og snedkerarbejde til specialiserede opgaver."
+          title: "Tømrer/ Snedker",
+          description: "Professionel tømrerarbejde til totalrenovering og ombygning."
         },
         {
-          icon: <Hammer className="w-6 h-6" strokeWidth={1.5} />,
-          title: "Montage",
-          description: "Professionel installation og finish med fokus på kvalitet og detaljer."
-        }
+          icon: <BrickWall className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Murer",
+          description: "Murerarbejde, flisesætning og støbning til totalrenovering."
+        },
+        {
+          icon: <Paintbrush className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Maler",
+          description: "Komplet malerarbejde og overfladebehandling."
+        },
+        {
+          icon: <Zap className="w-6 h-6" strokeWidth={1.5} />,
+          title: "Elektriker",
+          description: "Opdatering af el-installationer til moderne standarder."
+        },
+        {
+          icon: <Wrench className="w-6 h-6" strokeWidth={1.5} />,
+          title: "VVS",
+          description: "Komplet VVS-renovering, rør og sanitetsarbejde."
+        },
       ]
     };
-    
+
     return (
       <>
-      <Head>
-        <link rel="canonical" href="https://hmi-tomrermester.dk/ydelser/badevaerelse" />
-      </Head>
-      <YdelseLayout
-        heroImage="/images/ydelser/badevaerelse.webp"
-        heroTitle="Badeværelse"
-        heroText="Professionel renovering og tømrerarbejde til badeværelse i Taastrup – altid med fokus på kvalitet, funktionalitet og æstetik."
-        imageTextImage="/images/ali-hmi/andre-opgaver.jpg"
-        imageTextTitle="Komplette løsninger til moderne byggeri"
-        imageTextDescription="Hos HMI Tømrermester hjælper vi med en bred vifte af tømreropgaver – fra opsætning af akustikpaneler og udskiftning af vindskeder til mindre tagarbejde og specialopgaver.
+        <Head>
+          <link
+            rel="canonical"
+            href="https://hmi-tomrermester.dk/ydelser/badevaerelse"
+          />
+        </Head>
 
-         <br> Vi tilbyder komplette løsninger med fokus på kvalitet, holdbarhed og godt håndværk. Uanset om du har brug for bedre lydforhold i hjemmet, vedligeholdelse af udhæng eller præcise bygningsdetaljer, står vi klar med rådgivning, opmåling og professionel montering.
+        <YdelseLayout
+          heroImage="/images/ydelser/badevaerelse.webp"
+          heroTitle="Badeværelsesrenovering"
+          heroText="Professionel badeværelsesrenovering i Taastrup og omegn med fokus på kvalitet, funktionalitet og moderne design."
 
-         <br><br> Vi benytter robuste materialer og arbejder altid med øje for både funktionalitet og æstetik.
+          imageTextImage="/images/ali-hmi/andre-opgaver.jpg"
+          imageTextTitle="Komplette løsninger til badeværelser"
+          imageTextDescription="
+Hos HMI Tømrermester tilbyder vi professionel badeværelsesrenovering fra start til slut.
 
-          Kontakt os i dag for et uforpligtende tilbud – vi skræddersyr løsningen efter dine behov."
-        servicesSection={servicesSection}
-        galleryImages={galleryImages}
-      /> 
-    </>
+Vi hjælper med alt fra opmåling og planlægning til montering og færdiggørelse af dit nye badeværelse.
+
+Uanset om du ønsker en mindre opgradering eller en totalrenovering, leverer vi solidt håndværk og holdbare løsninger med fokus på kvalitet og æstetik.
+
+Kontakt os i dag for et uforpligtende tilbud – vi skræddersyr løsningen efter dine behov."
+          servicesSection={servicesSection}
+          galleryImages={galleryImages}
+        />
+      </>
     );
+
   } catch (error) {
     return <div>Fejl ved indlæsning af side</div>;
   }

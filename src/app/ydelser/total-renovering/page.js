@@ -25,7 +25,7 @@ export default async function TotalRenoveringPage() {
     services: [
       {
         icon: <Drill className="w-6 h-6" strokeWidth={1.5} />,
-        title: "Tømrer/ Snedker",
+        title: "Tømrer/Snedker",
         description: "Professionel tømrerarbejde til totalrenovering og ombygning."
       },
       {
