@@ -61,10 +61,14 @@ export default async function BadevaerelsePage() {
         heroTitle="Badeværelse"
         heroText="Professionel renovering og tømrerarbejde til badeværelse i Taastrup – altid med fokus på kvalitet, funktionalitet og æstetik."
         imageTextImage="/images/ali-hmi/andre-opgaver.jpg"
-        imageTextTitle="Badeværelsesrenovering i høj kvalitet"
-        imageTextDescription="Vi har stor erfaring med både små og store badeværelsesprojekter, og vi benytter kun robuste materialer, der sikrer et flot og langtidsholdbart resultat. Uanset om du ønsker et klassisk eller moderne badeværelse, står vi klar til at skræddersy løsningen efter dine behov og ønsker.
+        imageTextTitle="Komplette løsninger til moderne byggeri"
+        imageTextDescription="Hos HMI Tømrermester hjælper vi med en bred vifte af tømreropgaver – fra opsætning af akustikpaneler og udskiftning af vindskeder til mindre tagarbejde og specialopgaver.
 
-<br>Kontakt os i dag for et uforpligtende tilbud på tømrerarbejde til badeværelse i Taastrup og omegn – vi garanterer professionel service, gennemsigtig kommunikation og et resultat, du bliver glad for."
+         <br> Vi tilbyder komplette løsninger med fokus på kvalitet, holdbarhed og godt håndværk. Uanset om du har brug for bedre lydforhold i hjemmet, vedligeholdelse af udhæng eller præcise bygningsdetaljer, står vi klar med rådgivning, opmåling og professionel montering.
+
+         <br><br> Vi benytter robuste materialer og arbejder altid med øje for både funktionalitet og æstetik.
+
+          Kontakt os i dag for et uforpligtende tilbud – vi skræddersyr løsningen efter dine behov."
         servicesSection={servicesSection}
         galleryImages={galleryImages}
       /> 
