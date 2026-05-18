@@ -69,7 +69,7 @@ export default async function BadevaerelsePage() {
         </Head>
 
         <YdelseLayout
-          heroImage="/images/ydelser/badevaerelse.webp"
+          heroImage="/images/ydelser/badeværelse-grøn-1.png"
           heroTitle="Badeværelse renovering"
           heroText="Eksperter i moderne og funktionelle badeværelser i Taastrup."
           imageTextImage="/images/ali-hmi/renovering.jpg"
