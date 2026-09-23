@@ -26,7 +26,7 @@ const services = [
 	},
 	{
 		title: "Køkken Renovering",
-		link: "/ydelser/kokken",
+		link: "/ydelser/kokken-renovering",
 		bgImage: "/images/ydelser/køkken.webp",
 	},
 	{
@@ -52,7 +52,7 @@ const services = [
 	{
 		title: "Badeværelse",
 		link: "/ydelser/badevaerelse",
-		bgImage: "/images/ydelser/badevaerelse.webp",
+		bgImage: "/images/ydelser/badeværelse-grøn-1.png",
 	},
 ];
 
